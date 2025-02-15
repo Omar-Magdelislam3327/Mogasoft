@@ -1,0 +1,24 @@
+<div class="container p-5" @fadeInOut>
+  <div class="row">
+    <div class="col-lg-4 mt-3" *ngFor="let message of messages">
+      <div class="message-card p-4">
+        <div class="message-header d-flex justify-content-between align-items-center">
+          <div class="txt">
+            <h5>{{message.fullName}}</h5>
+            <p class="text-white-50 m-0">{{message.date}}</p>
+          </div>
+          <button (click)="remove(message.id)" class="btn btn-success"><i class="fa-solid fa-check"></i></button>
+        </div>
+
+        <div class="message-body mt-4">
+          <p><strong>Email:</strong> {{message.email}}</p>
+          <p><strong>Phone:</strong> {{message.phone}}</p>
+          <p><strong>Find Way:</strong> {{message.findWay}}</p>
+          <p><strong>Description:</strong> {{message.message | slice : 10 : 100}}</p>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

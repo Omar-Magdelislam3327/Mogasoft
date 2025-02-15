@@ -1,0 +1,24 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Clients } from 'src/app/models/client';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ClientsService {
+  baseUrl = 'http://mogasoft.runasp.net/api'
+  constructor(private http: HttpClient) { }
+  getClients(): Observable<Clients[]> {
+    return this.http.get<Clients[]>(`${this.baseUrl}/Clients`);
+  }
+  getClientById(id: number): Observable<Clients> {
+    return this.http.get<Clients>(`${this.baseUrl}/Clients/${id}`);
+  }
+  addClient(client: FormData): Observable<Clients> {
+    return this.http.post<Clients>(`${this.baseUrl}/Clients`, client);
+  }
+  deleteClient(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/Clients/${id}`);
+  }
+}

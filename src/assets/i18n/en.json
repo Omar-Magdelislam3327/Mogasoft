@@ -1,0 +1,168 @@
+{
+  "direction": "ltr",
+  "home": "Home",
+  "about": "About",
+  "services": "Services",
+  "software": "Software",
+  "softwares": "SOFTWARE SERVCIES",
+  "hardware": "Hardware",
+  "hardwares": "HARDWARE SERVCIES",
+  "blogs": "Blogs",
+  "blogsTxt": "Tech insights, trends, and idea straight from our experts",
+  "contact": "Contact Us",
+  "portfolio": "Portfolio",
+  "portfolioTxt": "See how we bring ideas to life with smart, tailored solutions",
+  "mobile": "Mobile Applications",
+  "web": "Web Applications",
+  "hosting": "Hosting",
+  "digital": "Digital Marketing",
+  "cameras": "Surveillance Systems",
+  "computers": "Computers",
+  "copiers": "Copiers",
+  "fire-fighing": "Fire Fighting",
+  "queue-serve": "Queue Management",
+  "network": "Networking",
+  "showMore": "Show More",
+  "trusted": "Trusted by",
+  "highLight": "+100",
+  "Companies": "Companies",
+  "hero": {
+    "title": {
+      "part1": "Powered by",
+      "infinity": "Infinity",
+      "part2": "Driven by Technology"
+    },
+    "subtitle": "Where Advanced Technology Meets Infinity",
+    "button": "Get Quotation"
+  },
+  "ABOUT": {
+    "TITLE": "About us",
+    "DESCRIPTION_1": "At MogaSoft, we're more than just a tech company—we're your innovation partner. We specialize in providing smart, integrated solutions in technology, consulting, and project management, helping businesses enhance efficiency, optimize performance, and stay ahead in the digital world.",
+    "DESCRIPTION_2": "We blend cutting-edge software with advanced hardware to create tailored solutions that meet the unique needs of every client.",
+    "DESCRIPTION_3": "Whether it’s web and mobile development, strategic consulting, or AI-driven insights, our expert team is dedicated to delivering real, impactful results. Technology is constantly evolving, and so are we.",
+    "DESCRIPTION_4": "That’s why we offer advanced platforms, AI solutions, and data analytics to help businesses unlock their full potential and make the most of their digital investments. At MogaSoft, we believe in innovation, collaboration, and long-term success. Let’s shape the future together!",
+    "LEARN_MORE": "Learn More",
+    "SUCCESS_PROJECTS": "Success Projects",
+    "EXPERT_TEAM": "Expert Team",
+    "SATISFIED_CLIENTS": "Satisfied Clients",
+    "YEARS_EXPERIENCE": "Years of Experience"
+  },
+  "ABOUT_US": {
+    "TITLE": "About Us",
+    "WHO_TITLE": "Who We Are?",
+    "WHO_DESC": "At Mogasoft, we turn technology into powerful business solutions. From custom software and IT infrastructure to embedded systems, we create smart, secure, and scalable technology that helps businesses grow and innovate in a digital world.",
+    "WHO_IMAGE_ALT": "Who We Are",
+    "MISSION_TITLE": "Our Mission",
+    "MISSION_DESC": "We’re on a mission to bridge technology and business growth. By creating scalable, secure, and intelligent solutions, we help businesses streamline operations, enhance security, and stay ahead in a fast-moving digital landscape.",
+    "MISSION_IMAGE_ALT": "Our Mission",
+    "VISION_TITLE": "Our Vision",
+    "VISION_DESC": "We envision a future where technology fuels limitless possibilities. Our goal is to be a driving force in digital transformation, empowering businesses with cutting-edge solutions that ensure they’re always one step ahead.",
+    "VISION_IMAGE_ALT": "Our Vision",
+    "TEAM_TITLE": "Meet The Team",
+    "TEAM_SUBTITLE": "Meet the innovators behind Mogasoft's success!"
+  },
+  "SERVICE": {
+    "WebServices": {
+      "TITLE": "Web Development",
+      "Bio": "Build Smarter, Faster, and Scalable Web Solutions with Mogasoft",
+      "DESC": "In today’s digital-first world, a well-crafted website is more than just an online presenceit’s a powerful tool to engage customers, streamline operations, and drive business success. At Mogasoft, we specialize in building high-performance, user-friendly, and secure web solutions tailored to meet",
+      "STEPS_TITLE": "Here's how we take your Web Development From Idea to Launch"
+    },
+    "MobileServices": {
+      "TITLE": "Mobile Development",
+      "Bio": "Innovative, Scalable, and High-Performance Mobile Solutions with Mogasoft",
+      "DESC": "In today’s mobile-driven world, having a cutting-edge app is essential for reaching and engaging users effectively. At Mogasoft, we craft intuitive, feature-rich, and high-performance mobile applications that enhance user experiences, streamline business operations, and drive growth across both Android and iOS platforms.",
+      "STEPS_TITLE": "Here's how we take your Mobile Development From Idea to Launch"
+    },
+    "Hosting": {
+      "TITLE": "Global Hosting, Limitless Possibilities",
+      "Bio": "Fast, secure, and reliable hosting with a worldwide reach. No matter where you are, we keep your website running at peak performance 24/7.",
+      "WORLD_TITLE": "Worldwide Presence",
+      "WORLD_TEXT": "Put Your Website on the Global Stage"
+    },
+    "Digital": {
+      "TITLE": "Digital Marketing",
+      "Bio": "Data-Driven Strategies to Elevate Your Brand with Mogasoft",
+      "DESC": "In the ever-evolving digital landscape, a strong online presence is crucial for success. At Mogasoft, we create powerful, data-driven marketing strategies that boost brand visibility, engage target audiences, and drive conversions. From SEO and content marketing to social media and paid advertising, we ensure your brand stands out in a competitive market.",
+      "STEPS_TITLE": "Here's how we take your Digital Marketing From Idea to Launch"
+    },
+    "Cameras": {
+      "TITLE": "Surveillance Cameras",
+      "Bio": "Advanced Security Solutions for Complete Protection",
+      "DESC": "Security is a top priority in today’s world. At Mogasoft, we provide high-quality surveillance camera solutions tailored for homes, businesses, and industries. Our advanced security systems offer real-time monitoring, motion detection, and remote access, ensuring 24/7 safety and peace of mind. Whether you need indoor, outdoor, or smart CCTV systems, we have you covered.",
+      "STEPS_TITLE": "Here's how we take your Surveillance Cameras From Idea to Launch"
+    },
+    "Computers": {
+      "TITLE": "Computers & Accessories",
+      "Bio": "Powerful, Reliable, and High-Performance Computing Solutions",
+      "DESC": "In today’s fast-paced digital world, having the right computer setup is essential for productivity and efficiency. At Mogasoft, we offer cutting-edge desktops, laptops, and accessories tailored to both personal and professional needs. From high-performance workstations to gaming rigs and business solutions, we ensure seamless configuration, top-tier hardware, and optimal performance to keep you ahead in every task.",
+      "STEPS_TITLE": "Here's how we take your Computers From Idea to Launch"
+    },
+    "Copiers": {
+      "TITLE": "Copiers & Plotters",
+      "Bio": "Efficient Printing & Copying Solutions for Every Business",
+      "DESC": "Streamline your workflow with high-performance copiers and plotters designed for businesses of all sizes. At Mogasoft, we provide top-quality printing and copying solutions that deliver speed, precision, and reliability. Whether you need high-volume document printing, detailed architectural plans, or graphic design outputs, our devices ensure crisp quality and efficiency. We also offer setup, maintenance, and support to keep your operations running smoothly.",
+      "STEPS_TITLE": "Here's how we take your Copiers From Idea to Launch"
+    },
+    "Network": {
+      "TITLE": "Network Solutions",
+      "Bio": "Fast, Secure, and Scalable Networking for Homes & Businesses",
+      "DESC": "In the digital age, a strong and secure network is the backbone of any business or home setup. At Mogasoft, we design, implement, and optimize high-speed network solutions tailored to your needs. Our services include structured cabling, wireless network deployment, firewall setup, and real-time monitoring to ensure seamless connectivity and data security. Whether for small offices, enterprises, or large-scale infrastructures, our solutions keep you connected and protected.",
+      "STEPS_TITLE": "Here's how we take your Network Solutions From Idea to Launch"
+    },
+    "Fire": {
+      "TITLE": "Fire Fighting & Alarm Systems",
+      "Bio": "Advanced Fire Safety Solutions for Maximum Protection",
+      "DESC": "Fire safety is essential for protecting lives and property. At Mogasoft, we provide state-of-the-art fire detection and suppression systems designed to prevent and control fire hazards effectively. Our services include risk assessment, installation of fire alarms, smoke detectors, and automated suppression systems, ensuring rapid response and compliance with safety regulations. Whether for residential, commercial, or industrial applications, our reliable fire safety solutions offer peace of mind and enhanced security.",
+      "STEPS_TITLE": "Here's how we take your Fire Fighting & Alarm Systems From Idea to Launch"
+    },
+    "Queue": {
+      "TITLE": "Queue Management",
+      "Bio": "Optimized Customer Flow for Seamless Service",
+      "DESC": "Efficient queue management is key to enhancing customer satisfaction and operational efficiency. At Mogasoft, we provide smart queue management solutions that streamline customer service, reduce waiting times, and improve overall workflow. Our systems include real-time queue tracking, automated ticketing, and seamless software integration to ensure smooth operations in banks, hospitals, retail stores, and government offices. With advanced analytics and customization options, we help businesses deliver a hassle-free experience for their customers.",
+      "STEPS_TITLE": "Here's how we take your Queue Management From Idea to Launch"
+    }
+  },
+  "BLOGS": {
+    "TITLE": "Our Blog",
+    "DESC": "Tech insights, trends, and idea straight from our experts"
+  },
+  "Blog": {
+    "ENG": "Eng Magdelislam",
+    "Role": "Founder of Mogasoft",
+    "Bio": "With 11 years I've built Mogasoft. Passionate about SaaS, data, and AI. Let's connect if you share the same drive for success!",
+    "Share": "Share with your community!"
+  },
+  "Contact": {
+    "TITLE": "Get in",
+    "Touch": "Touch",
+    "NAME": "Full Name",
+    "Phone": "Phone Number",
+    "EMAIL": "Email",
+    "MESSAGE": "Message",
+    "SUBMIT": "Submit",
+    "q1": "Have a question about our services?",
+    "q2": "Need expert advice or a custom solution?",
+    "q3": "We're here to help!",
+    "Desc": "Whether it's a big project or a simple inquiry, we love hearing from you. Drop us a message we're always happy to chat and find the best way to support your business.",
+    "Find": "How did you Find us?"
+  },
+  "Quote": {
+    "GET": "Get",
+    "Quotation": "Quotation",
+    "q1": "Have a question about our services?",
+    "q2": "Need expert advice or a custom solution?",
+    "Disc": " We're here to help! Whether it's a big project or a simple inquiry, we love hearing from you. Drop us a message, we're always happy to chat and find the best way to support your business.",
+    "CompanyName": "Company Name",
+    "NumEmployees": "Number of Employees",
+    "fName": "First Name",
+    "lName": "Last Name",
+    "Phone": "Phone Number",
+    "Email": "Business Email",
+    "whatService": "What services best describe your needs?",
+    "Message": "Message",
+    "Tell": "Please tell us anything you need",
+    "how": "How can we help?",
+    "SUBMIT": "Submit"
+  }
+}

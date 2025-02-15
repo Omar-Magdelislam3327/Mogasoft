@@ -1,0 +1,21 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { AdminQuatationComponent } from './admin-quatation.component';
+
+describe('AdminQuatationComponent', () => {
+  let component: AdminQuatationComponent;
+  let fixture: ComponentFixture<AdminQuatationComponent>;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [AdminQuatationComponent]
+    });
+    fixture = TestBed.createComponent(AdminQuatationComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
