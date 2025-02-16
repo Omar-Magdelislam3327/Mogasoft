@@ -29,6 +29,7 @@ import { NormalHtmlPipe } from './core/pipes/normal-html.pipe';
 import { InterceptorInterceptor } from './core/interceptor/interceptor.interceptor';
 import { LoaderComponent } from './core/interceptor/loader/loader.component';
 import { AdminLoginComponent } from './adminPanel/admin-login/admin-login.component';
+import { ChartModule } from 'angular-highcharts';
 
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -54,6 +55,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     AdminLoginComponent,
   ],
   imports: [
+    ChartModule,
     BrowserModule,
     AppRoutingModule,
     CarouselModule,

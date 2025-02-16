@@ -33,84 +33,28 @@
   </section>
   <section class="section3 py-3" id="plans">
     <div class="container text-center">
-      <h2 class="text-white mb-5">Pricing Plans</h2>
+      <h2 class="text-white mb-5">{{"plans" | translate}}</h2>
       <div class="row justify-content-center">
 
-        <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="500">
+        <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="500" *ngFor="let plan of plans">
           <div class="card text-white p-4">
-            <h3 class="fw-bold mb-5">Standard</h3>
-            <ul class="list-unstyled text-start">
-              <li><i class="fa-solid fs-5 fa-square-check"></i> Single website</li>
-              <hr>
-              <li><i class="fa-solid fs-5 fa-square-check"></i> One-click WordPress installs</li>
-              <hr>
-              <li><i class="fa-solid fs-5 fa-square-check"></i> Free WordPress/cPanel website transfer</li>
-              <hr>
-              <li><i class="fa-solid fs-5 fa-square-check"></i> Unmetered bandwidth</li>
-              <hr>
-              <li><i class="fa-solid fs-5 fa-square-check"></i> Free SSL certificate</li>
-              <hr>
-              <li><i class="fa-solid fs-5 fa-square-check"></i> Free domain included</li>
-
+            <div class="offer" *ngIf="plan.isBest === true">{{"best" | translate}}</div>
+            <h3 class="fw-bold mb-5">{{currentLang === 'en' ? plan.nameEN : plan.nameAR}}</h3>
+            <ul class="list-unstyled text-start" *ngIf="plan?.hostingProperties?.length > 0">
+              <li *ngFor="let property of plan?.hostingProperties">
+                <i class="fa-solid fs-5 fa-square-check"></i> {{ currentLang === 'en' ? property?.titleEN :
+                property?.titleAR }}
+                <hr>
+              </li>
             </ul>
             <div class="text-start">
-              <h4 class="text-white fw-bold mt-3">Introductory offer</h4>
-              <p class=" text-pink">$5.75 / Mo</p>
-              <button class="btn btn-primary w-100">Buy Now</button>
+              <h4 class="text-white fw-bold mt-3">{{"Ioffer" | translate}}</h4>
+              <p class=" text-pink">${{plan.price}} / {{"Mo" | translate}}</p>
+              <button routerLink="/qoutation" class="btn btn-primary w-100">{{"buy" | translate}}</button>
             </div>
           </div>
         </div>
 
-        <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="800">
-          <div class="card text-white p-4">
-            <div class="offer">Best Offer</div>
-            <h3 class="fw-bold mb-5">Business</h3>
-            <ul class="list-unstyled text-start">
-              <li><i class="fa-solid fs-5 fa-square-check"></i> Single website</li>
-              <hr>
-              <li><i class="fa-solid fs-5 fa-square-check"></i> One-click WordPress installs</li>
-              <hr>
-              <li><i class="fa-solid fs-5 fa-square-check"></i> Free WordPress/cPanel website transfer</li>
-              <hr>
-              <li><i class="fa-solid fs-5 fa-square-check"></i> Unmetered bandwidth</li>
-              <hr>
-              <li><i class="fa-solid fs-5 fa-square-check"></i> Free SSL certificate</li>
-              <hr>
-              <li><i class="fa-solid fs-5 fa-square-check"></i> Free domain included</li>
-
-            </ul>
-            <div class="text-start">
-              <h4 class="text-white fw-bold mt-3">Introductory offer</h4>
-              <p class=" text-pink">$5.75 / Mo</p>
-              <button class="btn btn-primary w-100">Buy Now</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="1200">
-          <div class="card text-white p-4">
-            <h3 class="fw-bold mb-5">Advanced</h3>
-            <ul class="list-unstyled text-start">
-              <li><i class="fa-solid fs-5 fa-square-check"></i> Single website</li>
-              <hr>
-              <li><i class="fa-solid fs-5 fa-square-check"></i> One-click WordPress installs</li>
-              <hr>
-              <li><i class="fa-solid fs-5 fa-square-check"></i> Free WordPress/cPanel website transfer</li>
-              <hr>
-              <li><i class="fa-solid fs-5 fa-square-check"></i> Unmetered bandwidth</li>
-              <hr>
-              <li><i class="fa-solid fs-5 fa-square-check"></i> Free SSL certificate</li>
-              <hr>
-              <li><i class="fa-solid fs-5 fa-square-check"></i> Free domain included</li>
-
-            </ul>
-            <div class="text-start">
-              <h4 class="text-white fw-bold mt-3">Introductory offer</h4>
-              <p class=" text-pink">$5.75 / Mo</p>
-              <button class="btn btn-primary w-100">Buy Now</button>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
