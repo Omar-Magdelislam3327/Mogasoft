@@ -447,6 +447,7 @@
     border: 2px solid var(--secondaryColor);
     border-radius: 50%;
     background-color: transparent;
+    overflow: hidden;
   }
 
   .reviewer h5 {

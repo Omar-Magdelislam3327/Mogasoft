@@ -34,18 +34,18 @@ export class PortfolioComponent {
   };
 
   softwareItems = [
-    { userTitle: "Web Development", title: 'WebDevelopment', image: '../../../assets/vendors/imgs/portfolioWeb2.png' },
-    { userTitle: "Mobile Development", title: 'MobileDevelopment', image: '../../../assets/vendors/imgs/portfolioWeb.png' },
-    { userTitle: "Digital Marketing", title: 'DigitalMarketing', image: '../../../assets/vendors/imgs/portfolioWeb3.png' },
+    { userTitle: "Web Development", title: 'WebDevelopment', image: 'assets/vendors/imgs/services/web.png' },
+    { userTitle: "Mobile Development", title: 'MobileDevelopment', image: 'assets/vendors/imgs/servcies/mobile.png' },
+    { userTitle: "Digital Marketing", title: 'DigitalMarketing', image: 'assets/vendors/imgs/services/digital.png' },
   ];
 
   hardwareItems = [
-    { userTitle: "Computers", title: 'Computers', image: '../../../assets/vendors/imgs/portfolioWeb.png' },
-    { userTitle: "Surveliiance System", title: 'SurveillanceSystems', image: '../../../assets/vendors/imgs/portfolioWeb.png' },
-    { userTitle: "Copiers", title: 'Copiers', image: '../../../assets/vendors/imgs/portfolioWeb.png' },
-    { userTitle: "Fire Fighting", title: 'FireFighting', image: '../../../assets/vendors/imgs/portfolioWeb.png' },
-    { userTitle: "Network", title: 'Network', image: '../../../assets/vendors/imgs/portfolioWeb.png' },
-    { userTitle: "Queue Management", title: 'QueueManagement', image: '../../../assets/vendors/imgs/portfolioWeb.png' },
+    { userTitle: "Computers", title: 'Computers', image: 'assets/vendors/imgs/services/computer.png' },
+    { userTitle: "Surveliiance System", title: 'SurveillanceSystems', image: 'assets/vendors/imgs/services/camera.png' },
+    { userTitle: "Copiers", title: 'Copiers', image: 'assets/vendors/imgs/services/copier.png' },
+    { userTitle: "Fire Fighting", title: 'FireFighting', image: 'assets/vendors/imgs/servcies/fire.png' },
+    { userTitle: "Network", title: 'Network', image: 'assets/vendors/imgs/services/network.png' },
+    { userTitle: "Queue Management", title: 'QueueManagement', image: 'assets/vendors/imgs/services/queue.png' },
   ];
 
   navigateToCategory(category: string) {

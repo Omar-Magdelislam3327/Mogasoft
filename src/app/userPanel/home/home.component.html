@@ -168,80 +168,30 @@
             translate}}</span> {{"Companies" | translate}}</h2>
       </div>
       <div class="row g-4">
-        <!-- Review 1 -->
-        <div class="col-lg-6">
+        <div class="col-lg-6 mt-3" *ngFor="let review of reviews">
           <div class="shadow"></div>
           <div class="review-card p-4">
-            <div class="stars mb-3">★★★★★</div>
-            <p class="text-white-50">
-              "Excellent service from MogaSoft! Their professional and innovative team delivered top-quality solutions,
-              enhancing our efficiency and performance. Highly recommended!"
-            </p>
-            <div class="reviewer d-flex align-items-center mt-4">
-              <div class="avatar"></div>
-              <div class="ms-3">
-                <h5 class="text-white mb-0">Ayman Qadry</h5>
-                <small class="text-muted">Co-founder, XYZ</small>
+            <div class="top d-flex justify-content-between align-items-center ">
+              <div class="stars mb-3">
+                <span [innerHTML]="getStars(review.stars)"></span>
               </div>
             </div>
-          </div>
-        </div>
-
-        <!-- Review 2 -->
-        <div class="col-lg-6">
-          <div class="review-card p-4">
-            <div class="stars mb-3">★★★★★</div>
             <p class="text-white-50">
-              "Excellent service from MogaSoft! Their professional and innovative team delivered top-quality solutions,
-              enhancing our efficiency and performance. Highly recommended!"
+              "{{ currentLang === 'en' ? review.reviewTextEN : review.reviewTextAR }}"
             </p>
             <div class="reviewer d-flex align-items-center mt-4">
-              <div class="avatar"></div>
+              <div class="avatar">
+                <img [src]="'http://mogasoft.runasp.net' + review.imageUrl" alt="Review Image" class="img-fluid">
+              </div>
               <div class="mx-3">
-                <h5 class="text-white mb-0">Ahmed El Rouby</h5>
-                <small class="text-muted">Co-founder, XYZ</small>
+                <h5 class="text-white mb-0">{{ currentLang === 'en' ? review.firstNameEN + ' ' + review.lastNameEN :
+                  review.firstNameAR + ' ' + review.lastNameAR }}</h5>
+                <small class="text-muted">{{ currentLang === '' ? review.positionEN : review.positionAR}}</small>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Review 3 -->
-        <div class="col-lg-6">
-          <div class="review-card p-4">
-            <div class="stars mb-3">★★★★★</div>
-            <p class="text-white-50">
-              "Excellent service from MogaSoft! Their professional and innovative team delivered top-quality solutions,
-              enhancing our efficiency and performance. Highly recommended!"
-            </p>
-            <div class="reviewer d-flex align-items-center mt-4">
-              <div class="avatar"></div>
-              <div class="ms-3">
-                <h5 class="text-white mb-0">Marawan Hamed</h5>
-                <small class="text-muted">Co-founder, XYZ</small>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Review 4 -->
-        <div class="col-lg-6">
-          <div class="shadow1"></div>
-
-          <div class="review-card p-4">
-            <div class="stars mb-3">★★★★★</div>
-            <p class="text-white-50">
-              "Excellent service from MogaSoft! Their professional and innovative team delivered top-quality solutions,
-              enhancing our efficiency and performance. Highly recommended!"
-            </p>
-            <div class="reviewer d-flex align-items-center mt-4">
-              <div class="avatar"></div>
-              <div class="ms-3">
-                <h5 class="text-white mb-0">Mohamed El Arabay</h5>
-                <small class="text-muted">Co-founder, XYZ</small>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>

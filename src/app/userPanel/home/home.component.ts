@@ -5,6 +5,7 @@ import { BlogsService } from 'src/app/core/services/blogs.service';
 import { ClientsService } from 'src/app/core/services/clients.service';
 import { LangTransService } from 'src/app/core/services/lang-trans.service';
 import { ProjectsService } from 'src/app/core/services/projects.service';
+import { ReviewsService } from 'src/app/core/services/reviews.service';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,8 @@ export class HomeComponent implements OnInit {
   Projects: any;
   blogs!: any;
   clients!: any;
-  constructor(private titleService: Title, private metaService: Meta, private lang: LangTransService, private projectAPI: ProjectsService, private blogAPI: BlogsService, private clientAPI: ClientsService) {
+  reviews!: any;
+  constructor(private titleService: Title, private metaService: Meta, private lang: LangTransService, private projectAPI: ProjectsService, private blogAPI: BlogsService, private clientAPI: ClientsService, private reviewsAPI: ReviewsService) {
     this.direction = this.lang.currentLang === 'ar' ? 'rtl' : 'ltr';
     this.currentLang = localStorage.getItem('language') || 'en'
     this.lang.currentLang.subscribe((lang: string) => {
@@ -26,6 +28,7 @@ export class HomeComponent implements OnInit {
     this.getProjects();
     this.getBlogs();
     this.getClients();
+    this.getReviews();
   }
   ngOnInit(): void {
     this.titleService.setTitle('Mogasoft | Home');
@@ -142,5 +145,14 @@ export class HomeComponent implements OnInit {
     this.clientAPI.getClients().subscribe((res: any) => {
       this.clients = res;
     });
+  }
+  getReviews() {
+    this.reviewsAPI.getReviews().subscribe((res: any) => {
+      this.reviews = res.slice(0, 4)
+      console.log(res);
+    });
+  }
+  getStars(stars: number): string {
+    return '★'.repeat(stars) + '☆'.repeat(5 - stars);
   }
 }
