@@ -28,6 +28,7 @@ import { EditorModule } from 'primeng/editor';
 import { NormalHtmlPipe } from './core/pipes/normal-html.pipe';
 import { InterceptorInterceptor } from './core/interceptor/interceptor.interceptor';
 import { LoaderComponent } from './core/interceptor/loader/loader.component';
+import { AdminLoginComponent } from './adminPanel/admin-login/admin-login.component';
 
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -50,6 +51,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     AdminReviewsComponent,
     NormalHtmlPipe,
     LoaderComponent,
+    AdminLoginComponent,
   ],
   imports: [
     BrowserModule,

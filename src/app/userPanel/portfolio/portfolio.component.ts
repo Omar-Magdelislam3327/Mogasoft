@@ -34,20 +34,18 @@ export class PortfolioComponent {
   };
 
   softwareItems = [
-    { title: 'MobileDevelopment', image: '../../../assets/vendors/imgs/portfolioWeb.png' },
-    { title: 'WebDevelopment', image: '../../../assets/vendors/imgs/portfolioWeb2.png' },
-    { title: 'digitalMarketing', image: '../../../assets/vendors/imgs/portfolioWeb3.png' },
+    { userTitle: "Web Development", title: 'WebDevelopment', image: '../../../assets/vendors/imgs/portfolioWeb2.png' },
+    { userTitle: "Mobile Development", title: 'MobileDevelopment', image: '../../../assets/vendors/imgs/portfolioWeb.png' },
+    { userTitle: "Digital Marketing", title: 'DigitalMarketing', image: '../../../assets/vendors/imgs/portfolioWeb3.png' },
   ];
 
   hardwareItems = [
-    { title: 'SurveliianceSystem', image: '../../../assets/vendors/imgs/portfolioWeb.png' },
-    { title: 'Computers', image: '../../../assets/vendors/imgs/portfolioWeb.png' },
-    { title: 'Copiers', image: '../../../assets/vendors/imgs/portfolioWeb.png' },
-    { title: 'FireFighting', image: '../../../assets/vendors/imgs/portfolioWeb.png' },
-    { title: 'QueueServcies', image: '../../../assets/vendors/imgs/portfolioWeb.png' },
-    { title: 'Hardware Item 2', image: '../../../assets/vendors/imgs/portfolioWeb.png' },
-    { title: 'Hardware Item 2', image: '../../../assets/vendors/imgs/portfolioWeb.png' },
-    { title: 'Hardware Item 3', image: '../../../assets/vendors/imgs/portfolioWeb.png' }
+    { userTitle: "Computers", title: 'Computers', image: '../../../assets/vendors/imgs/portfolioWeb.png' },
+    { userTitle: "Surveliiance System", title: 'SurveillanceSystems', image: '../../../assets/vendors/imgs/portfolioWeb.png' },
+    { userTitle: "Copiers", title: 'Copiers', image: '../../../assets/vendors/imgs/portfolioWeb.png' },
+    { userTitle: "Fire Fighting", title: 'FireFighting', image: '../../../assets/vendors/imgs/portfolioWeb.png' },
+    { userTitle: "Network", title: 'Network', image: '../../../assets/vendors/imgs/portfolioWeb.png' },
+    { userTitle: "Queue Management", title: 'QueueManagement', image: '../../../assets/vendors/imgs/portfolioWeb.png' },
   ];
 
   navigateToCategory(category: string) {

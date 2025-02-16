@@ -24,7 +24,7 @@
 }
 
 .fa-trash {
-  visibility: hidden;
+  display: hidden;
   opacity: 0;
   position: absolute;
   top: 10px;
@@ -41,7 +41,7 @@
 
 
 .card:hover .fa-trash {
-  visibility: visible;
+  display: visible;
   opacity: 1;
 }
 

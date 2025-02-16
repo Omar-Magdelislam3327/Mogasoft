@@ -13,7 +13,7 @@ export class ProjectsCategoryComponent {
   category: string | null = null;
   projects: any;
   currentLang!: any;
-
+  userCategory!: any;
   constructor(private route: ActivatedRoute, private ProjectApi: ProjectsService, private lang: LangTransService) { }
 
   ngOnInit() {
@@ -33,7 +33,9 @@ export class ProjectsCategoryComponent {
     this.ProjectApi.getProjectsByCategory(this.category).subscribe(
       (data: any) => {
         this.projects = data;
+        this.userCategory = this.projects[0].category;
         console.log(this.projects);
+        console.log(this.userCategory);
       },
       (error) => {
         console.error('Error:', error);

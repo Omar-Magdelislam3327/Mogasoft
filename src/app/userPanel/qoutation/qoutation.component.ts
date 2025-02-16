@@ -1,3 +1,4 @@
+import { LangTransService } from './../../core/services/lang-trans.service';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { QuatationsService } from 'src/app/core/services/quatations.service';
@@ -12,10 +13,15 @@ export class QoutationComponent {
   servicesList: string[] = [];
   softwareServices = ['Web', 'Mobile', 'Security', 'Hosting', 'Network'];
   hardwareServices = ['Cameras', 'Plotter', 'Fire Alarms'];
-
   qouteForm!: FormGroup;
-
-  constructor(private qouteService: QuatationsService, private fb: FormBuilder) { }
+  //
+  currentLang!: any;
+  constructor(private qouteService: QuatationsService, private fb: FormBuilder, private Lang: LangTransService) {
+    this.currentLang = localStorage.getItem('language') || 'en';
+    this.Lang.currentLang.subscribe((lang: string) => {
+      this.currentLang = lang;
+    })
+  }
 
   ngOnInit(): void {
     this.qouteForm = this.fb.group({

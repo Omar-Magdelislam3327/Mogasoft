@@ -10,6 +10,8 @@ import { AdminMessagesComponent } from './adminPanel/admin-messages/admin-messag
 import { AdminQuatationComponent } from './adminPanel/admin-quatation/admin-quatation.component';
 import { AdminPlansComponent } from './adminPanel/admin-plans/admin-plans.component';
 import { AdminReviewsComponent } from './adminPanel/admin-reviews/admin-reviews.component';
+import { AdminLoginComponent } from './adminPanel/admin-login/admin-login.component';
+import { AuthGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
@@ -42,21 +44,23 @@ const routes: Routes = [
     ]
   },
   { path: 'services', loadChildren: () => import('./userPanel/services/services.module').then(m => m.ServicesModule) },
+  { path: "ms-admin", component: AdminLoginComponent },
   {
     path: 'admin',
     component: AdminLayoutComponent,
     children: [
-      { path: 'home', component: AdminHomeComponent },
-      { path: "projects", component: AdminProjectsComponent },
-      { path: "blogs", component: AdminBlogsComponent },
-      { path: "reviews", component: AdminReviewsComponent },
-      { path: "clients", component: AdminClientsComponent },
-      { path: "team", component: AdminTeamComponent },
-      { path: "messages", component: AdminMessagesComponent },
-      { path: "quatations", component: AdminQuatationComponent },
-      { path: "plans", component: AdminPlansComponent }
+      { path: 'home', canActivate: [AuthGuard], component: AdminHomeComponent },
+      { path: "projects", canActivate: [AuthGuard], component: AdminProjectsComponent },
+      { path: "blogs", canActivate: [AuthGuard], component: AdminBlogsComponent },
+      { path: "reviews", canActivate: [AuthGuard], component: AdminReviewsComponent },
+      { path: "clients", canActivate: [AuthGuard], component: AdminClientsComponent },
+      { path: "team", canActivate: [AuthGuard], component: AdminTeamComponent },
+      { path: "messages", canActivate: [AuthGuard], component: AdminMessagesComponent },
+      { path: "quatations", canActivate: [AuthGuard], component: AdminQuatationComponent },
+      { path: "plans", canActivate: [AuthGuard], component: AdminPlansComponent }
     ]
   },
+  { path: "**", redirectTo: "/home", pathMatch: "full" }
 ];
 
 const routerOptions: ExtraOptions = {
