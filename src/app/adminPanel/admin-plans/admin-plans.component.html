@@ -16,7 +16,7 @@
         <div class="mt-3">
           <label>Name (Arabic)</label>
           <input type="text" class="form-control shadow-none" formControlName="NameAR"
-            placeholder="أدخل الاسم بالعربية" />
+            placeholder="Enter name in Arabic" />
         </div>
       </div>
     </div>
@@ -33,14 +33,15 @@
           <div class="row align-items-center">
             <div class="col-lg-5">
               <input type="text" class="form-control shadow-none" formControlName="titleEN"
-                placeholder="Title in English" />
+                placeholder="Enter Title in English" />
             </div>
             <div class="col-lg-5">
               <input type="text" class="form-control shadow-none" formControlName="titleAR"
-                placeholder="العنوان بالعربية" />
+                placeholder="Enter Title in Arabic" />
             </div>
             <div class="col-lg-2">
-              <button type="button" class="btn btn-danger shadow-none" (click)="removeProperty(i)">Remove</button>
+              <button *ngIf="i > 0" type="button" class="btn btn-danger btn-sm" (click)="removeProperty(i)">Remove
+                Step</button>
             </div>
           </div>
         </div>

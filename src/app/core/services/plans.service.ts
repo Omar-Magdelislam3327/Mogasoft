@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Plans } from 'src/app/models/plans';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlansService {
-  baseUrl = 'http://mogasoft.runasp.net/api'
+  baseUrl = environment.baseUrl;
   constructor(private http: HttpClient) { }
   getPlans(): Observable<Plans> {
     return this.http.get<Plans>(`${this.baseUrl}/Hosting`);

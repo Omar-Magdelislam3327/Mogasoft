@@ -13,6 +13,7 @@ export class AboutComponent {
   currentLang!: any;
   teamMembers!: any;
   constructor(private lang: LangTransService, private teamApi: TeamService) {
+    window.scrollTo(0, 0);
     this.currentLang = localStorage.getItem('language') || 'en';
     this.lang.currentLang.subscribe((lang: string) => {
       this.currentLang = lang;

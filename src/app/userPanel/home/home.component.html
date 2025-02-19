@@ -15,11 +15,11 @@
     </div>
   </section>
 
-  <section id="clients" class="section2" data-aos="fade-up" [dir]="direction">
+  <section id="clients" class="section2" data-aos="fade-up">
     <div class="mt-5">
       <div class="slider p-3">
         <div class="shadow"></div>
-        <owl-carousel-o [options]="clientsOptions">
+        <owl-carousel-o [options]="clientsOptions" [dir]="direction">
           <ng-template carouselSlide *ngFor="let client of clients">
             <img [src]="'http://mogasoft.runasp.net' + client.logoUrl" alt="">
           </ng-template>

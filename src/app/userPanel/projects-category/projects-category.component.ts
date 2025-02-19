@@ -14,7 +14,9 @@ export class ProjectsCategoryComponent {
   projects: any;
   currentLang!: any;
   userCategory!: any;
-  constructor(private route: ActivatedRoute, private ProjectApi: ProjectsService, private lang: LangTransService) { }
+  constructor(private route: ActivatedRoute, private ProjectApi: ProjectsService, private lang: LangTransService) {
+    window.scrollTo(0, 0);
+  }
 
   ngOnInit() {
     this.currentLang = localStorage.getItem('language') || 'en';

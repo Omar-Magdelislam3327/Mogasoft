@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DomSanitizer } from '@angular/platform-browser';
 import { MessagesService } from 'src/app/core/services/messages.service';
 
 @Component({
@@ -9,7 +10,9 @@ import { MessagesService } from 'src/app/core/services/messages.service';
 })
 export class ContactComponent {
   messageForm!: FormGroup
-  constructor(private messageService: MessagesService, private fb: FormBuilder) { }
+  constructor(private messageService: MessagesService, private fb: FormBuilder, private sanitizer: DomSanitizer) {
+    window.scrollTo(0, 0);
+  }
   ngOnInit() {
     this.messageForm = this.fb.group({
       fullName: ['', Validators.required],
@@ -21,6 +24,8 @@ export class ContactComponent {
   }
   onSubmit() {
     if (this.messageForm.valid) {
+      const formData = { ...this.messageForm.value };
+      formData.notes = this.safeHTML(formData.notes);
       this.messageService.sendMessage(this.messageForm.value).subscribe(
         () => {
           this.messageForm.reset();
@@ -29,5 +34,8 @@ export class ContactComponent {
     } else {
       console.log('Form is invalid');
     }
+  }
+  safeHTML(html: string) {
+    return this.sanitizer.bypassSecurityTrustHtml(html);
   }
 }

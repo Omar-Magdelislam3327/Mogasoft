@@ -12,6 +12,7 @@ import { AdminPlansComponent } from './adminPanel/admin-plans/admin-plans.compon
 import { AdminReviewsComponent } from './adminPanel/admin-reviews/admin-reviews.component';
 import { AdminLoginComponent } from './adminPanel/admin-login/admin-login.component';
 import { AuthGuard } from './core/guards/auth.guard';
+import { AdminServicesComponent } from './adminPanel/admin-services/admin-services.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
@@ -25,14 +26,15 @@ const routes: Routes = [
   { path: 'project/:id', loadChildren: () => import('./userPanel/project/project.module').then(m => m.ProjectModule) },
   { path: 'projects/:category', loadChildren: () => import('./userPanel/projects-category/projects-category.module').then(m => m.ProjectsCategoryModule) },
   { path: 'qoutation', loadChildren: () => import('./userPanel/qoutation/qoutation.module').then(m => m.QoutationModule) },
-  {
-    path: "software", children: [
-      { path: 'web', loadChildren: () => import('./userPanel/softwareServices/service/service.module').then(m => m.ServiceModule) },
-      { path: "mobile", loadChildren: () => import('./userPanel/softwareServices/mobile/mobile.module').then(m => m.MobileModule) },
-      { path: 'hosting', loadChildren: () => import('./userPanel/softwareServices/hosting/hosting.module').then(m => m.HostingModule) },
-      { path: "digital-markting", loadChildren: () => import('./userPanel/softwareServices/digital/digital.module').then(m => m.DigitalModule) },
-    ]
-  },
+  // {
+  //   path: "software", children: [
+  //     { path: 'web', loadChildren: () => import('./userPanel/softwareServices/service/service.module').then(m => m.ServiceModule) },
+  //     { path: "mobile", loadChildren: () => import('./userPanel/softwareServices/mobile/mobile.module').then(m => m.MobileModule) },
+  //     { path: 'hosting', loadChildren: () => import('./userPanel/softwareServices/hosting/hosting.module').then(m => m.HostingModule) },
+  //     { path: "digital-markting", loadChildren: () => import('./userPanel/softwareServices/digital/digital.module').then(m => m.DigitalModule) },
+  //   ]
+  // },
+  { path: "servcies/:category", loadChildren: () => import('./userPanel/softwareServices/service/service.module').then(m => m.ServiceModule) },
   {
     path: "hardware", children: [
       { path: "surveillance-cameras", loadChildren: () => import('./userPanel/hardwareServices/cameras/cameras.module').then(m => m.CamerasModule) },
@@ -52,6 +54,7 @@ const routes: Routes = [
       { path: 'home', canActivate: [AuthGuard], component: AdminHomeComponent },
       { path: "projects", canActivate: [AuthGuard], component: AdminProjectsComponent },
       { path: "blogs", canActivate: [AuthGuard], component: AdminBlogsComponent },
+      { path: "services", canActivate: [AuthGuard], component: AdminServicesComponent },
       { path: "reviews", canActivate: [AuthGuard], component: AdminReviewsComponent },
       { path: "clients", canActivate: [AuthGuard], component: AdminClientsComponent },
       { path: "team", canActivate: [AuthGuard], component: AdminTeamComponent },

@@ -21,7 +21,7 @@
   "copiers": "Copiers",
   "fire-fighing": "Fire Fighting",
   "queue-serve": "Queue Management",
-  "network": "Networking",
+  "network": "Network",
   "showMore": "Show More",
   "trusted": "Trusted by",
   "highLight": "+100",
@@ -147,7 +147,7 @@
   "Blog": {
     "ENG": "Eng Magdelislam",
     "Role": "Founder of Mogasoft",
-    "Bio": "With 11 years I've built Mogasoft. Passionate about SaaS, data, and AI. Let's connect if you share the same drive for success!",
+    "Bio": "With 11 years I've built Mogasoft. Passionate about data, and AI. Let's connect if you share the same drive for success!",
     "Share": "Share with your community!"
   },
   "Contact": {

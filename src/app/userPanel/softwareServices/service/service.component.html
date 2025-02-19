@@ -5,14 +5,15 @@
       <div class="row align-items-center justify-content-center">
         <div class="col-lg-6 order-2 order-lg-1">
           <div class="txt">
-            <h2>{{'SERVICE.WebServices.TITLE' | translate}}</h2>
-            <p class="desc text-white-50">{{"SERVICE.WebServices.Bio" | translate}}</p>
-            <p class="text-white">{{"SERVICE.WebServices.DESC" | translate}}</p>
+            <h2>{{currentLang === "en" ? serviceData?.titleEN : serviceData?.titleAR}}</h2>
+            <p class="desc text-white-50">{{currentLang === "en" ? serviceData?.bioEN :
+              serviceData?.bioAR}}</p>
+            <p class="text-white">{{currentLang === "en" ? serviceData?.descriptionEN : serviceData?.descriptionAR}}</p>
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2">
           <div class="image">
-            <img src="../../../assets/vendors/imgs/services/web.png" class="img-fluid" alt="">
+            <img [src]="'http://mogasoft.runasp.net' + serviceData?.image" class="img-fluid" alt="">
           </div>
         </div>
       </div>
@@ -25,10 +26,10 @@
       </div>
       <div class="row">
         <div class="col-lg-12 mt-5" *ngFor="let step of steps; let i = index">
-          <div class="step-card" id="step-{{i}}" #stepCard data-aos="fade-up" data-aos-delay="1000">
+          <div class="step-card" id="step-{{ i }}" #stepCard data-aos="fade-up" data-aos-delay="1000">
             <div class="step-number">{{ i + 1 }}</div>
-            <div class="step-content d-flex align-items-center ">
-              <img src="../../../assets/vendors/imgs/services/discovary.png" class="step-image" alt="">
+            <div class="step-content d-flex align-items-center">
+              <img [src]="'http://mogasoft.runasp.net' + step.image" class="step-image" alt="Step Image" />
               <div class="step-text">
                 <h3 class="step-title">{{ currentLang === "en" ? step.titleEN : step.titleAR }}</h3>
                 <p class="step-description">{{ currentLang === "en" ? step.descriptionEN : step.descriptionAR }}</p>
@@ -37,6 +38,7 @@
           </div>
         </div>
       </div>
+
     </div>
   </section>
   <app-footer></app-footer>

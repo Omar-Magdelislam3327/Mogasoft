@@ -11,9 +11,9 @@ import { Projects } from 'src/app/models/projects';
 export class AdminProjectsComponent {
   projectForm!: FormGroup;
   headImage!: File | null;
-  selectedMediaFiles: File[] = []
-  //
+  selectedMediaFiles: File[] = [];
   projects!: any;
+
   constructor(private fb: FormBuilder, private projectsService: ProjectsService) { }
 
   ngOnInit() {
@@ -25,7 +25,7 @@ export class AdminProjectsComponent {
       DescriptionEN: ['', Validators.required],
       Category: ['', Validators.required],
       Type: ['', Validators.required],
-      ProjectSteps: this.fb.array([])
+      ProjectSteps: this.fb.array([this.createStep()]) // Initialize with one step
     });
   }
 
@@ -33,18 +33,24 @@ export class AdminProjectsComponent {
     return this.projectForm.get('ProjectSteps') as FormArray;
   }
 
-  addStep() {
-    const stepForm = this.fb.group({
+  createStep(): FormGroup {
+    return this.fb.group({
       titleEN: ['', Validators.required],
       titleAR: ['', Validators.required],
       descriptionEN: ['', Validators.required],
       descriptionAR: ['', Validators.required]
     });
-    this.projectSteps.push(stepForm);
   }
 
-  removeStep(index: number) {
-    this.projectSteps.removeAt(index);
+  addStep() {
+    this.projectSteps.push(this.createStep());
+  }
+
+  removeStep(i: number) {
+    // Prevent removal if only one step is left
+    if (this.projectSteps.length > 1) {
+      this.projectSteps.removeAt(i);
+    }
   }
 
   onHeadImageSelected(event: any) {
@@ -59,7 +65,7 @@ export class AdminProjectsComponent {
     if (this.projectForm.invalid) {
       return;
     };
-    console.log("Submiting Project");
+    console.log("Submitting Project");
 
     const formData = new FormData();
     formData.append('NameAR', this.projectForm.value.NameAR);
@@ -94,8 +100,8 @@ export class AdminProjectsComponent {
         console.error('Error adding project:', err);
       },
     });
-
   }
+
   getProjects() {
     this.projectsService.getProjects().subscribe({
       next: (data: any) => {
@@ -105,15 +111,15 @@ export class AdminProjectsComponent {
       error: (error) => {
         console.error('Error retrieving projects', error);
       }
-
-    })
+    });
   }
+
   deleteProject(id: number) {
     this.projectsService.deleteProject(id).subscribe({
       next: (data) => {
         this.getProjects();
       }
-    })
+    });
   }
 }
 

@@ -11,12 +11,14 @@
         <div class="col-lg-4 mt-3"
           *ngFor="let blog of blogs | paginate : { id: 'paginate', itemsPerPage: pageSize, currentPage: currentPage, totalItems: total }">
           <div class="shadow"></div>
-          <div class="carde p-3" routerLink="/blog/{{blog.blogId}}">
-            <img [src]="'http://mogasoft.runasp.net' + blog.imageUrl" class="img-fluid" alt="">
-            <h5 class="mt-3">{{currentLang === 'en' ? blog.titleEN : blog.titleAR}}</h5>
-            <small>{{blog.date}}</small>
-            <p>{{currentLang === 'en' ? blog.descriptionEN : blog.descriptionAR}}</p>
-          </div>
+          <a class="text-reset text-decoration-none" routerLink="/blog/{{blog.blogId}}">
+            <div class="carde p-3">
+              <img [src]="'http://mogasoft.runasp.net' + blog.imageUrl" class="img-fluid" alt="">
+              <h5 class="mt-3">{{currentLang === 'en' ? blog.titleEN : blog.titleAR}}</h5>
+              <small>{{blog.date}}</small>
+              <p>{{currentLang === 'en' ? blog.descriptionEN : blog.descriptionAR}}</p>
+            </div>
+          </a>
         </div>
       </div>
       <div class="col-lg-12" *ngIf="showPagination">

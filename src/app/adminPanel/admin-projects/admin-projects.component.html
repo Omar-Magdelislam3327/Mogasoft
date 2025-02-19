@@ -4,13 +4,6 @@
   </div>
   <form [formGroup]="projectForm" (ngSubmit)="submitProject()">
     <div class="row">
-      <div class="col-lg-6">
-        <div class="mt-3">
-          <label>Name (Arabic)</label>
-          <input type="text" class="form-control shadow-none" formControlName="NameAR"
-            placeholder="أدخل الاسم بالعربية" />
-        </div>
-      </div>
 
       <div class="col-lg-6">
         <div class="mt-3">
@@ -19,22 +12,31 @@
             placeholder="Enter name in English" />
         </div>
       </div>
+
+      <div class="col-lg-6">
+        <div class="mt-3">
+          <label>Name (Arabic)</label>
+          <input type="text" class="form-control shadow-none" formControlName="NameAR"
+            placeholder="Enter name in Arabic" />
+        </div>
+      </div>
     </div>
 
     <div class="row">
-      <div class="col-lg-6">
-        <div class="mt-3">
-          <label>Description (Arabic)</label>
-          <textarea class="form-control shadow-none" formControlName="DescriptionAR"
-            placeholder="أدخل الوصف بالعربية"></textarea>
-        </div>
-      </div>
 
       <div class="col-lg-6">
         <div class="mt-3">
           <label>Description (English)</label>
           <textarea class="form-control shadow-none" formControlName="DescriptionEN"
             placeholder="Enter description in English"></textarea>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="mt-3">
+          <label>Description (Arabic)</label>
+          <textarea class="form-control shadow-none" formControlName="DescriptionAR"
+            placeholder="Enter description in Arabic"></textarea>
         </div>
       </div>
     </div>
@@ -82,25 +84,36 @@
           <div class="form-group">
             <div class="row p-3 steps">
               <div class="col-lg-6">
-                <input type="text" class="form-control shadow-none mt-2" formControlName="titleEN"
+                <label for="titleEN{{i}}">Step Title (English)</label>
+                <input id="titleEN{{i}}" type="text" class="form-control shadow-none mt-2" formControlName="titleEN"
                   placeholder="Step Title (English)" />
-                <textarea class="form-control shadow-none mt-2" formControlName="descriptionAR"
-                  placeholder="Step Description (Arabic)"></textarea>
-              </div>
-              <div class="col-lg-6">
-                <input type="text" class="form-control shadow-none mt-2" formControlName="titleAR"
-                  placeholder="Step Title (Arabic)" />
-                <textarea class="form-control shadow-none mt-2" formControlName="descriptionEN"
-                  placeholder="Step Description (English)"></textarea>
+
+                <label for="descriptionEN{{i}}">Step Description (English)</label>
+                <textarea id="descriptionEN{{i}}" class="form-control shadow-none mt-2" formControlName="descriptionEN"
+                  placeholder="Enter Step Description in English"></textarea>
 
               </div>
-              <button type="button" class="btn btn-danger btn-sm" (click)="removeStep(i)">Remove Step</button>
+              <div class="col-lg-6">
+                <label for="titleAR{{i}}">Step Title (Arabic)</label>
+                <input id="titleAR{{i}}" type="text" class="form-control shadow-none mt-2" formControlName="titleAR"
+                  placeholder="Step Title (Arabic)" />
+                <label for="descriptionAR{{i}}">Step Description (Arabic)</label>
+                <textarea id="descriptionAR{{i}}" class="form-control shadow-none mt-2" formControlName="descriptionAR"
+                  placeholder="Enter Step Description in Arabic"></textarea>
+              </div>
+              <div class="col-lg-12">
+                <input id="stepImage{{i}}" type="file" class="form-control shadow-none mt-2"
+                  formControlName="stepImage" />
+              </div>
+              <button *ngIf="i > 0" type="button" class="btn btn-danger btn-sm" (click)="removeStep(i)">Remove
+                Step</button>
             </div>
           </div>
         </div>
       </div>
       <button type="button" class="btn btn-primary mt-2" (click)="addStep()">Add Step</button>
     </div>
+
 
     <div class="col-lg-12 text-center">
       <button type="submit" class="btn-mogasoft-success shadow-none" [disabled]="projectForm.invalid">Add

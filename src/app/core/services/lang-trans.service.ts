@@ -8,7 +8,7 @@ export class LangTransService {
   private currentLangSubject: BehaviorSubject<string>;
   currentLang!: any
   constructor() {
-    const savedLang = localStorage.getItem('language') || 'ar';
+    const savedLang = localStorage.getItem('language') || 'en';
     this.currentLangSubject = new BehaviorSubject<string>(savedLang);
     this.currentLang = this.currentLangSubject.asObservable();
   }

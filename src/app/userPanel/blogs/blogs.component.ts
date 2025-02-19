@@ -18,10 +18,10 @@ export class BlogsComponent {
   fixed = Math.ceil(this.total / this.pageSize);
   showPagination: boolean = false;
   constructor(private api: BlogsService, private meta: Meta, private sanitizer: DomSanitizer, private lang: LangTransService) {
+    window.scrollTo(0, 0);
     this.getBlogs();
   }
   ngOnInit(): void {
-    window.scrollTo(0, 0);
     //
     this.currentLang = localStorage.getItem('language') || 'en';
     this.lang.currentLang.subscribe((lang: string) => {

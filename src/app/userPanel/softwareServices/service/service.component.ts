@@ -1,5 +1,7 @@
 import { Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { LangTransService } from 'src/app/core/services/lang-trans.service';
+import { ServicesService } from 'src/app/core/services/services.service';
 
 @Component({
   selector: 'app-service',
@@ -9,47 +11,22 @@ import { LangTransService } from 'src/app/core/services/lang-trans.service';
 export class ServiceComponent {
   @ViewChildren('stepCard', { read: ElementRef }) stepCards!: QueryList<ElementRef>;
   currentLang!: any;
-  constructor(private lang: LangTransService) {
+  category!: any;
+  serviceData!: any;
+  steps: any[] = [];
+
+  constructor(private lang: LangTransService, private serviceAPI: ServicesService, private activ: ActivatedRoute) {
     this.currentLang = localStorage.getItem('language') || 'en';
     this.lang.currentLang.subscribe((lang: string) => {
       this.currentLang = lang;
     });
+    this.activ.paramMap.subscribe(params => {
+      this.category = params.get('category');
+      if (this.category) {
+        this.fetchService();
+      }
+    });
   }
-  steps = [
-    {
-      titleEN: "Discovery & Strategy",
-      descriptionEN:
-        "Great websites start with a great plan. We analyze your business goals, target audience, and competitors to craft a strategic blueprint.",
-      titleAR: "الاكتشاف والاستراتيجية",
-      descriptionAR:
-        "المواقع الرائعة تبدأ بخطة رائعة. نقوم بتحليل أهداف عملك، والجمهور المستهدف، والمنافسين لوضع مخطط استراتيجي.",
-    },
-    {
-      titleEN: "Design & Development",
-      descriptionEN:
-        "A stunning design isn’t just about looks; it’s about user experience. Our team creates seamless, interactive designs that make navigation effortless and enjoyable.",
-      titleAR: "التصميم والتطوير",
-      descriptionAR:
-        "التصميم المذهل لا يتعلق بالمظهر فقط؛ بل يتعلق بتجربة المستخدم. يقوم فريقنا بإنشاء تصاميم سلسة وتفاعلية تجعل التنقل سهلاً وممتعًا.",
-    },
-    {
-      titleEN: "Testing & Deployment",
-      descriptionEN:
-        "We write clean, efficient, and scalable code to ensure your website functions flawlessly. Whether it’s a corporate site, an e-commerce platform, or a complex web app, we build it right.",
-      titleAR: "الاختبار والنشر",
-      descriptionAR:
-        "نكتب كودًا نظيفًا وفعالًا وقابلًا للتطوير لضمان عمل موقعك بسلاسة. سواء كان موقعًا للشركات، أو منصة للتجارة الإلكترونية، أو تطبيق ويب معقد، فإننا نبنيه بالطريقة الصحيحة.",
-    },
-    {
-      titleEN: "Ongoing Support",
-      descriptionEN:
-        "No glitches, no broken links, no slow loading times. Our QA experts rigorously test your site to ensure peak performance on all devices and browsers.",
-      titleAR: "الدعم المستمر",
-      descriptionAR:
-        "لا أعطال، لا روابط مكسورة، لا أوقات تحميل بطيئة. يقوم خبراؤنا في ضمان الجودة باختبار موقعك بدقة لضمان أداء مثالي على جميع الأجهزة والمتصفحات.",
-    },
-  ];
-
 
   ngAfterViewInit() {
     const observerOptions = {
@@ -76,5 +53,12 @@ export class ServiceComponent {
     }, observerOptions);
 
     this.stepCards.forEach((card) => observer.observe(card.nativeElement));
+  }
+  fetchService() {
+    this.serviceAPI.getServiceByCategory(this.category).subscribe((res) => {
+      this.serviceData = res;
+      this.steps = this.serviceData.serviceSteps;
+      console.log(res);
+    });
   }
 }

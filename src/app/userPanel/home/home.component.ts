@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
   clients!: any;
   reviews!: any;
   constructor(private titleService: Title, private metaService: Meta, private lang: LangTransService, private projectAPI: ProjectsService, private blogAPI: BlogsService, private clientAPI: ClientsService, private reviewsAPI: ReviewsService) {
+    window.scrollTo(0, 0);
     this.direction = this.lang.currentLang === 'ar' ? 'rtl' : 'ltr';
     this.currentLang = localStorage.getItem('language') || 'en'
     this.lang.currentLang.subscribe((lang: string) => {

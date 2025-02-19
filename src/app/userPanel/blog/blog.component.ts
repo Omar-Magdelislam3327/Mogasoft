@@ -15,7 +15,7 @@ export class BlogComponent {
 
   constructor(private blogApi: BlogsService, private lang: LangTransService, private activ: ActivatedRoute) {
     this.id = this.activ.snapshot.params['id'];
-
+    window.scrollTo(0, 0);
   }
   ngOnInit() {
     this.currentLang = localStorage.getItem('language') || 'en';

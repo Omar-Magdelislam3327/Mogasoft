@@ -26,10 +26,18 @@ span::selection {
   color: white;
 }
 
+html[lang="en"] {
+  font-family: 'Inter', sans-serif;
+}
+
+html[lang="ar"] {
+  font-family: 'Cairo', sans-serif;
+}
+
 body {
   background-color: var(--dark1) !important;
   color: var(--dark4) !important;
-  font-family: "Inter" !important;
+  /* font-family: "Inter" !important; */
   font-style: normal;
   overflow-x: hidden !important;
 }

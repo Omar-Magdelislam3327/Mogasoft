@@ -19,7 +19,7 @@ export class AdminPlansComponent {
       NameEN: ['', Validators.required],
       NameAR: ['', Validators.required],
       Price: ['', [Validators.required, Validators.min(0)]],
-      HostingProperties: this.fb.array([])
+      HostingProperties: this.fb.array([this.createProperty()])
     });
   }
 
@@ -27,16 +27,21 @@ export class AdminPlansComponent {
     return this.planForm.get('HostingProperties') as FormArray;
   }
 
-  addProperty(): void {
-    const propertyGroup = this.fb.group({
+  createProperty(): FormGroup {
+    return this.fb.group({
       titleEN: ['', Validators.required],
       titleAR: ['', Validators.required]
     });
-    this.hostingProperties.push(propertyGroup);
+  }
+
+  addProperty(): void {
+    this.hostingProperties.push(this.createProperty());
   }
 
   removeProperty(index: number): void {
-    this.hostingProperties.removeAt(index);
+    if (this.hostingProperties.length > 1) {
+      this.hostingProperties.removeAt(index);
+    }
   }
 
   submitPlan(): void {
@@ -61,8 +66,6 @@ export class AdminPlansComponent {
       },
       (error) => {
         console.error('Error adding plan:', error);
-        console.error(this.planForm.value);
-        console.error(this.hostingProperties.value);
       }
     );
   }

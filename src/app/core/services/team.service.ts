@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Team } from 'src/app/models/team';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TeamService {
-  baseUrl = 'http://mogasoft.runasp.net/api'
+  baseUrl = environment.baseUrl;
   constructor(private http: HttpClient) { }
   getTeam(): Observable<Team> {
     return this.http.get<Team>(`${this.baseUrl}/Teams/Members`);

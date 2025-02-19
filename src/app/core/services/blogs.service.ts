@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { Blogs } from 'src/app/models/blogs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BlogsService {
-  baseUrl = 'http://mogasoft.runasp.net/api'
+  baseUrl = environment.baseUrl;
   constructor(private http: HttpClient) { }
 
   getBlogs(): Observable<Blogs> {

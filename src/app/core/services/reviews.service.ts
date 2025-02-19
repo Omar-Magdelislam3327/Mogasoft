@@ -2,12 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Reviews } from 'src/app/models/reviews';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReviewsService {
-  baseUrl = 'http://mogasoft.runasp.net/api'
+  baseUrl = environment.baseUrl;
+
   constructor(private http: HttpClient) { }
 
   getReviews(): Observable<Reviews> {

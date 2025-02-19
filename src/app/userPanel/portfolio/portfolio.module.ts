@@ -7,6 +7,7 @@ import { NavbarModule } from 'src/app/shared/navbar/navbar.module';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateModule } from '@ngx-translate/core';
+import { FooterModule } from 'src/app/shared/footer/footer.module';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { TranslateModule } from '@ngx-translate/core';
     CommonModule,
     PortfolioRoutingModule,
     NavbarModule,
+    FooterModule,
     CarouselModule,
     TranslateModule
   ]

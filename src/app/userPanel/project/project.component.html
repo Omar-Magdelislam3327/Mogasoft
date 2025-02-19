@@ -24,7 +24,7 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="carousel-container">
-            <owl-carousel-o [options]="carouselOptions">
+            <owl-carousel-o [options]="carouselOptions" [dir]="direction">
               <ng-container *ngFor="let url of mediaUrls">
                 <ng-template carouselSlide>
                   <img [src]="'http://mogasoft.runasp.net'+url" class="img-fluid carousel-image" alt="Project Image">

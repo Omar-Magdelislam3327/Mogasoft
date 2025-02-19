@@ -14,8 +14,12 @@ export class ProjectComponent {
   project!: any;
   mediaUrls: string[] = [];
   projectSteps: any[] = [];
-  currentLang!: any
-  constructor(private projectApi: ProjectsService, private lang: LangTransService, private activ: ActivatedRoute) { }
+  currentLang!: any;
+  direction!: any;
+  constructor(private projectApi: ProjectsService, private lang: LangTransService, private activ: ActivatedRoute) {
+    window.scrollTo(0, 0);
+    this.direction = this.lang.currentLang === 'ar' ? 'rtl' : 'ltr';
+  }
   carouselOptions: OwlOptions = {
     loop: true,
     margin: 10,

@@ -15,6 +15,7 @@ export class AdminQuatationComponent {
   getQuatations() {
     this.quatationsService.getQuotes().subscribe((res) => {
       this.qutations = res;
+      console.log(res);
     })
   }
   removeQuotes(id: number) {
