@@ -23,6 +23,7 @@
     "angular-highcharts": "^17.0.1",
     "aos": "^2.3.4",
     "bootstrap": "^5.3.3",
+    "gsap": "^3.12.7",
     "highcharts": "^12.1.2",
     "ngx-cookie-service": "^16.1.0",
     "ngx-owl-carousel-o": "^16.0.0",

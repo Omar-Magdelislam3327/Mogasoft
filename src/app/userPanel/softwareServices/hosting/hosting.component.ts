@@ -11,6 +11,7 @@ export class HostingComponent {
   currentLang!: any;
   plans!: any;
   constructor(private lang: LangTransService, private plansService: PlansService) {
+    window.scrollTo(0, 0);
     this.currentLang = localStorage.getItem('language') || 'en';
     this.lang.currentLang.subscribe((lang: string) => {
       this.currentLang = lang;

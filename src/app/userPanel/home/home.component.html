@@ -4,7 +4,6 @@
     <div class="container-fluid text-center p-5">
       <h1>{{ 'hero.title.part1' | translate }}
         <span class="infinity">{{ 'hero.title.infinity' | translate }}</span>
-        <img src="../../../assets/vendors/imgs/line.png" alt="">
         <br>
         <span class="mt-lg-3">{{ 'hero.title.part2' | translate }}</span>
       </h1>
@@ -15,7 +14,7 @@
     </div>
   </section>
 
-  <section id="clients" class="section2" data-aos="fade-up">
+  <section id="clients" class="section2 p-lg-0 pt-3" data-aos="fade-up">
     <div class="mt-5">
       <div class="slider p-3">
         <div class="shadow"></div>
@@ -29,12 +28,12 @@
     </div>
   </section>
 
-  <section id="about" class="section3 pt-3" data-aos="fade-up">
+  <section id="about" class="section3 p-3" data-aos="fade-up">
     <div class="container">
       <div class="row carde">
         <div class="shadow3"></div>
 
-        <div class="col-lg-6 p-4">
+        <div class="col-lg-6 p-4 order-2 order-lg-1">
           <h2 class="text-white fw-bold mb-4">{{ 'ABOUT.TITLE' | translate }}</h2>
           <p class="text-white-50">{{ 'ABOUT.DESCRIPTION_1' | translate }}</p>
           <p class="text-white-50">{{ 'ABOUT.DESCRIPTION_2' | translate }}</p>
@@ -46,7 +45,8 @@
         </div>
 
         <div class="col-lg-6 p-0 m-0">
-          <img src="../../../assets/vendors/imgs/about.png" alt="About Us" class="img-fluid">
+          <img src="../../../assets/vendors/imgs/about.png" alt="About Us"
+            class="img-fluid order-1 order-lg-2 d-lg-block d-none">
         </div>
       </div>
 
@@ -84,7 +84,7 @@
     </div>
   </section>
 
-  <section id="tools" class="section4 pt-3" data-aos="fade-up" [dir]="direction">
+  <section id="tools" class="section4 p-3" data-aos="fade-up" [dir]="direction">
     <div class="slider">
       <div class="shadow"></div>
       <owl-carousel-o [options]="toolsOptions">
@@ -96,7 +96,7 @@
     </div>
   </section>
 
-  <section id="portfolio" class="section5 pt-3" data-aos="fade-up" [dir]="direction">
+  <section id="portfolio" class="section5 p-3" data-aos="fade-up" [dir]="direction">
     <div class="container">
       <div class="portfolio-section text-center py-5">
         <h2 class="fw-bold text-white mb-2">{{"portfolio" | translate}}</h2>
@@ -133,9 +133,9 @@
     </div>
   </section>
 
-  <section id="services" class="section6 pt-3"></section>
+  <section id="services" class="section6 p-3"></section>
 
-  <section id="blogs" class="section7 pt-3" data-aos="fade-up">
+  <section id="blogs" class="section7 p-3" data-aos="fade-up">
     <div class="container">
       <div class="title text-center">
         <h2 class="fw-bold text-white mb-2">{{"blogs" | translate}}</h2>

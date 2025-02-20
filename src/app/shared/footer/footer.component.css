@@ -13,13 +13,19 @@
     margin-bottom: 15px;
   }
 
-  .list-unstyled li {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  li {
     margin-bottom: 8px;
     cursor: pointer;
     transition: color 0.3s ease;
   }
 
-  .list-unstyled li:hover {
+  li:hover {
     color: var(--secondaryColor);
   }
 

@@ -45,17 +45,17 @@ export class PortfolioComponent {
 
   softwareItems = [
     { userTitleAR: "تطبيقات الويب", userTitleEN: "Web Development", title: 'WebDevelopment', image: 'assets/vendors/imgs/services/web.png' },
-    { userTitleAR: "تطبيقات الموبايل", userTitleEN: "Mobile Development", title: 'MobileDevelopment', image: 'assets/vendors/imgs/services/mobile.png' },
-    { userTitleAR: "التوسيق الرقمي", userTitleEN: "Digital Marketing", title: 'DigitalMarketing', image: 'assets/vendors/imgs/services/digital.png' },
+    { userTitleAR: "تطبيقات الموبايل", userTitleEN: "Mobile Development", title: 'MobileDevelopment', image: 'assets/vendors/imgs/services/mobile.webp' },
+    { userTitleAR: "التوسيق الرقمي", userTitleEN: "Digital Marketing", title: 'DigitalMarketing', image: 'assets/vendors/imgs/services/digital.webp' },
   ];
 
   hardwareItems = [
-    { userTitleAR: "الكمبيوترات", userTitleEN: "Computers", title: 'Computers', image: 'assets/vendors/imgs/services/computer.png' },
-    { userTitleAR: "أنظمة المراقبة", userTitleEN: "Surveliiance System", title: 'SurveillanceSystems', image: 'assets/vendors/imgs/services/camera.png' },
-    { userTitleAR: "ماكينات التصوير", userTitleEN: "Copiers", title: 'Copiers', image: 'assets/vendors/imgs/services/copier.png' },
-    { userTitleAR: "مكافحة الحرائق", userTitleEN: "Fire Fighting", title: 'FireFighting', image: 'assets/vendors/imgs/services/fire.png' },
-    { userTitleAR: "الشبكات", userTitleEN: "Network", title: 'Network', image: 'assets/vendors/imgs/services/network.png' },
-    { userTitleAR: "الإستدعاء الالي", userTitleEN: "Queue Management", title: 'QueueManagement', image: 'assets/vendors/imgs/services/queue.png' },
+    { userTitleAR: "الكمبيوترات", userTitleEN: "Computers", title: 'Computers', image: 'assets/vendors/imgs/services/computer.webp' },
+    { userTitleAR: "أنظمة المراقبة", userTitleEN: "Surveliiance System", title: 'SurveillanceSystems', image: 'assets/vendors/imgs/services/camera.webp' },
+    { userTitleAR: "ماكينات التصوير", userTitleEN: "Copiers", title: 'Copiers', image: 'assets/vendors/imgs/services/copier.webp' },
+    { userTitleAR: "مكافحة الحرائق", userTitleEN: "Fire Fighting", title: 'FireFighting', image: 'assets/vendors/imgs/services/fire.webp' },
+    { userTitleAR: "الشبكات", userTitleEN: "Network", title: 'Network', image: 'assets/vendors/imgs/services/network.webp' },
+    { userTitleAR: "الإستدعاء الالي", userTitleEN: "Queue Management", title: 'QueueManagement', image: 'assets/vendors/imgs/services/queue.webp' },
   ];
 
   navigateToCategory(category: string) {

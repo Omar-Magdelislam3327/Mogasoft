@@ -29,7 +29,7 @@ export class NavbarComponent {
     const subMenuToggles = document.querySelectorAll('.sub-menu-toggle');
 
     subMenuToggles.forEach(toggle => {
-      toggle.addEventListener('hover', (event) => {
+      toggle.addEventListener('click', (event) => {
         event.preventDefault();
         event.stopPropagation();
 

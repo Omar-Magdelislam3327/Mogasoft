@@ -71,6 +71,7 @@ export class AdminTeamComponent {
     this.api.addMember(formData).subscribe(
       (response) => {
         this.loadTeam();
+        this.teamForm.reset();
         console.log(response);
 
       },

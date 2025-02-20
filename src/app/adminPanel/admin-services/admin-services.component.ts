@@ -21,6 +21,7 @@ export class AdminServicesComponent {
       BioEN: ['', Validators.required],
       DescriptionAR: ['', Validators.required],
       DescriptionEN: ['', Validators.required],
+      Category: ['', Validators.required],
       Image: [null, Validators.required],
       ServiceSteps: this.fb.array([this.createStep()])
     });
@@ -34,7 +35,6 @@ export class AdminServicesComponent {
       descriptionAR: ['', Validators.required],
       bioEN: ['', Validators.required],
       bioAR: ['', Validators.required],
-      image: [null, Validators.required]
     });
   }
 
@@ -60,14 +60,14 @@ export class AdminServicesComponent {
     }
   }
 
-  onStepImageSelected(event: any, index: number) {
-    const file = event.target.files[0];
-    if (file) {
-      const serviceStepsArray = this.serviceForm.get("ServiceSteps") as FormArray;
-      serviceStepsArray.at(index).patchValue({ image: file });
-      event.target.value = "";
-    }
-  }
+  // onStepImageSelected(event: any, index: number) {
+  //   const file = event.target.files[0];
+  //   if (file) {
+  //     const serviceStepsArray = this.serviceForm.get("ServiceSteps") as FormArray;
+  //     serviceStepsArray.at(index).patchValue({ image: file });
+  //     event.target.value = "";
+  //   }
+  // }
 
   onSubmit(): void {
     if (this.serviceForm.invalid) {
@@ -100,10 +100,6 @@ export class AdminServicesComponent {
       formData.append(`ServiceSteps[${index}][bioAR]`, step.bioAR);
       formData.append(`ServiceSteps[${index}][descriptionEN]`, step.descriptionEN);
       formData.append(`ServiceSteps[${index}][descriptionAR]`, step.descriptionAR);
-
-      if (step.image) {
-        formData.append(`ServiceSteps[${index}][Image]`, step.image);
-      }
     });
 
     this.serviceAPI.addService(formData).subscribe({

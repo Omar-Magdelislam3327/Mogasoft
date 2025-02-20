@@ -45,6 +45,7 @@
 }
 
 .card img {
+  max-height: 300px !important;
   transition: 0.2s;
 }
 

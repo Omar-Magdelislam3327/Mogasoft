@@ -13,6 +13,14 @@ nav {
     margin: 8px;
   }
 
+  .navbar-toggler {
+    box-shadow: #f8f9fa !important;
+  }
+
+  .fa-bars-staggered {
+    color: var(--secondaryColor);
+  }
+
   a {
     color: white !important;
     font-size: 19px;

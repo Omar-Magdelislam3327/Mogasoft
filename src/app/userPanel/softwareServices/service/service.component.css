@@ -29,6 +29,7 @@
     display: flex;
     align-items: center;
     border-radius: 40px;
+    overflow: hidden;
     transition: 0.3s ease-in-out;
   }
 
@@ -42,11 +43,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 400px;
+    height: 300px;
     padding: 20px 30px;
     font-size: 70px;
     font-weight: bold;
-    border-radius: 40px 0 0 40px;
     transition: 0.3s ease-in-out;
   }
 
@@ -62,11 +62,6 @@
     padding: 20px;
     height: 100%;
     border-radius: 40px;
-  }
-
-  .step-image {
-    width: 500px;
-    border-radius: 10px;
   }
 
   .step-text {
@@ -118,4 +113,8 @@
       font-size: 16px;
     }
   }
+}
+
+.btn-primary {
+  border-radius: 24px !important;
 }

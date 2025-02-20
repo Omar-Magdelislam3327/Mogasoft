@@ -110,6 +110,18 @@ input[type="number"] {
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
 }
 
+.btn-outline-secondary {
+  background-color: transparent !important;
+  color: var(--secondaryColor) !important;
+  border: 2px solid var(--secondaryColor) !important;
+  transition: 0.3s;
+}
+
+.btn-outline-secondary:hover {
+  background-color: var(--secondaryLighter) !important;
+  border-color: var(--secondaryLighter) !important;
+}
+
 .form-control {
   background-color: #1a1a1a !important;
   border: none !important;

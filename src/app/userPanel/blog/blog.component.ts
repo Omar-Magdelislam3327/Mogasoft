@@ -12,6 +12,10 @@ export class BlogComponent {
   id!: any;
   currentLang!: any;
   blog!: any;
+  //
+  facebookShareUrl: string = '';
+  linkedinShareUrl: string = '';
+  whatsappShareUrl: string = '';
 
   constructor(private blogApi: BlogsService, private lang: LangTransService, private activ: ActivatedRoute) {
     this.id = this.activ.snapshot.params['id'];
@@ -27,9 +31,17 @@ export class BlogComponent {
   getBlogById() {
     this.blogApi.getBlogById(this.id).subscribe(data => {
       this.blog = data;
+      this.generateShareUrls();
       console.log(data);
     })
   }
+  generateShareUrls() {
+    if (this.blog) {
+      const blogUrl = encodeURIComponent(window.location.href);
 
-
+      this.facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${blogUrl}`;
+      this.linkedinShareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${blogUrl}`;
+      this.whatsappShareUrl = `https://wa.me/?text=${blogUrl}`;
+    }
+  }
 }

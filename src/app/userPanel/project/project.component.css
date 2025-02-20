@@ -69,6 +69,7 @@
     display: flex;
     align-items: center;
     border-radius: 40px;
+    overflow: hidden;
     transition: 0.3s ease-in-out;
   }
 
@@ -86,10 +87,8 @@
     padding: 20px 30px;
     font-size: 70px;
     font-weight: bold;
-    border-radius: 40px 0 0 40px;
     transition: 0.3s ease-in-out;
   }
-
 
   .step-content {
     display: flex;

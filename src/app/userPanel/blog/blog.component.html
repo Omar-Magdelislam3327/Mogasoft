@@ -36,15 +36,18 @@
           <div class="share-card mt-3">
             <p class="share-title">{{"Blog.Share" | translate}}</p>
             <div class="social-icons">
-              <a href="#" class="icon facebook text-decoration-none"><i class="fab fa-facebook-f fs-3"></i></a>
-              <a href="#" class="icon linkedin text-decoration-none"><i class="fab fa-linkedin-in fs-3"></i></a>
-              <a href="#" class="icon whatsapp text-decoration-none"><i class="fab fa-whatsapp fs-3"></i></a>
+              <a [href]="facebookShareUrl" target="_blank" class="icon facebook text-decoration-none">
+                <i class="fab fa-facebook-f fs-3"></i>
+              </a>
+              <a [href]="linkedinShareUrl" target="_blank" class="icon linkedin text-decoration-none">
+                <i class="fab fa-linkedin-in fs-3"></i>
+              </a>
+              <a [href]="whatsappShareUrl" target="_blank" class="icon whatsapp text-decoration-none">
+                <i class="fab fa-whatsapp fs-3"></i>
+              </a>
             </div>
           </div>
-
         </div>
-
-
       </div>
     </div>
   </section>

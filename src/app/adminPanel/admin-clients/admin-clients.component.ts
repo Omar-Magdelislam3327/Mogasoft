@@ -58,6 +58,7 @@ export class AdminClientsComponent {
         this.getClinets();
         console.log(response);
         console.log(this.clientForm);
+        this.clientForm.reset();
       },
       (error) => {
         console.error(error);

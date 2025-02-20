@@ -16,36 +16,22 @@ import { AdminServicesComponent } from './adminPanel/admin-services/admin-servic
 
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
-  { path: 'about', loadChildren: () => import('./userPanel/about/about.module').then(m => m.AboutModule) },
+  { path: 'home', loadChildren: () => import('./userPanel/home/home.module').then(m => m.HomeModule), title: "Mogasoft | Home" },
+  { path: 'about', loadChildren: () => import('./userPanel/about/about.module').then(m => m.AboutModule), title: "Mogasoft | About Us" },
   { path: 'blog/:id', loadChildren: () => import('./userPanel/blog/blog.module').then(m => m.BlogModule) },
-  { path: 'blogs', loadChildren: () => import('./userPanel/blogs/blogs.module').then(m => m.BlogsModule) },
-  { path: 'contact', loadChildren: () => import('./userPanel/contact/contact.module').then(m => m.ContactModule) },
-  { path: 'home', loadChildren: () => import('./userPanel/home/home.module').then(m => m.HomeModule) },
+  { path: 'blogs', loadChildren: () => import('./userPanel/blogs/blogs.module').then(m => m.BlogsModule), title: 'Mogasoft | Blogs' },
+  { path: 'contact', loadChildren: () => import('./userPanel/contact/contact.module').then(m => m.ContactModule), title: 'Mogasoft | Contact Us' },
   { path: 'hosting', loadChildren: () => import('./userPanel/softwareServices/hosting/hosting.module').then(m => m.HostingModule) },
-  { path: 'portfolio', loadChildren: () => import('./userPanel/portfolio/portfolio.module').then(m => m.PortfolioModule) },
+  { path: 'portfolio', loadChildren: () => import('./userPanel/portfolio/portfolio.module').then(m => m.PortfolioModule), title: 'Mogasoft | Portfolio' },
   { path: 'project/:id', loadChildren: () => import('./userPanel/project/project.module').then(m => m.ProjectModule) },
   { path: 'projects/:category', loadChildren: () => import('./userPanel/projects-category/projects-category.module').then(m => m.ProjectsCategoryModule) },
-  { path: 'qoutation', loadChildren: () => import('./userPanel/qoutation/qoutation.module').then(m => m.QoutationModule) },
-  // {
-  //   path: "software", children: [
-  //     { path: 'web', loadChildren: () => import('./userPanel/softwareServices/service/service.module').then(m => m.ServiceModule) },
-  //     { path: "mobile", loadChildren: () => import('./userPanel/softwareServices/mobile/mobile.module').then(m => m.MobileModule) },
-  //     { path: 'hosting', loadChildren: () => import('./userPanel/softwareServices/hosting/hosting.module').then(m => m.HostingModule) },
-  //     { path: "digital-markting", loadChildren: () => import('./userPanel/softwareServices/digital/digital.module').then(m => m.DigitalModule) },
-  //   ]
-  // },
-  { path: "servcies/:category", loadChildren: () => import('./userPanel/softwareServices/service/service.module').then(m => m.ServiceModule) },
+  { path: 'qoutation', loadChildren: () => import('./userPanel/qoutation/qoutation.module').then(m => m.QoutationModule), title: "Mogasoft | Get Qoutation" },
   {
-    path: "hardware", children: [
-      { path: "surveillance-cameras", loadChildren: () => import('./userPanel/hardwareServices/cameras/cameras.module').then(m => m.CamerasModule) },
-      { path: "computers", loadChildren: () => import('./userPanel/hardwareServices/computer/computer.module').then(m => m.ComputerModule) },
-      { path: "copiers", loadChildren: () => import('./userPanel/hardwareServices/copiers/copiers.module').then(m => m.CopiersModule) },
-      { path: "network", loadChildren: () => import('./userPanel/hardwareServices/network/network.module').then(m => m.NetworkModule) },
-      { path: "fire-fighing", loadChildren: () => import('./userPanel/hardwareServices/fire/fire.module').then(m => m.FireModule) },
-      { path: "queue-serve", loadChildren: () => import('./userPanel/hardwareServices/queue/queue.module').then(m => m.QueueModule) }
+    path: "services", children: [
+      { path: 'hosting', loadChildren: () => import('./userPanel/softwareServices/hosting/hosting.module').then(m => m.HostingModule), title: "Mogasoft | Hosting Services" },
     ]
   },
-  { path: 'services', loadChildren: () => import('./userPanel/services/services.module').then(m => m.ServicesModule) },
+  { path: "services/:category", loadChildren: () => import('./userPanel/softwareServices/service/service.module').then(m => m.ServiceModule) },
   { path: "ms-admin", component: AdminLoginComponent },
   {
     path: 'admin',

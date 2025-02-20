@@ -9,16 +9,21 @@
           {{"empowering" | translate}}
         </p>
 
-        <form class="newsletter-form d-flex">
+        <!-- <form class="newsletter-form d-flex">
           <input type="email" class="form-control shadow-none me-2" placeholder="Enter Your Email">
-          <!-- <button type="submit" class="btn subscribe-btn">Subscribe</button> -->
-        </form>
+          <button type="submit" class="btn subscribe-btn">Subscribe</button>
+        </form> -->
 
-        <div class="social-icons mt-3">
-          <a href="https://www.facebook.com/mogasoftpage" class="me-3"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.linkedin.com/company/mogasoft" class="me-3"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#" class="me-3"><i class="fab fa-whatsapp"></i></a>
-          <a href="#" class="me-3"><i class="fab fa-instagram"></i></a>
+        <div class="social-icons d-flex gap-3 mt-3">
+          <a href="https://www.facebook.com/mogasoftpage" target="_blank" class=""><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.linkedin.com/company/mogasoft" target="_blank" class=""><i
+              class="fab fa-linkedin-in"></i></a>
+          <a href="https://wa.me/201551114499" target="_blank" class="">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+          <a href="https://www.instagram.com/mogasoft.page" target="_blank" class=""><i
+              class="fab fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@mogasoftpage" target="_blank" class=""><i class="fab fa-tiktok"></i></a>
         </div>
 
         <p class="locations mt-3 text-white">
@@ -29,31 +34,48 @@
 
       <div class="col-lg-3">
         <h5 class="footer-title">{{"softwares" | translate}}</h5>
-        <ul class="list-unstyled text-white">
-          <li routerLink="/software/web">{{"web" | translate}}</li>
-          <li routerLink="/software/mobile">{{"mobile" | translate}}</li>
-          <li routerLink="/software/hosting">{{"hosting" | translate}}</li>
-          <li routerLink="/software/digital-markting">{{"digital" | translate}}</li>
+        <ul class="ltext-white">
+          <li><a class="text-reset text-decoration-none" routerLink="/services/webdevelopment">{{ "web" | translate
+              }}</a></li>
+          <li><a class="text-reset text-decoration-none" routerLink="/services/mobile">{{ "mobile" | translate }}</a>
+          </li>
+          <li><a class="text-reset text-decoration-none" routerLink="/services/hosting">{{ "hosting" | translate }}</a>
+          </li>
+          <li><a class="text-reset text-decoration-none" routerLink="/services/digital-marketing">{{ "digital" |
+              translate }}</a>
+          </li>
         </ul>
 
         <h5 class="footer-title mt-4">{{"hardwares" | translate}}</h5>
-        <ul class="list-unstyled text-white">
-          <li routerLink="/hardware/surveillance-cameras">{{"cameras" | translate}}</li>
-          <li routerLink="/hardware/computers">{{"computers" | translate}}</li>
-          <li routerLink="/hardware/network">{{"network" | translate}}</li>
-          <li routerLink="/hardware/fire-fighing">{{"fire-fighing" | translate}}</li>
-          <li routerLink="/hardware/copiers">{{"copiers" | translate}}</li>
-          <li routerLink="/hardware/queue-serve">{{"queue-serve" | translate}}</li>
+        <ul class="ltext-white">
+          <li><a class="text-reset text-decoration-none" routerLink="/services/surveillance">{{ "cameras" | translate
+              }}</a>
+          </li>
+          <li><a class="text-reset text-decoration-none" routerLink="/services/computers">{{ "computers" | translate
+              }}</a></li>
+          <li><a class="text-reset text-decoration-none" routerLink="/services/copiers-plotters">{{ "copiers" |
+              translate }}</a>
+          </li>
+          <li><a class="text-reset text-decoration-none" routerLink="/services/network">{{ "network" | translate }}</a>
+          </li>
+          <li><a class="text-reset text-decoration-none" routerLink="/services/fire-fighing-alarm">{{ "fire-fighing" |
+              translate
+              }}</a>
+          </li>
+          <li><a class="text-reset text-decoration-none" routerLink="/services/queue-management">{{ "queue-serve" |
+              translate }}</a>
+          </li>
         </ul>
       </div>
 
       <div class="col-lg-3">
         <h5 class="footer-title">{{"INDUSTRIES" | translate}}</h5>
-        <ul class="list-unstyled text-white">
+        <ul class="ltext-white">
           <li>{{"ecommerce" | translate}}</li>
           <li>{{"realEstete" | translate}}</li>
           <li>{{"ERP" | translate}}</li>
           <li>{{"CRM" | translate}}</li>
+          <li>{{"HMS" | translate}}</li>
         </ul>
       </div>
 
@@ -61,13 +83,13 @@
         <div class="shadow1"></div>
 
         <h5 class="footer-title">{{"who" | translate}}</h5>
-        <ul class="list-unstyled text-white">
+        <ul class="ltext-white">
           <li routerLink="/about">{{"overview" | translate}}</li>
           <li routerLink="/contact">{{"contact" | translate}}</li>
         </ul>
 
         <h5 class="footer-title mt-4">{{"INSIGHTS" | translate}}</h5>
-        <ul class="list-unstyled text-white">
+        <ul class="ltext-white">
           <li routerLink="/blogs">{{"blogs" | translate}}</li>
         </ul>
       </div>

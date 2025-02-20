@@ -6,10 +6,10 @@
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      <i class="fa-solid fa-bars-staggered fs-2"></i>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse text-lg-start text-center" id="navbarSupportedContent">
       <ul class="navbar-nav m-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link" routerLinkActive="activ" routerLink="/home">{{ "home" | translate }}</a>
@@ -29,11 +29,10 @@
                 {{ "software" | translate }}
               </a>
               <ul class="dropdown-menu dropdown-menu-dark sub-menu">
-                <li><a class="dropdown-item" routerLink="/software/web">{{ "web" | translate }}</a></li>
-                <li><a class="dropdown-item" routerLink="/software/mobile">{{ "mobile" | translate }}</a></li>
-                <!-- <li><a class="dropdown-item" routerLink="/software/security">{{ "security" | translate }}</a></li> -->
-                <li><a class="dropdown-item" routerLink="/software/hosting">{{ "hosting" | translate }}</a></li>
-                <li><a class="dropdown-item" routerLink="/software/digital-markting">{{ "digital" | translate }}</a>
+                <li><a class="dropdown-item" routerLink="/services/webdevelopment">{{ "web" | translate }}</a></li>
+                <li><a class="dropdown-item" routerLink="/services/mobile">{{ "mobile" | translate }}</a></li>
+                <li><a class="dropdown-item" routerLink="/services/hosting">{{ "hosting" | translate }}</a></li>
+                <li><a class="dropdown-item" routerLink="/services/digital-marketing">{{ "digital" | translate }}</a>
                 </li>
               </ul>
             </li>
@@ -44,14 +43,17 @@
                 {{ "hardware" | translate }}
               </a>
               <ul class="dropdown-menu dropdown-menu-dark sub-menu">
-                <li><a class="dropdown-item" routerLink="/hardware/surveillance-cameras">{{ "cameras" | translate }}</a>
+                <li><a class="dropdown-item" routerLink="/services/surveillance">{{ "cameras" | translate }}</a>
                 </li>
-                <li><a class="dropdown-item" routerLink="/hardware/computers">{{ "computers" | translate }}</a></li>
-                <li><a class="dropdown-item" routerLink="/hardware/copiers">{{ "copiers" | translate }}</a></li>
-                <li><a class="dropdown-item" routerLink="/hardware/network">{{ "network" | translate }}</a></li>
-                <li><a class="dropdown-item" routerLink="/hardware/fire-fighing">{{ "fire-fighing" | translate }}</a>
+                <li><a class="dropdown-item" routerLink="/services/computers">{{ "computers" | translate }}</a></li>
+                <li><a class="dropdown-item" routerLink="/services/copiers-plotters">{{ "copiers" | translate }}</a>
                 </li>
-                <li><a class="dropdown-item" routerLink="/hardware/queue-serve">{{ "queue-serve" | translate }}</a></li>
+                <li><a class="dropdown-item" routerLink="/services/network">{{ "network" | translate }}</a></li>
+                <li><a class="dropdown-item" routerLink="/services/fire-fighing-alarm">{{ "fire-fighing" | translate
+                    }}</a>
+                </li>
+                <li><a class="dropdown-item" routerLink="/services/queue-management">{{ "queue-serve" | translate }}</a>
+                </li>
               </ul>
             </li>
           </ul>
@@ -68,14 +70,11 @@
         </li>
       </ul>
 
-      <div class="langs d-flex justify-content-start align-items-center flex-wrap gap-3">
+      <div class="langs d-flex justify-content-center align-items-center flex-wrap gap-3">
         <div class="lang" [ngClass]="{'active-lang': currentLanguage === 'en'}" (click)="switchLanguage('en')">EN</div>
         <div class="lang" [ngClass]="{'active-lang': currentLanguage === 'ar'}" (click)="switchLanguage('ar')">AR</div>
       </div>
     </div>
-
-
-
 
   </div>
 </nav>
