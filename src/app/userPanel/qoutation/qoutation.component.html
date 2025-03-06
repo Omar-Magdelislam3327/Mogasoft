@@ -11,58 +11,80 @@
         </p>
         <hr>
         <div class="mt-4">
-          <p class=" fw-bold"><i class="fas fs-4 fa-envelope text-purple mr-2"></i> info&#64;mogasoft.net</p>
-          <p class=" fw-bold"><i class="fas fs-4 fa-envelope text-purple mr-2"></i> sales&#64;mogasoft.net</p>
-          <p class=" fw-bold"><i class="fas fs-4 fa-envelope text-purple mr-2"></i> support&#64;mogasoft.net</p>
+          <p class=" fw-bold"><i class="fas fs-4 fa-envelope text-purple me-lg-2"></i> info&#64;mogasoft.net</p>
+          <p class=" fw-bold"><i class="fas fs-4 fa-envelope text-purple me-lg-2"></i> sales&#64;mogasoft.net</p>
+          <p class=" fw-bold"><i class="fas fs-4 fa-envelope text-purple me-lg-2"></i> support&#64;mogasoft.net</p>
         </div>
         <hr>
 
         <div class="mt-4">
-          <p class=" fw-bold"><i class="fas fs-4 fa-phone-alt text-purple mr-2"></i> (+2)01000201499</p>
-          <p class=" fw-bold"><i class="fas fs-4 fa-phone-alt text-purple mr-2"></i> (+2)01551114499</p>
+          <p class=" fw-bold"><i class="fas fs-4 fa-phone-alt text-purple me-lg-2"></i> (+2)01000201499</p>
+          <p class=" fw-bold"><i class="fas fs-4 fa-phone-alt text-purple me-lg-2"></i> (+2)01551114499</p>
         </div>
         <hr>
 
         <div class="mt-4">
-          <p class=" fw-bold"><i class="fas fs-4 fa-map-marker-alt text-purple mr-2"></i> Cairo, 1 Adly Mansour
-            Axis, Medo City, Gesr Al
-            Suez,
-            Qubaa</p>
+          <p class=" fw-bold"><i class="fas fs-4 fa-map-marker-alt text-purple me-lg-2"></i> {{"location" | translate}}
+          </p>
         </div>
       </div>
 
       <div class="col-md-7">
         <form (ngSubmit)="onSubmit()" [formGroup]="qouteForm">
           <div class="form-row row">
-            <div class="form-group col-md-6">
-              <input type="text" class="form-control shadow-none" [placeholder]="'Quote.CompanyName' | translate"
-                required formControlName="companyName">
+            <div class="form-group col-md-6 mb-lg-3">
+              <input type="text" class="form-control shadow-none mb-lg-0" autocomplete="off"
+                [placeholder]="'Quote.CompanyName' | translate" formControlName="companyName">
+              <small class="text-danger"
+                *ngIf="qouteForm.controls['companyName'].invalid && qouteForm.controls['companyName'].touched">
+                Company name is required.
+              </small>
             </div>
-            <div class="form-group col-md-6">
-              <input type="number" class="form-control shadow-none" [placeholder]="'Quote.NumEmployees' | translate"
-                required formControlName="numberOfEmployees">
-            </div>
-          </div>
-
-          <div class="form-row row">
-            <div class="form-group col-md-6">
-              <input type="text" class="form-control shadow-none" [placeholder]="'Quote.fName' | translate" required
-                formControlName="firstName">
-            </div>
-            <div class="form-group col-md-6">
-              <input type="text" class="form-control shadow-none" [placeholder]="'Quote.fName' | translate" required
-                formControlName="lastName">
+            <div class="form-group col-md-6 mb-lg-3">
+              <input type="number" class="form-control shadow-none mb-lg-0" autocomplete="off"
+                [placeholder]="'Quote.NumEmployees' | translate" formControlName="numberOfEmployees">
+              <small class="text-danger"
+                *ngIf="qouteForm.controls['numberOfEmployees'].invalid && qouteForm.controls['numberOfEmployees'].touched">
+                Must be a valid number.
+              </small>
             </div>
           </div>
 
           <div class="form-row row">
-            <div class="form-group col-md-6">
-              <input type="email" class="form-control shadow-none" [placeholder]="'Quote.Email' | translate" required
-                formControlName="businessEmail">
+            <div class="form-group col-md-6 mb-lg-3">
+              <input type="text" class="form-control shadow-none mb-lg-0" autocomplete="off"
+                [placeholder]="'Quote.fName' | translate" formControlName="firstName">
+              <small class="text-danger"
+                *ngIf="qouteForm.controls['firstName'].invalid && qouteForm.controls['firstName'].touched">
+                First name is required.
+              </small>
             </div>
-            <div class="form-group col-md-6">
-              <input type="text" class="form-control shadow-none" [placeholder]="'Quote.Phone' | translate" required
-                formControlName="phone">
+            <div class="form-group col-md-6 mb-lg-3">
+              <input type="text" class="form-control shadow-none mb-lg-0" autocomplete="off"
+                [placeholder]="'Quote.lName' | translate" formControlName="lastName">
+              <small class="text-danger"
+                *ngIf="qouteForm.controls['lastName'].invalid && qouteForm.controls['lastName'].touched">
+                Last name is required.
+              </small>
+            </div>
+          </div>
+
+          <div class="form-row row">
+            <div class="form-group col-md-6 mb-lg-3">
+              <input type="email" class="form-control shadow-none mb-lg-0" autocomplete="off"
+                [placeholder]="'Quote.Email' | translate" formControlName="businessEmail">
+              <small class="text-danger"
+                *ngIf="qouteForm.controls['businessEmail'].invalid && qouteForm.controls['businessEmail'].touched">
+                Please enter a valid email.
+              </small>
+            </div>
+            <div class="form-group col-md-6 mb-lg-3">
+              <input type="text" class="form-control shadow-none mb-lg-0" autocomplete="off" maxlength="11"
+                [placeholder]="'Quote.Phone' | translate" formControlName="phone">
+              <small class="text-danger"
+                *ngIf="qouteForm.controls['phone'].invalid && qouteForm.controls['phone'].touched">
+                Please enter valid phone number.
+              </small>
             </div>
           </div>
 
@@ -75,7 +97,6 @@
                   <option value="software">{{"software" | translate}}</option>
                   <option value="hardware">{{"hardware" | translate}}</option>
                 </select>
-
               </div>
             </div>
 
@@ -88,10 +109,14 @@
             </div>
           </div>
 
-          <div class="form-group">
+          <div class="form-group mb-lg-3">
             <label for="message"><strong>{{"Quote.Tell" | translate}}</strong></label>
-            <textarea id="message" class="form-control shadow-none" rows="6" [placeholder]="'Quote.how' | translate"
-              formControlName="notes" required></textarea>
+            <textarea id="message" class="form-control shadow-none mb-lg-0" rows="6" autocomplete="off"
+              [placeholder]="'Quote.how' | translate" formControlName="notes"></textarea>
+            <small class="text-danger"
+              *ngIf="qouteForm.controls['notes'].invalid && qouteForm.controls['notes'].touched">
+              Please provide some details.
+            </small>
           </div>
 
           <button type="submit" [disabled]="qouteForm.invalid" class="btn-submit">{{"Quote.SUBMIT" |

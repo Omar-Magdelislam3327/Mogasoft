@@ -50,7 +50,7 @@
     <div class="col-lg-4 mt-4" *ngFor="let client of clients">
       <div class="card">
         <div class="card-body">
-          <!-- <i class="fa-solid fa-pen-to-square" routerLink="/admin/client-edit/{{client.id}}"></i> -->
+          <i class="fa-solid fa-pen-to-square" routerLink="/admin/clients/edit-client/{{client.id}}"></i>
           <img [src]=" 'http://mogasoft.runasp.net' + client.logoUrl" alt="Client Logo" class="img-fluid">
           <i class="fa-solid fa-trash" (click)="remove(client.id)"></i>
         </div>

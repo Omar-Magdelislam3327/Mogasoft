@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { LangTransService } from 'src/app/core/services/lang-trans.service';
@@ -6,7 +6,9 @@ import { LangTransService } from 'src/app/core/services/lang-trans.service';
 @Component({
   selector: 'app-portfolio',
   templateUrl: './portfolio.component.html',
-  styleUrls: ['./portfolio.component.css']
+  styleUrls: ['./portfolio.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
+
 })
 export class PortfolioComponent {
   direction!: any;

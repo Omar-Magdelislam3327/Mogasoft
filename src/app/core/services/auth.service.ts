@@ -9,8 +9,9 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AuthService {
-  baseUrl = environment.baseUrl;
+  baseUrl = 'https://mogasoft.runasp.net/api';
   private tokenKey = 'authToken';
+  private roleKey = 'userRole';
 
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(this.hasToken());
   isAuthenticated = this.isAuthenticatedSubject.asObservable();
@@ -22,8 +23,14 @@ export class AuthService {
       tap((response: any) => {
         if (response?.token) {
           localStorage.setItem(this.tokenKey, response.token);
+          localStorage.setItem(this.roleKey, response.role);
           this.isAuthenticatedSubject.next(true);
-          this.router.navigate(['/admin/home']);
+
+          if (response.role === 'Admin') {
+            this.router.navigate(['/admin/home']);
+          } else if (response.role === 'Marketer') {
+            this.router.navigate(['/admin/blogs']);
+          }
         }
       })
     );
@@ -31,12 +38,17 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem(this.tokenKey);
+    localStorage.removeItem(this.roleKey);
     this.isAuthenticatedSubject.next(false);
-    this.router.navigate(['/login']);
+    this.router.navigate(['/home']);
   }
 
   getToken(): string | null {
     return localStorage.getItem(this.tokenKey);
+  }
+
+  getRole(): string | null {
+    return localStorage.getItem(this.roleKey);
   }
 
   isLoggedIn(): boolean {
@@ -47,3 +59,4 @@ export class AuthService {
     return !!localStorage.getItem(this.tokenKey);
   }
 }
+

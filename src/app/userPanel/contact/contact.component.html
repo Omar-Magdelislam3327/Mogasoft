@@ -14,21 +14,33 @@
         <form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
           <div class="form-group">
             <div class="row">
-              <div class="form-group col-lg-6">
-                <input type="text" class="form-control shadow-none" [placeholder]="'Contact.NAME' | translate"
+              <div class="form-group mb-3 col-lg-6">
+                <input type="text" class="form-control shadow-none mb-0" [placeholder]="'Contact.NAME' | translate"
                   formControlName="fullName">
+                <small class="m-0 mx-2 text-danger"
+                  *ngIf="messageForm.controls['fullName'].invalid && messageForm.controls['fullName'].touched">
+                  Please enter valid Full Name
+                </small>
               </div>
-              <div class="form-group col-lg-6">
-                <input type="email" class="form-control shadow-none" [placeholder]="'Contact.EMAIL' | translate"
+              <div class="form-group mb-3 col-lg-6">
+                <input type="email" class="form-control shadow-none mb-0" [placeholder]="'Contact.EMAIL' | translate"
                   formControlName="email">
+                <small class="m-0 mx-2 text-danger"
+                  *ngIf="messageForm.controls['email'].invalid && messageForm.controls['email'].touched">
+                  Please enter valid Email
+                </small>
               </div>
             </div>
           </div>
-          <div class="form-group">
-            <input type="number" class="form-control shadow-none" [placeholder]="'Contact.Phone' | translate"
-              formControlName="phone">
+          <div class="form-group mb-3">
+            <input type="text" class="form-control shadow-none mb-0" [placeholder]="'Contact.Phone' | translate"
+              formControlName="phone" maxlength="11">
+            <small class="m-0 mx-2 text-danger"
+              *ngIf="messageForm.controls['phone'].invalid && messageForm.controls['phone'].touched">
+              Please enter valid phone number
+            </small>
           </div>
-          <div class="form-group">
+          <div class="form-group mb-3">
             <label>{{"Contact.Find" | translate}}</label>
             <select class="form-select shadow-none" formControlName="findWay">
               <option value="" selected disabled>Find Way</option>
@@ -37,10 +49,18 @@
               <option value="Facebook">Facebook</option>
               <option value="Other">Other</option>
             </select>
+            <small class="m-0 mx-2 text-danger"
+              *ngIf="messageForm.controls['findWay'].invalid && messageForm.controls['findWay'].touched">
+              Please select find way
+            </small>
           </div>
-          <div class="form-group">
-            <textarea formControlName="message" class="form-control shadow-none" name="" id="" rows="5"
+          <div class="form-group mb-3">
+            <textarea formControlName="message" class="form-control shadow-none mb-0" name="" id="" rows="5"
               placeholder="Enter Message here"></textarea>
+            <small class="m-0 mx-2 text-danger"
+              *ngIf="messageForm.controls['message'].invalid && messageForm.controls['message'].touched">
+              Please provide some details.
+            </small>
           </div>
           <button type="submit" [disabled]="messageForm.invalid" class="btn-submit">{{"Contact.SUBMIT" |
             translate}}</button>
@@ -48,7 +68,7 @@
 
       </div>
 
-      <div class="col-lg-6 map-container">
+      <div class="col-lg-6 map-container mt-lg-0 mt-3">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3450.564385098345!2d31.3807382!3d30.1352762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583fed4cf3b3e7%3A0xfbd4243c1dd0fef!2z2LTYsdmD2Kkg2YXZiNis2KfYs9mI2YHYqiDZhNmE2K3ZhNmI2YQg2KfZhNmF2KrZg9in2YXZhNip!5e0!3m2!1sen!2seg!4v1739278159095!5m2!1sen!2seg"
           allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -88,7 +108,7 @@
       <div class="col-lg-6 location mt-lg-4">
         <div class=" d-flex align-items-center">
           <i class="fas fs-4 mx-2 fa-location-dot text-purple mr-2"></i>
-          <span class="fw-bold fs-6">Cairo,1 Adly Mansour Axis, Medo City, Gesr Al Suez, Qubaa</span>
+          <span class="fw-bold fs-6">{{"location" | translate}}</span>
         </div>
       </div>
     </div>

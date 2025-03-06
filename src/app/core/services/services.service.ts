@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ServicesService {
-  baseUrl = environment.baseUrl
+  baseUrl = 'https://mogasoft.runasp.net/api'
   constructor(private http: HttpClient) { }
   getServices() {
     return this.http.get<any>(`${this.baseUrl}/Services`);

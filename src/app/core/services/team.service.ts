@@ -8,13 +8,16 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class TeamService {
-  baseUrl = environment.baseUrl;
+  baseUrl = 'https://mogasoft.runasp.net/api';
   constructor(private http: HttpClient) { }
   getTeam(): Observable<Team> {
     return this.http.get<Team>(`${this.baseUrl}/Teams/Members`);
   }
   addMember(member: FormData): Observable<Team> {
     return this.http.post<Team>(`${this.baseUrl}/Teams/Member`, member);
+  }
+  updateMember(id: number, member: FormData): Observable<Team> {
+    return this.http.put<Team>(`${this.baseUrl}/Teams/Member/${id}`, member);
   }
   deleteMember(id: number): Observable<Team> {
     return this.http.delete<Team>(`${this.baseUrl}/Teams/Member/${id}`);

@@ -59,9 +59,14 @@
         <option value="" selected disabled>Select Category</option>
         <option value="WebDevelopment">Web Development</option>
         <option value="MobileDevelopment">Mobile Development</option>
-        <option value="CyberSecurity">Cyber Security</option>
-        <option value="Networking">Networking</option>
         <option value="Hosting">Hosting</option>
+        <option value="DigitakMarketing">Digital Marketing</option>
+        <option value="Computers">Computers</option>
+        <option value="SurveillanceCameras">Surveillance Cameras</option>
+        <option value="Copiers">Copiers</option>
+        <option value="Networking">Networking</option>
+        <option value="FireFighting">Fire Fighting</option>
+        <option value="QueueManagement">Queue Management</option>
       </select>
     </div>
 
@@ -87,8 +92,9 @@
 
         <img [src]="'http://mogasoft.runasp.net' + blog.imageUrl" class="card-img-top" alt="Blog Image" width="300"
           height="170" *ngIf="blog.imageUrl">
-        <!-- <i class="fa-solid fa-pen-to-square" routerLink="/admin/blog-edit/{{blog.id}}"></i> -->
-        <button class="btn btn-link m-0 p-0" (click)="deleteBlog(blog.blogId)" aria-label="Delete Blog">
+        <i class="fa-solid fa-pen-to-square" routerLink="/admin/blogs/edit-blog/{{blog.blogId}}"></i>
+        <button class="btn btn-link m-0 p-0" *ngIf="role === 'Admin'" (click)="deleteBlog(blog.blogId)"
+          aria-label="Delete Blog">
           <i class="fa-solid fa-trash"></i>
         </button>
         <div class="card-body p-2">

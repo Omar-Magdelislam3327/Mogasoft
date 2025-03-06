@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { LangTransService } from 'src/app/core/services/lang-trans.service';
@@ -7,7 +7,9 @@ import { ServicesService } from 'src/app/core/services/services.service';
 @Component({
   selector: 'app-service',
   templateUrl: './service.component.html',
-  styleUrls: ['./service.component.css']
+  styleUrls: ['./service.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
+
 })
 export class ServiceComponent {
   @ViewChildren('stepCard', { read: ElementRef }) stepCards!: QueryList<ElementRef>;
@@ -24,6 +26,7 @@ export class ServiceComponent {
     private Meta: Meta,
     private title: Title
   ) {
+    window.scrollTo(0, 0);
     this.currentLang = localStorage.getItem('language') || 'en';
     this.lang.currentLang.subscribe((lang: string) => {
       this.currentLang = lang;
@@ -56,10 +59,27 @@ export class ServiceComponent {
           DevOps Services, Agile Development, Software Maintenance, Website Optimization, Performance Tuning, Web Security, SSL Certificates, IT Consultancy, Data Analysis,
           Business Intelligence, Machine Learning Integration, Data-Driven Marketing, Advanced Analytics, AI Chatbots, Customer Relationship Management, User Engagement,
           Digital Strategy, Marketing Automation, Google My Business Optimization, Video Production, Graphic Design, Branding Services, Logo Design, UI Components, Interactive Web Design,
-          Professional IT Services, Business Growth Strategies, Corporate IT Solutions, Startup IT Support, High-Performance Websites, Secure Applications, Data Privacy Compliance.
+          Professional IT Services, Business Growth Strategies, Corporate IT Solutions, Startup IT Support, High-Performance Websites, Secure Applications, Data Privacy Compliance,
+
+          تطوير الويب, تصميم المواقع, تطوير الواجهة الأمامية, تطوير الواجهة الخلفية, تطوير الويب المتكامل, تطوير أنجولار, تطوير رياكت, تطوير Vue.js, تطبيقات الويب المخصصة,
+          حلول التجارة الإلكترونية, تطوير المتاجر الإلكترونية, تطوير أنظمة إدارة المحتوى, تطوير ووردبريس, استضافة الويب, الاستضافة السحابية, تسجيل النطاقات, إدارة الخوادم,
+          تطوير تطبيقات الجوال, تطوير تطبيقات أندرويد, تطوير تطبيقات iOS, التطبيقات متعددة المنصات, تطوير فلاتر, تطوير React Native, تصميم UI/UX, تحسين تجربة المستخدم,
+          التسويق الرقمي, خدمات السيو, تحسين محركات البحث, إعلانات جوجل, إعلانات الدفع لكل نقرة, التسويق عبر وسائل التواصل الاجتماعي, إعلانات فيسبوك, إعلانات إنستغرام, إعلانات لينكد إن, تسويق المحتوى,
+          كتابة الإعلانات, التدوين, التسويق عبر البريد الإلكتروني, توليد العملاء المحتملين, تحسين معدل التحويل, بناء الوعي بالعلامة التجارية, إدارة السمعة الإلكترونية, التسويق عبر المؤثرين,
+          حلول الأجهزة, الأجهزة التقنية, الطابعات, أجهزة التصوير, حلول الطباعة, كاميرات المراقبة, كاميرات CCTV, الكاميرات الأمنية, أنظمة المراقبة بالفيديو,
+          أنظمة التحكم في الدخول, القياسات الحيوية, أمن المكاتب, البنية التحتية للشبكات, حلول الشبكات, أجهزة التوجيه, المحولات, الجدران النارية, حلول الأمن السيبراني,
+          أنظمة مكافحة الحرائق, أجهزة إنذار الحريق, كاشفات الدخان, أنظمة الطوارئ, أنظمة إدارة الطوابير, حلول الطوابير, تقنية خدمة العملاء, دعم تكنولوجيا المعلومات,
+          خدمات تكنولوجيا المعلومات المدارة, الدعم الفني, استشارات تقنية المعلومات, حلول تكنولوجيا المعلومات للأعمال, تطوير البرمجيات, الحلول المؤسسية, أنظمة ERP, برامج CRM, إدارة قواعد البيانات,
+          أمن البيانات, الحوسبة السحابية, الافتراضية, النسخ الاحتياطي واستعادة البيانات, الأمن السيبراني, اختبارات الاختراق, تدقيق الأمان, الشبكات اللاسلكية, حلول إنترنت الأشياء,
+          حلول المكاتب الذكية, أتمتة الأعمال, أتمتة سير العمل, تكامل المنازل الذكية, التحول الرقمي, حلول الذكاء الاصطناعي, حلول SaaS, أمان تطبيقات الويب,
+          خدمات DevOps, تطوير Agile, صيانة البرمجيات, تحسين أداء المواقع, ضبط الأداء, أمان الويب, شهادات SSL, استشارات تكنولوجيا المعلومات, تحليل البيانات,
+          ذكاء الأعمال, تكامل التعلم الآلي, التسويق القائم على البيانات, التحليلات المتقدمة, روبوتات المحادثة الذكية, إدارة علاقات العملاء, تفاعل المستخدمين,
+          الاستراتيجية الرقمية, أتمتة التسويق, تحسين Google My Business, إنتاج الفيديو, التصميم الجرافيكي, خدمات العلامات التجارية, تصميم الشعارات, مكونات UI, تصميم الويب التفاعلي,
+          خدمات تكنولوجيا المعلومات الاحترافية, استراتيجيات نمو الأعمال, حلول تكنولوجيا المعلومات للشركات, دعم الشركات الناشئة, مواقع الويب عالية الأداء, التطبيقات الآمنة, الامتثال لخصوصية البيانات.
         `
       }
     ]);
+
 
     this.title.setTitle(`Mogasoft | ${this.category}`);
   }
@@ -67,7 +87,6 @@ export class ServiceComponent {
   ngAfterViewInit() {
     this.observeStepCards();
 
-    // Listen for changes in stepCards because QueryList updates dynamically
     this.stepCards.changes.subscribe(() => {
       this.observeStepCards();
     });
@@ -105,8 +124,6 @@ export class ServiceComponent {
       if (res) {
         this.serviceData = res[0];
         this.steps = this.serviceData.serviceSteps || [];
-        console.log("Data", this.serviceData);
-        console.log("Steps", this.steps);
         this.cdr.detectChanges();
       } else {
         console.error('No service found for this category');

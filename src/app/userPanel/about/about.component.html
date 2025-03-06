@@ -10,7 +10,7 @@
         <div class="carde d-flex flex-lg-row flex-column align-items-center p-4">
           <div class="shadow"></div>
           <div class="col-lg-6 p-3 text-center">
-            <img src="assets/vendors/imgs/about/who.png" alt="{{ 'ABOUT_US.WHO_IMAGE_ALT' | translate }}"
+            <img src="assets/vendors/imgs/about/who.webp" alt="{{ 'ABOUT_US.WHO_IMAGE_ALT' | translate }}"
               class="img-fluid rounded-image">
           </div>
           <div class="col-lg-6 p-3">
@@ -32,7 +32,7 @@
             <p class="card-text">{{ 'ABOUT_US.MISSION_DESC' | translate }}</p>
           </div>
           <div class="col-lg-6 p-3 text-center">
-            <img src="assets/vendors/imgs/about/mission.png" alt="{{ 'ABOUT_US.MISSION_IMAGE_ALT' | translate }}"
+            <img src="assets/vendors/imgs/about/mission.webp" alt="{{ 'ABOUT_US.MISSION_IMAGE_ALT' | translate }}"
               class="img-fluid rounded-image">
           </div>
         </div>
@@ -46,7 +46,7 @@
         <div class="carde d-flex flex-lg-row flex-column align-items-center p-4">
           <div class="shadow"></div>
           <div class="col-lg-6 p-3 text-center">
-            <img src="assets/vendors/imgs/about/vision.png" alt="{{ 'ABOUT_US.VISION_IMAGE_ALT' | translate }}"
+            <img src="assets/vendors/imgs/about/vision.webp" alt="{{ 'ABOUT_US.VISION_IMAGE_ALT' | translate }}"
               class="img-fluid rounded-image">
           </div>
           <div class="col-lg-6 p-3">
@@ -58,12 +58,12 @@
     </div>
   </section>
 
-  <section class="section4 p-4 p-lg-3" id="team" [dir]="direction" data-aos="fade-up">
+  <section class="section4 p-4 p-lg-3" id="team">
     <div class="container my-5 text-center">
       <h2 class="team-title">{{ 'ABOUT_US.TEAM_TITLE' | translate }}</h2>
       <p class="team-subtitle text-white-50">{{ 'ABOUT_US.TEAM_SUBTITLE' | translate }}</p>
 
-      <owl-carousel-o [options]="customOptions" class="team-carousel mt-4">
+      <owl-carousel-o [options]="customOptions" class="team-carousel mt-4" [dir]="direction">
         <ng-template carouselSlide *ngFor="let member of teamMembers">
           <div class="team-card">
             <img [src]="'http://mogasoft.runasp.net'+ member.imageUrl" [alt]="member.name" class="team-img mb-3">

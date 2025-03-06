@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { BlogsService } from 'src/app/core/services/blogs.service';
@@ -11,6 +11,7 @@ import { ReviewsService } from 'src/app/core/services/reviews.service';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent implements OnInit {
   direction!: any;
@@ -19,7 +20,7 @@ export class HomeComponent implements OnInit {
   blogs!: any;
   clients!: any;
   reviews!: any;
-  constructor(private titleService: Title, private metaService: Meta, private lang: LangTransService, private projectAPI: ProjectsService, private blogAPI: BlogsService, private clientAPI: ClientsService, private reviewsAPI: ReviewsService) {
+  constructor(private titleService: Title, private metaService: Meta, private lang: LangTransService, private projectAPI: ProjectsService, private blogAPI: BlogsService, private clientAPI: ClientsService, private reviewsAPI: ReviewsService, private cdr: ChangeDetectorRef) {
     window.scrollTo(0, 0);
     this.direction = this.lang.currentLang === 'ar' ? 'rtl' : 'ltr';
     this.currentLang = localStorage.getItem('language') || 'en'
@@ -40,31 +41,30 @@ export class HomeComponent implements OnInit {
       { name: 'robots', content: 'index, follow' },
       { property: 'og:title', content: 'Mogasoft | Home' },
       { property: 'og:description', content: 'Empowering businesses with cutting-edge software and hardware solutions.' },
-      { property: 'og:image', content: 'https://domain.com/assets/logo.png' }, //^^ To be Replaced by the logo when upload
-      { property: 'og:url', content: 'https://domain.com/home' },
+      { property: 'og:url', content: 'https://mogasoft.net/home' },
     ])
   }
 
   tools = [
-    { image: "../../../assets/vendors/imgs/tools/Tool Icon.png" },
-    { image: "../../../assets/vendors/imgs/tools/Tool Icon (1).png" },
-    { image: "../../../assets/vendors/imgs/tools/Tool Icon (2).png" },
-    { image: "../../../assets/vendors/imgs/tools/Tool Icon (3).png" },
-    { image: "../../../assets/vendors/imgs/tools/Tool Icon (4).png" },
-    { image: "../../../assets/vendors/imgs/tools/Tool Icon (5).png" },
-    { image: "../../../assets/vendors/imgs/tools/Tool Icon (6).png" },
-    { image: "../../../assets/vendors/imgs/tools/Tool Icon (7).png" },
-    { image: "../../../assets/vendors/imgs/tools/Tool Icon (8).png" },
-    { image: "../../../assets/vendors/imgs/tools/Tool Icon (9).png" },
-    { image: "../../../assets/vendors/imgs/tools/Tool Icon (11).png" },
-    { image: "../../../assets/vendors/imgs/tools/Tool Icon (12).png" },
-    { image: "../../../assets/vendors/imgs/tools/Tool Icon (13).png" },
-    { image: "../../../assets/vendors/imgs/tools/Tool Icon (14).png" },
-    { image: "../../../assets/vendors/imgs/tools/Tool Icon (15).png" },
-    { image: "../../../assets/vendors/imgs/tools/Tool Icon (16).png" },
-    { image: "../../../assets/vendors/imgs/tools/Tool Icon (17).png" },
-    { image: "../../../assets/vendors/imgs/tools/Tool Icon (18).png" },
-    { image: "../../../assets/vendors/imgs/tools/Tool Icon (19).png" }
+    { image: "assets/vendors/imgs/tools/Tool Icon.png" },
+    { image: "assets/vendors/imgs/tools/Tool Icon (1).png" },
+    { image: "assets/vendors/imgs/tools/Tool Icon (2).png" },
+    { image: "assets/vendors/imgs/tools/Tool Icon (3).png" },
+    { image: "assets/vendors/imgs/tools/Tool Icon (4).png" },
+    { image: "assets/vendors/imgs/tools/Tool Icon (5).png" },
+    { image: "assets/vendors/imgs/tools/Tool Icon (6).png" },
+    { image: "assets/vendors/imgs/tools/Tool Icon (7).png" },
+    { image: "assets/vendors/imgs/tools/Tool Icon (8).png" },
+    { image: "assets/vendors/imgs/tools/Tool Icon (9).png" },
+    { image: "assets/vendors/imgs/tools/Tool Icon (11).png" },
+    { image: "assets/vendors/imgs/tools/Tool Icon (12).png" },
+    { image: "assets/vendors/imgs/tools/Tool Icon (13).png" },
+    { image: "assets/vendors/imgs/tools/Tool Icon (14).png" },
+    { image: "assets/vendors/imgs/tools/Tool Icon (15).png" },
+    { image: "assets/vendors/imgs/tools/Tool Icon (16).png" },
+    { image: "assets/vendors/imgs/tools/Tool Icon (17).png" },
+    { image: "assets/vendors/imgs/tools/Tool Icon (18).png" },
+    { image: "assets/vendors/imgs/tools/Tool Icon (19).png" }
   ];
   clientsOptions: OwlOptions = {
     loop: true,
@@ -79,10 +79,9 @@ export class HomeComponent implements OnInit {
     smartSpeed: 800,
     nav: false,
     rtl: this.lang.currentLang === 'ar',
-    navText: ['<', '>'],
     responsive: {
       0: {
-        items: 3
+        items: 1
       },
       600: {
         items: 3
@@ -103,10 +102,9 @@ export class HomeComponent implements OnInit {
     autoplayHoverPause: false,
     autoplayTimeout: 1500,
     smartSpeed: 800,
-    navText: ['<', '>'],
     responsive: {
       0: {
-        items: 4
+        items: 3
       },
       600: {
         items: 7
@@ -126,16 +124,17 @@ export class HomeComponent implements OnInit {
       0: { items: 1 },
       600: { items: 2 },
       1000: { items: 3 }
-    },
-    dotClass: 'custom-dot',
-    dotsContainer: '.owl-dots'
+    }
   };
   //================================================================================
   getProjects() {
     this.projectAPI.getProjects().subscribe((res: any) => {
       this.Projects = res;
+      console.log(res);
+      this.cdr.detectChanges();
     });
   }
+
   getBlogs() {
     this.blogAPI.getBlogs().subscribe((res: any) => {
       this.blogs = res.data.slice(0, 3);

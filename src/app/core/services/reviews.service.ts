@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ReviewsService {
-  baseUrl = environment.baseUrl;
+  baseUrl = 'https://mogasoft.runasp.net/api';
 
   constructor(private http: HttpClient) { }
 

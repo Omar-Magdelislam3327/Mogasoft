@@ -28,6 +28,7 @@ span::selection {
 
 html[lang="en"] {
   font-family: 'Inter', sans-serif;
+  font-display: Swap;
 }
 
 html[lang="ar"] {

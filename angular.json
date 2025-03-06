@@ -15,13 +15,14 @@
           "options": {
             "outputPath": "dist/mogasoft",
             "index": "src/index.html",
+            "baseHref": "/",
             "main": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              "src/favicon.ico",
+              "src/assets/vendors/imgs/logo.png",
               "src/assets"
             ],
             "styles": [
@@ -43,6 +44,13 @@
           },
           "configurations": {
             "production": {
+              "aot": true,
+              "optimization": true,
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -95,7 +103,7 @@
             ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
-              "src/favicon.ico",
+              "src/assets/vendors/imgs/logo.png",
               "src/assets"
             ],
             "styles": [

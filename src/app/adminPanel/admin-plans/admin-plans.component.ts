@@ -19,6 +19,8 @@ export class AdminPlansComponent {
       NameEN: ['', Validators.required],
       NameAR: ['', Validators.required],
       Price: ['', [Validators.required, Validators.min(0)]],
+      Url: ['', Validators.required],
+      IsBest: [false, Validators.required],
       HostingProperties: this.fb.array([this.createProperty()])
     });
   }
@@ -51,7 +53,8 @@ export class AdminPlansComponent {
     formData.append('NameEN', this.planForm.value.NameEN);
     formData.append('NameAR', this.planForm.value.NameAR);
     formData.append('Price', this.planForm.value.Price.toString());
-
+    formData.append('Url', this.planForm.value.Url);
+    formData.append('IsBest', this.planForm.value.IsBest.toString());
     this.planForm.value.HostingProperties.forEach((property: any, index: number) => {
       formData.append(`HostingProperties[${index}].titleEN`, property.titleEN);
       formData.append(`HostingProperties[${index}].titleAR`, property.titleAR);
@@ -61,6 +64,8 @@ export class AdminPlansComponent {
       (response) => {
         console.log('Plan added successfully:', response);
         this.getAllPlans();
+        console.log("Form:", formData);
+        console.log("form:", this.planForm.value);
         this.planForm.reset();
         this.hostingProperties.clear();
       },

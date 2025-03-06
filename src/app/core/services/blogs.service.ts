@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class BlogsService {
-  baseUrl = environment.baseUrl;
+  baseUrl = 'https://mogasoft.runasp.net/api';
   constructor(private http: HttpClient) { }
 
   getBlogs(): Observable<Blogs> {
@@ -17,8 +17,14 @@ export class BlogsService {
   getBlogById(id: number): Observable<Blogs> {
     return this.http.get<Blogs>(`${this.baseUrl}/Blogs/${id}`);
   }
+  getBlogBySlug(slug: string): Observable<Blogs> {
+    return this.http.get<Blogs>(`${this.baseUrl}/Blogs/BySlug/${slug}`);
+  }
   addBlog(blog: FormData): Observable<Blogs> {
     return this.http.post<Blogs>(`${this.baseUrl}/Blogs`, blog);
+  }
+  updateBlog(id: number, blog: FormData): Observable<Blogs> {
+    return this.http.put<Blogs>(`${this.baseUrl}/Blogs/${id}`, blog);
   }
   deleteBlog(id: number): Observable<Blogs> {
     return this.http.delete<Blogs>(`${this.baseUrl}/Blogs/${id}`);

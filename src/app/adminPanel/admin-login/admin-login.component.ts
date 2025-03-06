@@ -27,7 +27,7 @@ export class AdminLoginComponent {
     this.authService.login(email, password).subscribe({
       next: () => {
         console.log('Login successful')
-        this.router.navigate(['/admin/home']);
+        // this.router.navigate(['/admin/home']);
       },
       error: (err) => {
         console.error('Login failed', err);

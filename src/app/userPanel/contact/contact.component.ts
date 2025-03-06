@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MessagesService } from 'src/app/core/services/messages.service';
@@ -6,7 +7,9 @@ import { MessagesService } from 'src/app/core/services/messages.service';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
+  styleUrls: ['./contact.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
+
 })
 export class ContactComponent {
   messageForm!: FormGroup
@@ -15,27 +18,34 @@ export class ContactComponent {
   }
   ngOnInit() {
     this.messageForm = this.fb.group({
-      fullName: ['', Validators.required],
-      email: ['', Validators.required],
-      phone: ['', Validators.required],
-      message: ['', Validators.required],
-      findWay: ['', Validators.required]
-    })
+      fullName: ['', [Validators.required, Validators.minLength(3)]],
+      email: ['', [Validators.required, Validators.email]],
+      phone: ['', [Validators.required, Validators.pattern('^[0-9]*$'), Validators.minLength(11)]],
+      message: ['', [Validators.required, Validators.minLength(10)]],
+      findWay: ['', Validators.required],
+    });
   }
+
   onSubmit() {
     if (this.messageForm.valid) {
-      const formData = { ...this.messageForm.value };
-      formData.notes = this.safeHTML(formData.notes);
-      this.messageService.sendMessage(this.messageForm.value).subscribe(
-        () => {
-          this.messageForm.reset();
-        }
-      );
+      const formData = new FormData();
+      formData.append('fullName', this.safeHTML(this.messageForm.value.fullName));
+      formData.append('email', this.messageForm.value.email);
+      formData.append('phone', this.messageForm.value.phone);
+      formData.append('message', this.safeHTML(this.messageForm.value.message));
+      formData.append('findWay', this.safeHTML(this.messageForm.value.findWay));
+
+      this.messageService.sendMessage(formData).subscribe(() => {
+        this.messageForm.reset();
+      });
     } else {
       console.log('Form is invalid');
+      console.log('Form:', this.messageForm.value);
     }
   }
-  safeHTML(html: string) {
-    return this.sanitizer.bypassSecurityTrustHtml(html);
+
+  safeHTML(html: string): string {
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    return doc.body.textContent || '';
   }
 }

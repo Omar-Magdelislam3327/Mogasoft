@@ -7,7 +7,7 @@
             <div class="card-body">
               <i class="fa-solid fa-briefcase fs-3 mb-2"></i>
               <h5 class="card-title text-white-50">Projects</h5>
-              <h2 class="card-text fs-1">{{this.projects.length}}</h2>
+              <h2 class="card-text fs-1">{{this.projects?.length || '0'}}</h2>
             </div>
           </div>
         </div>
@@ -16,7 +16,7 @@
             <div class="card-body">
               <i class="fa-solid fa-briefcase fs-3 mb-2"></i>
               <h5 class="card-title text-white-50">Blogs</h5>
-              <h2 class="card-text fs-1">{{this.blogs.length}}</h2>
+              <h2 class="card-text fs-1">{{this.blogs?.length || '0'}}</h2>
             </div>
           </div>
         </div>
@@ -25,7 +25,7 @@
             <div class="card-body">
               <i class="fa-solid fa-users fs-3 mb-2"></i>
               <h5 class="card-title text-white-50">Team Members</h5>
-              <h2 class="card-text fs-1">{{this.team.length}}</h2>
+              <h2 class="card-text fs-1">{{this.team?.length || '0'}}</h2>
             </div>
           </div>
         </div>
@@ -34,7 +34,7 @@
             <div class="card-body">
               <i class="fa-solid fa-quote-left fs-3 mb-2"></i>
               <h5 class="card-title text-white-50">Quotations</h5>
-              <h2 class="card-text fs-1">{{this.quotes.length}}</h2>
+              <h2 class="card-text fs-1">{{this.quotes?.length || '0'}}</h2>
             </div>
           </div>
         </div>

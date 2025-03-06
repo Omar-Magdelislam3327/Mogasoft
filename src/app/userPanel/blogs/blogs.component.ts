@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
 import { Meta, DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { BlogsService } from 'src/app/core/services/blogs.service';
 import { NormalHtmlPipe } from 'src/app/core/pipes/normal-html.pipe';
@@ -6,7 +6,8 @@ import { LangTransService } from 'src/app/core/services/lang-trans.service';
 @Component({
   selector: 'app-blogs',
   templateUrl: './blogs.component.html',
-  styleUrls: ['./blogs.component.css']
+  styleUrls: ['./blogs.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BlogsComponent {
   currentLang!: any;
@@ -17,7 +18,7 @@ export class BlogsComponent {
   total: number = 0;
   fixed = Math.ceil(this.total / this.pageSize);
   showPagination: boolean = false;
-  constructor(private api: BlogsService, private meta: Meta, private sanitizer: DomSanitizer, private lang: LangTransService) {
+  constructor(private api: BlogsService, private meta: Meta, private sanitizer: DomSanitizer, private lang: LangTransService, private cdr: ChangeDetectorRef) {
     window.scrollTo(0, 0);
     this.getBlogs();
   }
@@ -38,14 +39,11 @@ export class BlogsComponent {
   getBlogs(): void {
     this.api.getBlogs().subscribe((data: any) => {
       this.blogs = data.data;
+      console.log(this.blogs);
       this.total = data.count;
       this.fixed = Math.ceil(this.total / this.pageSize);
       this.showPagination = this.total > this.pageSize;
-
-      console.log('Total blogs:', this.total);
-      console.log('Pages needed:', this.fixed);
-      console.log('Show pagination:', this.showPagination);
-      console.log('Blogs:', this.blogs);
+      this.cdr.detectChanges();
     });
   }
 

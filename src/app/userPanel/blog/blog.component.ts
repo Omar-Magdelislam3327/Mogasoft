@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BlogsService } from 'src/app/core/services/blogs.service';
 import { LangTransService } from 'src/app/core/services/lang-trans.service';
@@ -6,34 +6,37 @@ import { LangTransService } from 'src/app/core/services/lang-trans.service';
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
-  styleUrls: ['./blog.component.css']
+  styleUrls: ['./blog.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BlogComponent {
-  id!: any;
   currentLang!: any;
   blog!: any;
   //
   facebookShareUrl: string = '';
   linkedinShareUrl: string = '';
   whatsappShareUrl: string = '';
+  //
+  slug!: string;
 
-  constructor(private blogApi: BlogsService, private lang: LangTransService, private activ: ActivatedRoute) {
-    this.id = this.activ.snapshot.params['id'];
+  constructor(private blogApi: BlogsService, private lang: LangTransService, private activ: ActivatedRoute, private cdr: ChangeDetectorRef) {
+    this.slug = this.activ.snapshot.params['slug'];
     window.scrollTo(0, 0);
   }
   ngOnInit() {
     this.currentLang = localStorage.getItem('language') || 'en';
     this.lang.currentLang.subscribe((lang: string) => {
       this.currentLang = lang;
-      this.getBlogById();
+      this.getBlogBySlug();
     });
   }
-  getBlogById() {
-    this.blogApi.getBlogById(this.id).subscribe(data => {
+  getBlogBySlug() {
+    this.blogApi.getBlogBySlug(this.slug).subscribe(data => {
       this.blog = data;
       this.generateShareUrls();
-      console.log(data);
-    })
+      console.log("Blog Data:", data);
+      this.cdr.detectChanges();
+    });
   }
   generateShareUrls() {
     if (this.blog) {

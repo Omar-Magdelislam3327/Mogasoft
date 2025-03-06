@@ -13,7 +13,11 @@ export class AdminBlogsComponent {
   selectedImage: File | null = null;
   //
   blogs: any;
-  constructor(private fb: FormBuilder, private blogService: BlogsService) { }
+  //
+  role!: any;
+  constructor(private fb: FormBuilder, private blogService: BlogsService) {
+    this.role = localStorage.getItem('userRole');
+  }
 
   ngOnInit(): void {
     this.getAllBlogs();
@@ -52,6 +56,7 @@ export class AdminBlogsComponent {
     }
 
     this.blogService.addBlog(formData).subscribe({
+
       next: (response) => {
         console.log('Blog posted successfully:', response);
         this.getAllBlogs();

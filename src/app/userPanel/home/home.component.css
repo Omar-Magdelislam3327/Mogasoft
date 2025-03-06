@@ -27,7 +27,7 @@
   }
 
   h1 {
-    font-size: 80px;
+    font-size: 60px;
     font-weight: 700;
     color: white;
     z-index: 2;
@@ -68,7 +68,7 @@
 @media (max-width: 767px) {
   #hero {
     h1 {
-      font-size: 45px;
+      font-size: 40px;
     }
   }
 }
@@ -174,6 +174,7 @@
 }
 
 #tools {
+  z-index: 5;
 
   img {
     width: 85px;
@@ -228,6 +229,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    z-index: 22;
   }
 
   .card-img-top {
@@ -254,6 +256,7 @@
     height: 90px;
     border-top-left-radius: 20px;
     z-index: 10;
+    pointer-events: auto;
   }
 
   .arrow-btn {
@@ -293,6 +296,9 @@
     transition: all 0.3s ease;
   }
 
+  .owl-carousel .owl-stage {
+    pointer-events: none;
+  }
 
 
   .owl-theme .owl-dots .owl-dot:hover span {
@@ -347,6 +353,8 @@
   .carde {
     background-color: var(--dark2);
     border-radius: 40px;
+    overflow: hidden;
+    height: 380px;
 
     h5 {
       color: white;
@@ -354,7 +362,29 @@
     }
 
     img {
-      min-height: 250px;
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+  }
+
+  .btn-outline-secondary {
+    border: 1px solid white !important;
+    border-radius: 24px;
+    color: white !important;
+    font-weight: 600;
+    padding: 7px 20px !important;
+    z-index: 2;
+  }
+
+  @media (max-width:992px) {
+    .carde {
+      height: auto;
+
+      img {
+        height: 100%;
+        object-fit: cover;
+      }
     }
   }
 
@@ -387,6 +417,8 @@
 }
 
 #reviews {
+  /* overflow: hidden !important; */
+
   .col-lg-6 {
     position: relative;
   }
@@ -394,7 +426,7 @@
   .shadow {
     position: absolute;
     top: -169px;
-    /* left: -200px; */
+    left: -200px;
     width: 404.031px;
     height: 404.031px;
     border-radius: 100%;
@@ -407,7 +439,7 @@
   .shadow1 {
     position: absolute;
     bottom: -169px;
-    /* right: -150px; */
+    right: -150px;
     width: 404.031px;
     height: 404.031px;
     border-radius: 100%;
@@ -430,7 +462,15 @@
     background-color: var(--dark2);
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    height: 270px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  @media (max-width: 992px) {
+    .review-card {
+      height: auto;
+    }
+
   }
 
   .review-card:hover {

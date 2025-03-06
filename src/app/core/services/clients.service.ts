@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ClientsService {
-  baseUrl = environment.baseUrl;
+  baseUrl = 'https://mogasoft.runasp.net/api';
   constructor(private http: HttpClient) { }
   getClients(): Observable<Clients[]> {
     return this.http.get<Clients[]>(`${this.baseUrl}/Clients`);
@@ -18,6 +18,9 @@ export class ClientsService {
   }
   addClient(client: FormData): Observable<Clients> {
     return this.http.post<Clients>(`${this.baseUrl}/Clients`, client);
+  }
+  updateClient(id: number, client: FormData): Observable<Clients> {
+    return this.http.put<Clients>(`${this.baseUrl}/Clients/${id}`, client);
   }
   deleteClient(id: number): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/Clients/${id}`);

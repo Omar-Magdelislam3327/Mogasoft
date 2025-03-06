@@ -19,7 +19,7 @@
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+          <a class="nav-link dropdown-toggle" routerLinkActive="activ" role="button" data-bs-toggle="dropdown">
             {{ "services" | translate }}
           </a>
           <ul class="dropdown-menu dropdown-menu-dark">
@@ -29,8 +29,9 @@
                 {{ "software" | translate }}
               </a>
               <ul class="dropdown-menu dropdown-menu-dark sub-menu">
-                <li><a class="dropdown-item" routerLink="/services/webdevelopment">{{ "web" | translate }}</a></li>
-                <li><a class="dropdown-item" routerLink="/services/mobile">{{ "mobile" | translate }}</a></li>
+                <li><a class="dropdown-item" routerLink="/services/web-development">{{ "web" | translate }}</a></li>
+                <li><a class="dropdown-item" routerLink="/services/mobile-development">{{ "mobile" | translate }}</a>
+                </li>
                 <li><a class="dropdown-item" routerLink="/services/hosting">{{ "hosting" | translate }}</a></li>
                 <li><a class="dropdown-item" routerLink="/services/digital-marketing">{{ "digital" | translate }}</a>
                 </li>
@@ -43,7 +44,7 @@
                 {{ "hardware" | translate }}
               </a>
               <ul class="dropdown-menu dropdown-menu-dark sub-menu">
-                <li><a class="dropdown-item" routerLink="/services/surveillance">{{ "cameras" | translate }}</a>
+                <li><a class="dropdown-item" routerLink="/services/surveillance-systems">{{ "cameras" | translate }}</a>
                 </li>
                 <li><a class="dropdown-item" routerLink="/services/computers">{{ "computers" | translate }}</a></li>
                 <li><a class="dropdown-item" routerLink="/services/copiers-plotters">{{ "copiers" | translate }}</a>

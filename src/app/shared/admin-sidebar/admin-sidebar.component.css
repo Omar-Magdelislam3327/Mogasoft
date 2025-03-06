@@ -69,6 +69,7 @@ li {
 }
 
 .mob {
+  width: 100% !important;
   background: var(--dark2);
   overflow: hidden !important;
 

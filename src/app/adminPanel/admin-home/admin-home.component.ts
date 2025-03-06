@@ -129,9 +129,77 @@ export class AdminHomeComponent {
   }
   getProjects() {
     this.proejctAPI.getProjects().subscribe(res => {
-      this.projects = res;
+      this.projects = Array.isArray(res) ? res : res.Category;
+
+      if (!Array.isArray(this.projects)) {
+        console.error("Expected an array but received:", res);
+        return;
+      }
+
+      const categoryCounts: { [key: string]: number } = {};
+
+      this.projects.forEach((project: any) => {
+        const category = project.category;
+        categoryCounts[category] = (categoryCounts[category] || 0) + 1;
+      });
+
+      const categoryColors: { [key: string]: string } = {
+        'WebDevelopment': this.primaryColor,
+        'MobileDevelopment': this.secondaryColor,
+        'DigitalMarketing': '#33FF57',            // Green
+        'Computers': '#FFD700',                   // Gold
+        'SurveillanceSystems': '#3366FF',         // Blue
+        'Copiers': '#8A2BE2',                     // BlueViolet
+        'Network': '#FF5733',                     // Reddish-Orange
+        'FireFighting': '#DC143C',                // Crimson
+        'QueueManagement': '#FF4500',             // OrangeRed
+      };
+
+
+      const chartData = Object.keys(categoryCounts).map(category => ({
+        name: category,
+        y: categoryCounts[category],
+        color: categoryColors[category] || '#CCCCCC'
+      }));
+
+      this.projectCategoriesChart = new Chart({
+        chart: {
+          type: 'pie',
+          backgroundColor: "transparent",
+          width: 400,
+          height: 400
+        },
+        title: {
+          text: 'Project Categories',
+          style: {
+            color: 'white'
+          }
+        },
+        plotOptions: {
+          pie: {
+            size: '100%',
+            dataLabels: {
+              enabled: false,
+            }
+          }
+        },
+        series: [
+          {
+            name: 'Projects',
+            type: 'pie',
+            data: chartData
+          }
+        ],
+        credits: {
+          enabled: false
+        }
+      });
+
+      console.log(chartData);
     });
   }
+
+
   getTeam() {
     this.teamAPI.getTeam().subscribe(res => {
       this.team = res;

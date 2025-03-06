@@ -182,6 +182,12 @@ header {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     filter: grayscale(100%);
     transition: 0.3s ease;
+
+    img {
+      max-width: 400px !important;
+      max-height: 500px !important;
+      object-fit: cover;
+    }
   }
 
   .team-card:hover {

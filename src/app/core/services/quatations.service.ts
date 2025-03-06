@@ -8,12 +8,12 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class QuatationsService {
-  baseUrl = environment.baseUrl;
+  baseUrl = 'https://mogasoft.runasp.net/api';
   constructor(private http: HttpClient) { }
   getQuotes(): Observable<Qoutation> {
     return this.http.get<Qoutation>(`${this.baseUrl}/Quotations`);
   }
-  postQuote(quote: Qoutation): Observable<Qoutation> {
+  postQuote(quote: FormData): Observable<Qoutation> {
     return this.http.post<Qoutation>(`${this.baseUrl}/Quotations`, quote);
   }
   deleteQuote(id: number): Observable<Qoutation> {

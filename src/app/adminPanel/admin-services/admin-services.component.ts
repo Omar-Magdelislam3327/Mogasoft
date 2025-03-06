@@ -10,6 +10,7 @@ import { ServicesService } from 'src/app/core/services/services.service';
 export class AdminServicesComponent {
   serviceForm!: FormGroup;
   headImage!: File | null;
+  services!: any;
   constructor(private fb: FormBuilder, private serviceAPI: ServicesService) { }
 
   ngOnInit(): void {
@@ -25,6 +26,7 @@ export class AdminServicesComponent {
       Image: [null, Validators.required],
       ServiceSteps: this.fb.array([this.createStep()])
     });
+    this.getPlans();
   }
 
   createStep(): FormGroup {
@@ -112,5 +114,16 @@ export class AdminServicesComponent {
       },
     });
   }
-
+  getPlans() {
+    this.serviceAPI.getServices().subscribe((data) => {
+      this.services = data;
+      console.log(data);
+    })
+  }
+  deleteService(id: any) {
+    this.serviceAPI.deleteService(id).subscribe((data) => {
+      console.log(data);
+      this.getPlans();
+    })
+  }
 }

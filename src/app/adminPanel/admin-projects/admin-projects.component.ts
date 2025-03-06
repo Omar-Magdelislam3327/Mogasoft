@@ -25,7 +25,9 @@ export class AdminProjectsComponent {
       DescriptionEN: ['', Validators.required],
       Category: ['', Validators.required],
       Type: ['', Validators.required],
-      ProjectSteps: this.fb.array([this.createStep()]) // Initialize with one step
+      HeadImage: ['', Validators.required],
+      MediaFiles: ['', Validators.required],
+      ProjectSteps: this.fb.array([this.createStep()])
     });
   }
 
@@ -47,7 +49,6 @@ export class AdminProjectsComponent {
   }
 
   removeStep(i: number) {
-    // Prevent removal if only one step is left
     if (this.projectSteps.length > 1) {
       this.projectSteps.removeAt(i);
     }

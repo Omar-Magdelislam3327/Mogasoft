@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { LangTransService } from 'src/app/core/services/lang-trans.service';
@@ -7,7 +7,9 @@ import { ProjectsService } from 'src/app/core/services/projects.service';
 @Component({
   selector: 'app-project',
   templateUrl: './project.component.html',
-  styleUrls: ['./project.component.css']
+  styleUrls: ['./project.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
+
 })
 export class ProjectComponent {
   id!: number;
@@ -16,9 +18,13 @@ export class ProjectComponent {
   projectSteps: any[] = [];
   currentLang!: any;
   direction!: any;
-  constructor(private projectApi: ProjectsService, private lang: LangTransService, private activ: ActivatedRoute) {
+  //
+  slug!: string;
+  constructor(private projectApi: ProjectsService, private lang: LangTransService, private activ: ActivatedRoute, private cdr: ChangeDetectorRef) {
     window.scrollTo(0, 0);
     this.direction = this.lang.currentLang === 'ar' ? 'rtl' : 'ltr';
+    this.slug = this.activ.snapshot.params['slug'];
+    console.log("slug:", this.slug);
   }
   carouselOptions: OwlOptions = {
     loop: true,
@@ -37,13 +43,10 @@ export class ProjectComponent {
     this.lang.currentLang.subscribe((lang: string) => {
       this.currentLang = lang;
     });
-    this.activ.params.subscribe(params => {
-      this.id = +params['id'];
-      this.getProject(this.id);
-    });
+    this.getProject();
   }
-  getProject(id: number) {
-    this.projectApi.getProjectById(id).subscribe((res: any) => {
+  getProject() {
+    this.projectApi.getProjectBySlug(this.slug).subscribe((res: any) => {
       this.project = res;
       if (res && res.mediaUrls) {
         this.mediaUrls = res.mediaUrls;
@@ -51,6 +54,7 @@ export class ProjectComponent {
       if (res && res.projectSteps) {
         this.projectSteps = res.projectSteps;
       }
+      this.cdr.detectChanges();
       console.log(this.project);
     });
   }

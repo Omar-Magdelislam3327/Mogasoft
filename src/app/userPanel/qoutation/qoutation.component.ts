@@ -1,5 +1,5 @@
 import { LangTransService } from './../../core/services/lang-trans.service';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { QuatationsService } from 'src/app/core/services/quatations.service';
@@ -7,7 +7,9 @@ import { QuatationsService } from 'src/app/core/services/quatations.service';
 @Component({
   selector: 'app-qoutation',
   templateUrl: './qoutation.component.html',
-  styleUrls: ['./qoutation.component.css']
+  styleUrls: ['./qoutation.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
+
 })
 export class QoutationComponent {
   selectedCategory: string = 'software';
@@ -32,7 +34,7 @@ export class QoutationComponent {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       businessEmail: ['', [Validators.required, Validators.email]],
-      phone: ['', [Validators.required, Validators.pattern(/^\+?[0-9]{7,14}$/)]],
+      phone: ['', [Validators.required, Validators.pattern('^[0-9]*$'), Validators.minLength(11)]],
       companyName: ['', Validators.required],
       numberOfEmployees: ['', Validators.required],
       selectedCategory: [this.selectedCategory],
@@ -56,15 +58,26 @@ export class QoutationComponent {
 
   onSubmit(): void {
     if (this.qouteForm.valid) {
-      const formData = { ...this.qouteForm.value };
-      formData.notes = this.safeHTML(formData.notes);
-      this.qouteService.postQuote(this.qouteForm.value).subscribe(() => {
-        console.log('Form submitted with:', this.qouteForm.value);
+      const formData = new FormData();
+      formData.append('firstName', this.safeHTML(this.qouteForm.value.firstName));
+      formData.append('lastName', this.safeHTML(this.qouteForm.value.lastName));
+      formData.append('businessEmail', this.qouteForm.value.businessEmail);
+      formData.append('phone', this.qouteForm.value.phone);
+      formData.append('companyName', this.safeHTML(this.qouteForm.value.companyName));
+      formData.append('numberOfEmployees', this.qouteForm.value.numberOfEmployees);
+      formData.append('selectedCategory', this.qouteForm.value.selectedCategory);
+      formData.append('service', this.qouteForm.value.service);
+      formData.append('notes', this.safeHTML(this.qouteForm.value.notes));
+
+      this.qouteService.postQuote(formData).subscribe(() => {
+        console.log('Form submitted with:', formData);
         this.qouteForm.reset();
       });
     }
   }
-  safeHTML(html: string) {
-    return this.sanitizer.bypassSecurityTrustHtml(html);
+
+  safeHTML(html: string): string {
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    return doc.body.textContent || '';
   }
 }

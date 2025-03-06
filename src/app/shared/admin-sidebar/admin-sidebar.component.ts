@@ -7,7 +7,12 @@ import { AuthService } from 'src/app/core/services/auth.service';
   styleUrls: ['./admin-sidebar.component.css']
 })
 export class AdminSidebarComponent {
-  constructor(private authService: AuthService) { }
+  role!: any;
+  constructor(private authService: AuthService) {
+    this.authService.isAuthenticated.subscribe(() => {
+      this.role = localStorage.getItem('userRole');
+    })
+  }
   logout() {
     this.authService.logout();
   }

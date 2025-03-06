@@ -8,13 +8,17 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class PlansService {
-  baseUrl = environment.baseUrl;
+  baseUrl = 'https://mogasoft.runasp.net/api';
   constructor(private http: HttpClient) { }
   getPlans(): Observable<Plans> {
     return this.http.get<Plans>(`${this.baseUrl}/Hosting`);
   }
   addPlan(plan: FormData): Observable<Plans> {
     return this.http.post<Plans>(`${this.baseUrl}/Hosting`, plan);
+  }
+  updatePlan(id: number, plan: FormData): Observable<Plans> {
+    return this.http.put<Plans>(`${this.baseUrl}/Hosting/${id}`, plan
+    );
   }
   deletePlan(id: number): Observable<Plans> {
     return this.http.delete<Plans>(`${this.baseUrl}/Hosting/${id}`);

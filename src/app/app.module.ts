@@ -31,6 +31,13 @@ import { LoaderComponent } from './core/interceptor/loader/loader.component';
 import { AdminLoginComponent } from './adminPanel/admin-login/admin-login.component';
 import { ChartModule } from 'angular-highcharts';
 import { AdminServicesComponent } from './adminPanel/admin-services/admin-services.component';
+import { AdminBlogsEditComponent } from './adminPanel/admin-blogs-edit/admin-blogs-edit.component';
+import { AdminClientsEditComponent } from './adminPanel/admin-clients-edit/admin-clients-edit.component';
+import { AdminPlansEditComponent } from './adminPanel/admin-plans-edit/admin-plans-edit.component';
+import { AdminProjectsEditComponent } from './adminPanel/admin-projects-edit/admin-projects-edit.component';
+import { AdminReviewsEditComponent } from './adminPanel/admin-reviews-edit/admin-reviews-edit.component';
+import { AdminServicesEditComponent } from './adminPanel/admin-services-edit/admin-services-edit.component';
+import { AdminTeamEditComponent } from './adminPanel/admin-team-edit/admin-team-edit.component';
 
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -55,6 +62,13 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     LoaderComponent,
     AdminLoginComponent,
     AdminServicesComponent,
+    AdminBlogsEditComponent,
+    AdminClientsEditComponent,
+    AdminPlansEditComponent,
+    AdminProjectsEditComponent,
+    AdminReviewsEditComponent,
+    AdminServicesEditComponent,
+    AdminTeamEditComponent,
   ],
   imports: [
     ChartModule,
