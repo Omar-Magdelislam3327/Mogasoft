@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ClientsService {
-  baseUrl = 'https://mogasoft.runasp.net/api';
+  baseUrl = environment.baseUrl;
   constructor(private http: HttpClient) { }
   getClients(): Observable<Clients[]> {
     return this.http.get<Clients[]>(`${this.baseUrl}/Clients`);

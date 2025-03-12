@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { LangTransService } from 'src/app/core/services/lang-trans.service';
@@ -20,7 +21,7 @@ export class ProjectComponent {
   direction!: any;
   //
   slug!: string;
-  constructor(private projectApi: ProjectsService, private lang: LangTransService, private activ: ActivatedRoute, private cdr: ChangeDetectorRef) {
+  constructor(private projectApi: ProjectsService, private lang: LangTransService, private activ: ActivatedRoute, private cdr: ChangeDetectorRef, private meta: Meta, private titleService: Title) {
     window.scrollTo(0, 0);
     this.direction = this.lang.currentLang === 'ar' ? 'rtl' : 'ltr';
     this.slug = this.activ.snapshot.params['slug'];
@@ -53,6 +54,17 @@ export class ProjectComponent {
       }
       if (res && res.projectSteps) {
         this.projectSteps = res.projectSteps;
+      }
+      if (this.project) {
+        const title = this.currentLang === 'ar' ? this.project.titleAR : this.project.titleEN;
+        const description = this.currentLang === 'ar' ? this.project.descriptionAR : this.project.descriptionEN;
+        const keywords = `${this.project.titleEN}, ${this.project.titleAR}, ${this.project.descriptionEN}, ${this.project.descriptionAR}`;
+
+        this.meta.updateTag({ name: 'title', content: title });
+        this.meta.updateTag({ name: 'description', content: description });
+        this.meta.updateTag({ name: 'keywords', content: keywords });
+        console.log(keywords)
+        this.titleService.setTitle(title);
       }
       this.cdr.detectChanges();
       console.log(this.project);

@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy, ChangeDetectorRef, NgZone } from '@angular/core';
 import { LangTransService } from 'src/app/core/services/lang-trans.service';
 import { TeamService } from 'src/app/core/services/team.service';
+import { Team } from 'src/app/models/team';
 
 @Component({
   selector: 'app-about',
@@ -47,7 +48,6 @@ export class AboutComponent {
       });
     });
   }
-
   updateCarouselOptions() {
     this.customOptions = {
       loop: true,

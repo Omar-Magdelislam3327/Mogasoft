@@ -20,7 +20,6 @@ export class BlogsComponent {
   showPagination: boolean = false;
   constructor(private api: BlogsService, private meta: Meta, private sanitizer: DomSanitizer, private lang: LangTransService, private cdr: ChangeDetectorRef) {
     window.scrollTo(0, 0);
-    this.getBlogs();
   }
   ngOnInit(): void {
     //
@@ -43,10 +42,17 @@ export class BlogsComponent {
       this.total = data.count;
       this.fixed = Math.ceil(this.total / this.pageSize);
       this.showPagination = this.total > this.pageSize;
+      const keywords = this.blogs
+        .map((blog: any) =>
+          `${blog.titleEN}, ${blog.descriptionEN}, ${blog.titleAR}, ${blog.descriptionAR}`
+        )
+        .join(', ');
+
+      this.meta.updateTag({ name: 'keywords', content: keywords });
+
       this.cdr.detectChanges();
     });
   }
-
 
   sanitizeHtml(blogDescription: string): SafeHtml {
     return this.sanitizer.bypassSecurityTrustHtml(blogDescription);

@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class PlansService {
-  baseUrl = 'https://mogasoft.runasp.net/api';
+  baseUrl = environment.baseUrl;
   constructor(private http: HttpClient) { }
   getPlans(): Observable<Plans> {
     return this.http.get<Plans>(`${this.baseUrl}/Hosting`);

@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { BlogsService } from 'src/app/core/services/blogs.service';
 import { LangTransService } from 'src/app/core/services/lang-trans.service';
@@ -19,7 +20,7 @@ export class BlogComponent {
   //
   slug!: string;
 
-  constructor(private blogApi: BlogsService, private lang: LangTransService, private activ: ActivatedRoute, private cdr: ChangeDetectorRef) {
+  constructor(private blogApi: BlogsService, private lang: LangTransService, private activ: ActivatedRoute, private cdr: ChangeDetectorRef, private meta: Meta, private titleService: Title) {
     this.slug = this.activ.snapshot.params['slug'];
     window.scrollTo(0, 0);
   }
@@ -35,9 +36,22 @@ export class BlogComponent {
       this.blog = data;
       this.generateShareUrls();
       console.log("Blog Data:", data);
+
+      if (this.blog) {
+        const title = this.currentLang === 'ar' ? this.blog.titleAR : this.blog.titleEN;
+        const description = this.currentLang === 'ar' ? this.blog.descriptionAR : this.blog.descriptionEN;
+        const keywords = `${this.blog.titleEN}, ${this.blog.titleAR}, ${this.blog.descriptionEN}, ${this.blog.descriptionAR}`;
+        console.log(title, description, keywords);
+        this.meta.updateTag({ name: 'title', content: title });
+        this.meta.updateTag({ name: 'description', content: description });
+        this.meta.updateTag({ name: 'keywords', content: keywords });
+        this.titleService.setTitle(title);
+      }
+
       this.cdr.detectChanges();
     });
   }
+
   generateShareUrls() {
     if (this.blog) {
       const blogUrl = encodeURIComponent(window.location.href);

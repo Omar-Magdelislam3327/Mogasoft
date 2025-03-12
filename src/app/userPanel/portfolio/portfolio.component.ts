@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { LangTransService } from 'src/app/core/services/lang-trans.service';
@@ -10,10 +11,10 @@ import { LangTransService } from 'src/app/core/services/lang-trans.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 
 })
-export class PortfolioComponent {
+export class PortfolioComponent implements OnInit {
   direction!: any;
   currentLang!: any;
-  constructor(private router: Router, private lang: LangTransService) {
+  constructor(private router: Router, private lang: LangTransService, private meta: Meta) {
     window.scrollTo(0, 0);
     this.currentLang = localStorage.getItem('language') || 'en';
     this.lang.currentLang.subscribe((lang: string) => {
@@ -21,6 +22,26 @@ export class PortfolioComponent {
     });
     this.direction = this.lang.currentLang === 'ar' ? 'rtl' : 'ltr';
   }
+  ngOnInit(): void {
+    this.setMetaTags();
+  }
+  setMetaTags(): void {
+    const allItems = [...this.softwareItems, ...this.hardwareItems];
+
+    const englishKeywords = allItems.map(item => item.userTitleEN).join(', ');
+    const arabicKeywords = allItems.map(item => item.userTitleAR).join(', ');
+
+    this.meta.updateTag({
+      name: 'description',
+      content: 'Discover our professional services in web development, mobile applications, UI/UX design, and more.'
+    });
+
+    this.meta.updateTag({
+      name: 'keywords',
+      content: `${englishKeywords}, ${arabicKeywords}`
+    });
+  }
+
   softwareOptions = {
     loop: true,
     margin: 10,
@@ -59,7 +80,6 @@ export class PortfolioComponent {
     { userTitleAR: "الشبكات", userTitleEN: "Network", title: 'Network', image: 'assets/vendors/imgs/services/network.webp' },
     { userTitleAR: "الإستدعاء الالي", userTitleEN: "Queue Management", title: 'QueueManagement', image: 'assets/vendors/imgs/services/queue.webp' },
   ];
-
   navigateToCategory(category: string) {
     this.router.navigate(['/projects', category]);
   }

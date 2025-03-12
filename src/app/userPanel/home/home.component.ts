@@ -35,8 +35,8 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.titleService.setTitle('Mogasoft | Home');
     this.metaService.addTags([
-      { name: 'description', content: 'Empowering businesses with integrated software and hardware solutions at Mogasoft.' },
-      { name: 'keywords', content: 'Mogasoft, Software Solutions, Hardware Solutions, Web Development, AI, IoT, Cybersecurity' },
+      { name: 'description', content: 'We specialize in Web & Mobile Apps, Hosting, Digital Marketing, Computers, Surveillance Cameras, Copiers, Plotters, Networks, Firefighting, Alarms, and Queue Management.' },
+      { name: 'keywords', content: 'Mogasoft, Software Solutions, Hardware Solutions, Web Development, AI, security , Cybersecurity , mobile' },
       { name: 'author', content: 'Mogasoft Integrated Solutions' },
       { name: 'robots', content: 'index, follow' },
       { property: 'og:title', content: 'Mogasoft | Home' },

@@ -38,6 +38,7 @@ import { AdminProjectsEditComponent } from './adminPanel/admin-projects-edit/adm
 import { AdminReviewsEditComponent } from './adminPanel/admin-reviews-edit/admin-reviews-edit.component';
 import { AdminServicesEditComponent } from './adminPanel/admin-services-edit/admin-services-edit.component';
 import { AdminTeamEditComponent } from './adminPanel/admin-team-edit/admin-team-edit.component';
+import { NotFoundComponent } from './userPanel/not-found/not-found.component';
 
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -69,6 +70,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     AdminReviewsEditComponent,
     AdminServicesEditComponent,
     AdminTeamEditComponent,
+    NotFoundComponent,
   ],
   imports: [
     ChartModule,

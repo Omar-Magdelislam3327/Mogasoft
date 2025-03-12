@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class TeamService {
-  baseUrl = 'https://mogasoft.runasp.net/api';
+  baseUrl = environment.baseUrl;
   constructor(private http: HttpClient) { }
   getTeam(): Observable<Team> {
     return this.http.get<Team>(`${this.baseUrl}/Teams/Members`);

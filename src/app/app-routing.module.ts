@@ -19,6 +19,7 @@ import { AdminClientsEditComponent } from './adminPanel/admin-clients-edit/admin
 import { AdminTeamEditComponent } from './adminPanel/admin-team-edit/admin-team-edit.component';
 import { AdminPlansEditComponent } from './adminPanel/admin-plans-edit/admin-plans-edit.component';
 import { AdminServicesEditComponent } from './adminPanel/admin-services-edit/admin-services-edit.component';
+import { NotFoundComponent } from './userPanel/not-found/not-found.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
@@ -38,6 +39,7 @@ const routes: Routes = [
     ]
   },
   { path: "services/:category", loadChildren: () => import('./userPanel/softwareServices/service/service.module').then(m => m.ServiceModule) },
+
   { path: "ms-admin", component: AdminLoginComponent },
   {
     path: 'admin',
@@ -62,7 +64,8 @@ const routes: Routes = [
       { path: "plans/plan-edit/:id", data: { roles: ['Admin'] }, canActivate: [AuthGuard], component: AdminPlansEditComponent }
     ]
   },
-  { path: "**", redirectTo: "/home", pathMatch: "full" }
+  { path: "not-found", component: NotFoundComponent, title: "Not Found" },
+  { path: "**", redirectTo: "/not-found", pathMatch: "full", title: "Not Found!!", }
 ];
 
 const routerOptions: ExtraOptions = {
@@ -70,7 +73,7 @@ const routerOptions: ExtraOptions = {
 };
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
+  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules, initialNavigation: 'enabledBlocking', scrollPositionRestoration: "enabled" })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

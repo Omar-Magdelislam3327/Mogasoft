@@ -26,19 +26,11 @@ span::selection {
   color: white;
 }
 
-html[lang="en"] {
-  font-family: 'Inter', sans-serif;
-  font-display: Swap;
-}
-
-html[lang="ar"] {
-  font-family: 'Cairo', sans-serif;
-}
-
 body {
   background-color: var(--dark1) !important;
   color: var(--dark4) !important;
-  /* font-family: "Inter" !important; */
+  font-family: 'Cairo', sans-serif;
+  font-display: swap !important;
   font-style: normal;
   overflow-x: hidden !important;
 }
