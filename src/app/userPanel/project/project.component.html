@@ -1,0 +1,59 @@
+<main id="project" [dir]="'direction' | translate">
+    <app-navbar></app-navbar>
+    <section class="section1 p-3" id="project" data-aos="fade-in" data-aos-duration="1000">
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-lg-6">
+            <div class="txt">
+              <h2>{{currentLang === "en" ? project?.titleEN : project?.titleAR}}</h2>
+              <!-- <small>Service : {{project?.category}}</small> -->
+              <p class="mt-2 desc">{{currentLang === 'en' ? project?.descriptionEN : project?.descriptionAR}}</p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="image">
+              <img [src]="'http://mogasoft.runasp.net' + project?.headImageUrl" class="img-fluid" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section2 p-3 pt-lg-5" id="results" data-aos="fade-up" data-aos-duration="1000">
+      <div class="container">
+        <h2 class="text-center text-white">Results</h2>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="carousel-container">
+              <owl-carousel-o [options]="carouselOptions" [dir]="direction">
+                <ng-container *ngFor="let url of mediaUrls">
+                  <ng-template carouselSlide>
+                    <img [src]="'http://mogasoft.runasp.net'+url" class="img-fluid carousel-image" alt="Project Image">
+                  </ng-template>
+                </ng-container>
+              </owl-carousel-o>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section3 p-3 pt-lg-5" id="steps">
+      <div class="container">
+        <h2 class="text-center text-white">Behind The Seen</h2>
+        <div class="row">
+          <div class="col-lg-12 mt-5" *ngFor="let step of projectSteps; let i = index" data-aos="fade-up"
+            data-aos-duration="1000">
+            <div class="step-card" id="step-{{i}}" #stepCard>
+              <div class="step-number">{{ i + 1 }}</div>
+              <div class="step-content d-flex align-items-center">
+                <div class="step-text">
+                  <h3 class="step-title">{{ currentLang === "en" ? step.titleEN : step.titleAR }}</h3>
+                  <p class="step-description">{{ currentLang === "en" ? step.descriptionEN : step.descriptionAR }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <app-footer></app-footer>
+  </main>

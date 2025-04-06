@@ -1,0 +1,160 @@
+:root {
+    --primaryColor: #3377FF;
+    --primaryDarker: #2659BF;
+    --primaryLighter: #99BBFF;
+    --primaryDisabled: #E3EDFF;
+    --secondaryColor: #A70A9A;
+    --secondaryDarker: #870E7D;
+    --secondaryLighter: #E950DD;
+    --secondaryDisabled: #FDC5F8;
+    --dark1: #090909;
+    --dark2: #111111;
+    --dark3: #8F90A6;
+    --dark4: #C7C9D9;
+  }
+  
+  h1::selection,
+  h2::selection,
+  h3::selection,
+  h4::selection,
+  h5::selection,
+  h6::selection,
+  p::selection,
+  label::selection,
+  span::selection {
+    background-color: var(--secondaryColor);
+    color: white;
+  }
+  
+  body {
+    background-color: var(--dark1) !important;
+    color: var(--dark4) !important;
+    font-family: 'Cairo', sans-serif;
+    font-display: swap !important;
+    font-style: normal;
+    overflow-x: hidden !important;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--primaryColor);
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: var(--dark4);
+  }
+  
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+  
+  .btn-mogasoft-success {
+    background-color: var(--primaryColor);
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 7px;
+    transition: 0.3s;
+  }
+  
+  .btn-mogasoft-success:hover {
+    background-color: var(--primaryDarker);
+  }
+  
+  .btn-mogasoft-success:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+  }
+  
+  .btn-mogasoft-success:focus {
+    outline: none;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
+  }
+  
+  .btn-mogasoft-danger {
+    background-color: #c4002b;
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 7px;
+    transition: 0.3s;
+  }
+  
+  .btn-mogasoft-danger:hover {
+    background-color: #de002d;
+  }
+  
+  .btn-mogasoft-danger:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+  }
+  
+  .btn-mogasoft-danger:focus {
+    outline: none;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
+  }
+  
+  .btn-outline-secondary {
+    background-color: transparent !important;
+    color: var(--secondaryColor) !important;
+    border: 2px solid var(--secondaryColor) !important;
+    transition: 0.3s;
+  }
+  
+  .btn-outline-secondary:hover {
+    background-color: var(--secondaryLighter) !important;
+    border-color: var(--secondaryLighter) !important;
+  }
+  
+  .form-control {
+    background-color: #1a1a1a !important;
+    border: none !important;
+    border-radius: 24px !important;
+    color: white !important;
+    padding: 15px !important;
+    margin-bottom: 15px !important;
+    width: 100% !important;
+  }
+  
+  .form-control::placeholder {
+    color: #B3B3B380 !important;
+  }
+  
+  .form-select {
+    background-color: #1a1a1a !important;
+    border: none !important;
+    border-radius: 24px !important;
+    color: white !important;
+    padding: 15px !important;
+    margin-bottom: 15px !important;
+    width: 100% !important;
+    background-image: url(assets/vendors/imgs/chevron-down-solid.svg) !important;
+  
+  }
+  
+  .form-group label {
+    margin-bottom: 5px !important;
+    font-weight: 500 !important;
+    display: block !important;
+  }
+  
+  [dir="rtl"] .form-select {
+    direction: rtl !important;
+    text-align: right !important;
+    background-position: left 0.75rem center !important;
+  }
+  
+  [dir="ltr"] .form-select {
+    direction: ltr !important;
+    text-align: left !important;
+    background-position: right 0.75rem center !important;
+  }

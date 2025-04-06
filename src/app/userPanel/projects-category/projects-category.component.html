@@ -1,0 +1,28 @@
+<main id="portfolio" [dir]="'direction' | translate">
+    <app-navbar></app-navbar>
+    <header class="text-center p-5">
+      <h2>{{userCategory}}</h2>
+    </header>
+    <div class="portfolio-section container pt-5 p-3" data-aos="fade-in" data-aos-duration="1000">
+      <div class="row">
+        <div class="col-lg-4 mt-3" *ngFor="let project of projects">
+          <div class="card position-relative">
+            <div class="card-body p-3">
+              <h3 class="card-title text-white">{{ currentLang === 'en' ? project.titleEN : project.titleAR }}</h3>
+            </div>
+  
+            <img [src]="'http://mogasoft.runasp.net' + project.headImageUrl" alt="{{ project.title }}"
+              class="card-img-top">
+  
+            <div class="posCard">
+              <div class="arrow-btn">
+                <i class="fa-solid fa-arrow-up-right" routerLink="/portfolio/{{project.slug}}"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+    <app-footer></app-footer>
+  </main>

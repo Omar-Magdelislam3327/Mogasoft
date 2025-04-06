@@ -1,0 +1,54 @@
+.card {
+    position: relative;
+    background-color: var(--dark2) !important;
+  }
+  
+  .fa-pen-to-square {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    background-color: #f1c40f;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.3s;
+    z-index: 23;
+    cursor: pointer;
+  }
+  
+  .card:hover .fa-pen-to-square {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .fa-trash {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    background-color: red;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.3s;
+    z-index: 213;
+    cursor: pointer;
+  }
+  
+  
+  
+  .card:hover .fa-trash {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .card img {
+    transition: 0.2s;
+  }
+  
+  .card:hover img {
+    filter: brightness(120%);
+  }

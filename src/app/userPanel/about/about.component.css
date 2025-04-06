@@ -1,0 +1,223 @@
+header {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    h2 {
+      font-size: 80px;
+      color: white;
+      font-weight: 700;
+    }
+  }
+  
+  #who {
+  
+    .carde {
+      position: relative;
+      background-color: #111;
+      border-radius: 64px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      color: #fff;
+    }
+  
+    .shadow {
+      position: absolute;
+      top: -169px;
+      left: -200px;
+      width: 404.031px;
+      height: 404.031px;
+      border-radius: 100%;
+      opacity: 0.65;
+      background: #1E091C;
+      filter: blur(100px);
+      z-index: -1;
+    }
+  
+    .rounded-image {
+      border-radius: 64px;
+      max-width: 100%;
+      height: auto;
+    }
+  
+    .card-title {
+      font-size: 50px;
+    }
+  
+    .card-text {
+      font-size: 23px;
+    }
+  
+    @media (max-width: 992px) {
+      .carde {
+        flex-direction: column;
+        text-align: center;
+      }
+  
+      .card-title {
+        margin-top: 20px;
+      }
+    }
+  
+  }
+  
+  #mission {
+  
+    .carde {
+      position: relative;
+      background-color: #111;
+      border-radius: 64px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      color: #fff;
+    }
+  
+    .shadow {
+      position: absolute;
+      top: -169px;
+      /* right: -200px; */
+      width: 404.031px;
+      height: 404.031px;
+      border-radius: 100%;
+      opacity: 0.65;
+      background: #1E091C;
+      filter: blur(100px);
+      z-index: -1;
+    }
+  
+    .rounded-image {
+      border-radius: 64px;
+      max-width: 100%;
+      height: auto;
+    }
+  
+    .card-title {
+      font-size: 50px;
+    }
+  
+    .card-text {
+      font-size: 23px;
+    }
+  
+    @media (max-width: 992px) {
+      .carde {
+        flex-direction: column;
+        text-align: center;
+      }
+  
+      .card-title {
+        margin-top: 20px;
+      }
+    }
+  
+  }
+  
+  #vision {
+  
+    .carde {
+      position: relative;
+      background-color: #111;
+      border-radius: 64px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      color: #fff;
+    }
+  
+    .shadow {
+      position: absolute;
+      top: -169px;
+      left: -200px;
+      width: 404.031px;
+      height: 404.031px;
+      border-radius: 100%;
+      opacity: 0.65;
+      background: #1E091C;
+      filter: blur(100px);
+      z-index: -1;
+    }
+  
+    .rounded-image {
+      border-radius: 64px;
+      max-width: 100%;
+      height: auto;
+    }
+  
+    .card-title {
+      font-size: 50px;
+    }
+  
+    .card-text {
+      font-size: 23px;
+    }
+  
+    @media (max-width: 992px) {
+      .carde {
+        flex-direction: column;
+        text-align: center;
+      }
+  
+      .card-title {
+        margin-top: 20px;
+      }
+    }
+  
+  }
+  
+  #team {
+  
+    .team-title {
+      font-size: 60px;
+      font-weight: 700;
+      color: white;
+    }
+  
+    .team-subtitle {
+      font-size: 30px;
+      line-height: 40.8px;
+      letter-spacing: 0%;
+    }
+  
+    .team-card {
+      background-color: #111;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      filter: grayscale(100%);
+      transition: 0.3s ease;
+  
+      img {
+        max-width: 400px !important;
+        max-height: 500px !important;
+        object-fit: cover;
+      }
+    }
+  
+    .team-card:hover {
+      filter: grayscale(0%);
+    }
+  
+    .member-name {
+      font-size: 28px;
+      font-weight: 700;
+      color: #fff;
+    }
+  
+    .member-role {
+      font-size: 16px;
+      color: #ccc;
+    }
+  
+    .owl-theme .owl-dots .owl-dot span {
+      width: 16px !important;
+      height: 16px !important;
+      border-radius: 50%;
+      background-color: #2E2E2E !important;
+      transition: 0.3s;
+    }
+  
+    .owl-theme .owl-dots .owl-dot:hover span {
+      background-color: var(--dark3) !important;
+    }
+  
+    .owl-theme .owl-dots .owl-dot.active span {
+      background-color: var(--secondaryColor) !important;
+    }
+  }

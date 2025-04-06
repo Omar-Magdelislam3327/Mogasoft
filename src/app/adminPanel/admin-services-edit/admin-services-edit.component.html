@@ -1,0 +1,123 @@
+<div class="container p-5">
+    <div class="title">
+      <h2 class="fw-bold text-success">Update Service</h2>
+    </div>
+    <form [formGroup]="serviceForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="form-group">
+          <label>Type</label>
+          <select formControlName="Type" class="form-select shadow-none">
+            <option value="Software">Software</option>
+            <option value="Hardware">Hardware</option>
+          </select>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="form-group">
+          <label>Category</label>
+          <input type="text" formControlName="Category" class="form-control shadow-none" placeholder="Ex: webdevelopment">
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="form-group col-lg-6">
+          <label>Title (English)</label>
+          <input type="text" class="form-control shadow-none" formControlName="TitleEN"
+            placeholder="Enter Title in English" />
+        </div>
+        <div class="form-group col-lg-6">
+          <label>Title (Arabic)</label>
+          <input type="text" class="form-control shadow-none" formControlName="TitleAR"
+            placeholder="Enter Title in Arabic" />
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="form-group col-lg-6">
+          <label>Bio (English)</label>
+          <textarea class="form-control shadow-none" formControlName="BioEN"
+            placeholder="Enter Bio in English"></textarea>
+        </div>
+        <div class="form-group col-lg-6">
+          <label>Bio (Arabic)</label>
+          <textarea class="form-control shadow-none" formControlName="BioAR" placeholder="Enter Bio in Arabic"></textarea>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="form-group col-lg-6">
+          <label>Description (English)</label>
+          <textarea class="form-control shadow-none" formControlName="DescriptionEN"
+            placeholder="Enter Description in English"></textarea>
+        </div>
+        <div class="form-group col-lg-6">
+          <label>Description (Arabic)</label>
+          <textarea class="form-control shadow-none" formControlName="DescriptionAR"
+            placeholder="Enter Description in Arabic"></textarea>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="form-group">
+          <label>Head Image</label>
+          <input type="file" class="form-control shadow-none" formControlName="Image"
+            (change)="onHeadImageSelected($event)" />
+        </div>
+      </div>
+  
+      <div class="mt-3">
+        <label>Service Steps</label>
+        <div formArrayName="ServiceSteps">
+          <div *ngFor="let step of ServiceSteps.controls; let i = index" [formGroupName]="i" class="mb-2">
+            <div class="form-group">
+              <div class="row p-3 steps">
+                <div class="col-lg-6">
+                  <label for="titleEN{{i}}">Step Title (English)</label>
+                  <input id="titleEN{{i}}" type="text" class="form-control shadow-none mt-2" formControlName="titleEN"
+                    placeholder="Enter Step Title in English" />
+                </div>
+                <div class="col-lg-6">
+                  <label for="titleAR{{i}}">Step Title (Arabic)</label>
+                  <input id="titleAR{{i}}" class="form-control shadow-none mt-2" formControlName="titleAR"
+                    placeholder="Enter Step Title in Arabic" />
+                </div>
+                <div class="col-lg-6">
+                  <label for="bioEN{{i}}">Step Bio (English)</label>
+                  <input id="bioEN{{i}}" type="text" class="form-control shadow-none mt-2" formControlName="bioEN"
+                    placeholder="Enter Step Bio in English" />
+  
+                  <label for="descriptionEN{{i}}">Step Description (English)</label>
+                  <textarea id="descriptionEN{{i}}" class="form-control shadow-none mt-2" formControlName="descriptionEN"
+                    placeholder="Enter Step Description in English"></textarea>
+                </div>
+                <div class="col-lg-6">
+                  <label for="bioAR{{i}}">Step Bio (Arabic)</label>
+                  <input id="bioAR{{i}}" type="text" class="form-control shadow-none mt-2" formControlName="bioAR"
+                    placeholder="Enter Step Bio in Arabic" />
+  
+                  <label for="descriptionAR{{i}}">Step Description (Arabic)</label>
+                  <textarea id="descriptionAR{{i}}" class="form-control shadow-none mt-2" formControlName="descriptionAR"
+                    placeholder="Enter Step Description in Arabic"></textarea>
+                </div>
+                <!-- <div class="col-lg-12">
+                  <label for="image{{i}}">Step Image</label>
+                  <input id="image{{i}}" type="file" class="form-control shadow-none mt-2" formControlName="image"
+                    (change)="onStepImageSelected($event , i)" />
+                </div> -->
+                <button *ngIf="i > 0" type="button" class="btn btn-danger btn-sm" (click)="removeStep(i)">Remove
+                  Step</button>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+        <button type="button" class="btn btn-primary mt-2" (click)="addStep()">Add Step</button>
+      </div>
+      <div class="col-lg-12 text-center">
+        <button type="submit" class="btn-mogasoft-success shadow-none" [disabled]="serviceForm.invalid">Update
+          Service</button>
+        <button type="reset" class="btn-mogasoft-danger ms-3 shadow-none">Reset</button>
+      </div>
+    </form>
+  </div>

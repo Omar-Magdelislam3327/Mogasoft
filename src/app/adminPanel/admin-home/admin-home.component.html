@@ -1,0 +1,60 @@
+<main id="homeAdmin">
+    <section class="section1 p-4 pt-5" id="stats">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="card">
+              <div class="card-body">
+                <i class="fa-solid fa-briefcase fs-3 mb-2"></i>
+                <h5 class="card-title text-white-50">Projects</h5>
+                <h2 class="card-text fs-1">{{this.projects?.length || '0'}}</h2>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="card">
+              <div class="card-body">
+                <i class="fa-solid fa-briefcase fs-3 mb-2"></i>
+                <h5 class="card-title text-white-50">Blogs</h5>
+                <h2 class="card-text fs-1">{{this.blogs?.length || '0'}}</h2>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="card">
+              <div class="card-body">
+                <i class="fa-solid fa-users fs-3 mb-2"></i>
+                <h5 class="card-title text-white-50">Team Members</h5>
+                <h2 class="card-text fs-1">{{this.team?.length || '0'}}</h2>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="card">
+              <div class="card-body">
+                <i class="fa-solid fa-quote-left fs-3 mb-2"></i>
+                <h5 class="card-title text-white-50">Quotations</h5>
+                <h2 class="card-text fs-1">{{this.quotes?.length || '0'}}</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section2 p-4" id="charts">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="chart-container">
+                <p-chart type="line" [data]="lineChartData" [options]="lineChartOptions"></p-chart>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="chart-container">
+                <p-chart type="doughnut" [data]="pieChartData" [options]="pieChartOptions" styleClass="w-full md:w-30rem"></p-chart>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>

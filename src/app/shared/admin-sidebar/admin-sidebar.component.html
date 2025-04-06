@@ -1,0 +1,66 @@
+<div class="admin-layout" dir="ltr">
+    <aside class="aside-bar text-white d-lg-block d-none">
+      <div class="logo my-3">
+        <img routerLink="/home" src="assets/vendors/imgs/logo.png" width="200" class="img-fluid py-0 px-3" alt="">
+      </div>
+      <div class="menu">
+        <ul class="text-center na mt-4">
+          <li class="d-flex align-items-center pe-3 mt-2" *ngIf="role === 'Admin'" routerLink="/admin/home"
+            routerLinkActive="activ">
+            <i class="fa-solid ps-3 fa-home fs-4"></i>
+            <a class="p-0 m-0">Home</a>
+          </li>
+  
+          <li class="d-flex align-items-center pe-3 mt-2" *ngIf="role === 'Admin'" routerLink="/admin/projects"
+            routerLinkActive="activ">
+            <i class="fa-solid ps-3 fa-briefcase fs-4"></i>
+            <a class="p-0 m-0">Projects</a>
+          </li>
+  
+          <li class="d-flex align-items-center pe-3 mt-2" routerLink="/admin/blogs" routerLinkActive="activ">
+            <i class="fa-solid ps-3 fa-blog fs-4"></i>
+            <a class="p-0 m-0">Blogs</a>
+          </li>
+  
+          <li class="d-flex align-items-center pe-3 mt-2" *ngIf="role === 'Admin'" routerLink="/admin/services"
+            routerLinkActive="activ">
+            <i class="fa-solid ps-3 fa-folder-gear fs-4"></i>
+            <a class="p-0 m-0">Services</a>
+          </li>
+  
+          <li class="d-flex align-items-center pe-3 mt-2" *ngIf="role === 'Admin'" routerLink="/admin/team"
+            routerLinkActive="activ">
+            <i class="fa-solid ps-3 fa-user fs-4"></i> <a class="p-0 m-0">Team</a>
+          </li>
+  
+          <li class="d-flex align-items-center pe-3 mt-2" *ngIf="role === 'Admin'" routerLink="/admin/clients"
+            routerLinkActive="activ">
+            <i class="fa-solid ps-3 fa-users fs-4"></i> <a class="p-0 m-0">Clients</a>
+          </li>
+  
+          <li class="d-flex align-items-center pe-3 mt-2" *ngIf="role === 'Admin'" routerLink="/admin/reviews"
+            routerLinkActive="activ">
+            <i class="fa-solid ps-3 fa-star fs-4"></i> <a class="p-0 m-0">Reviews</a>
+          </li>
+  
+          <li class="d-flex align-items-center pe-3 mt-2" *ngIf="role === 'Admin'" routerLink="/admin/plans"
+            routerLinkActive="activ">
+            <i class="fa-solid ps-3 fa-cards-blank fs-4"></i> <a class="p-0 m-0">Plans</a>
+          </li>
+  
+  
+          <!-- <li class="d-flex align-items-center pe-3 mt-2" *ngIf="role === 'Admin'" routerLink="/admin/messages"
+            routerLinkActive="activ">
+            <i class="fa-solid ps-3 fa-message fs-4"></i> <a class="p-0 m-0">Messages</a>
+          </li> -->
+  
+          <li class="d-flex align-items-center pe-3 mt-2" *ngIf="role === 'Admin'" routerLink="/admin/quatations"
+            routerLinkActive="activ">
+            <i class="fa-solid ps-3 fa-quote-left fs-4"></i> <a class="p-0 m-0">Quatations</a>
+          </li>
+  
+        </ul>
+        <button (click)="logout()" class="btn btn-outline-danger col-10 mt-3">Log Out</button>
+      </div>
+    </aside>
+  </div>

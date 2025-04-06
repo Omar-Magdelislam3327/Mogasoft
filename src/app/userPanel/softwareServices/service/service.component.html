@@ -1,0 +1,60 @@
+<main id="service" [dir]="'direction' | translate">
+    <app-navbar></app-navbar>
+  
+    <section class="section1 py-3" id="hero" data-aos="fade-in" data-aos-duration="1000">
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-lg-6 order-2 order-lg-1">
+            <div class="txt">
+                <h2>{{ currentLang === "en" ? serviceData?.titleEN : serviceData?.titleAR }}</h2>
+                <p class="desc text-white-50">{{ currentLang === "en" ? serviceData?.bioEN : serviceData?.bioAR }}</p>
+              <p class="text-white">{{ currentLang === "en" ? serviceData?.descriptionEN : serviceData?.descriptionAR }}
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2">
+            <div class="image position-relative">
+                <img
+                  [src]="'http://mogasoft.runasp.net' + serviceData?.image"
+                  *ngIf="serviceData?.image"
+                  [class.d-none]="!imageLoaded"
+                  (load)="onImageLoad()"
+                  class="img-fluid fade-in"
+                  alt=""
+                />
+              
+                <div *ngIf="!imageLoaded" class="skeleton-loader"></div>
+              </div>              
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section2 py-3" id="steps">
+      <div class="container">
+        <div class="title">
+          <h2>{{"SERVICE.how" | translate}} {{currentLang === 'en' ? serviceData?.titleEN : serviceData?.titleAR}}
+            {{"SERVICE.idea" | translate}}</h2>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 mt-5" *ngFor="let step of steps; let i = index" data-aos="fade-up"
+            data-aos-duration="1000">
+            <div class="step-card" id="step-{{ i }}" #stepCard>
+              <div class="step-number">{{ i + 1 }}</div>
+              <div class="step-content d-flex align-items-center">
+                <div class="step-text">
+                  <h3 class="step-title">{{ currentLang === "en" ? step.titleEN : step.titleAR }}</h3>
+                  <p class="my-2 text-white-50">{{currentLang === 'en' ? step.bioEN : step.bioAR}}</p>
+                  <p class="step-description">{{ currentLang === "en" ? step.descriptionEN : step.descriptionAR }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center" data-aos="fade-up" data-aos-duration="1000">
+          <a class="btn btn-primary col-3 fw-bold py-3 mt-3" [routerLink]="['/qoutation']">{{"hero.button" |
+            translate}}</a>
+        </div>
+      </div>
+    </section>
+    <app-footer></app-footer>
+  </main>

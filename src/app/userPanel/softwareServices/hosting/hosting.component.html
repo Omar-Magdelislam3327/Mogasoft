@@ -1,0 +1,65 @@
+<main id="hosting" [dir]="'direction' | translate">
+    <app-navbar></app-navbar>
+    <section class="section1 pt-5 py-3" id="hero" data-aos="fade-in" data-aos-duration="1000">
+      <div class="container">
+        <div class="row  justify-content-center align-items-center">
+  
+          <div class="col-lg-6 order-2 order-lg-1">
+            <div class="txt">
+              <h2 class="text-white">{{"SERVICE.Hosting.TITLE" | translate}}</h2>
+              <p class="text-white-50">
+                {{"SERVICE.Hosting.Bio" | translate}}
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2">
+            <img src="assets/vendors/imgs/hosting.webp" class="img-fluid" alt="">
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section2 py-3" id="world">
+      <div class="container">
+        <div class="row justify-content-center align-items-center">
+          <div class="title text-center">
+            <h2 class="fw-bold text-white">{{ 'SERVICE.Hosting.WORLD_TITLE' | translate }}</h2>
+            <p>{{ 'SERVICE.Hosting.WORLD_TEXT' | translate }}</p>
+          </div>
+          <div class="col-lg-12">
+            <img src="assets/vendors/imgs/world.png" loading="lazy" class="img-fluid mt-3" alt="">
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section3 py-3" id="plans">
+      <div class="container text-center">
+        <h2 class="text-white mb-5">{{"plans" | translate}}</h2>
+        <div class="row justify-content-center">
+  
+          <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="500" *ngFor="let plan of plans">
+            <div class="card text-white p-4">
+              <div class="offer" *ngIf="plan.isBest === true">{{"best" | translate}}</div>
+              <h3 class="fw-bold">{{currentLang === 'en' ? plan.nameEN : plan.nameAR}}</h3>
+              <h5 class="my-3">Normally <span>${{plan.afterDiscount}}</span> Save 35%</h5>   
+              <ul class="list-unstyled text-start" *ngIf="plan?.hostingProperties?.length > 0">
+                <li *ngFor="let property of plan?.hostingProperties">
+                  <i class="fa-solid fs-5 fa-square-check"></i> {{ currentLang === 'en' ? property?.titleEN :
+                  property?.titleAR }}
+                  <hr>
+                </li>
+              </ul>
+              <div class="text-start">
+                <h4 class="text-white fw-bold mt-3">{{"Ioffer" | translate}}</h4>
+                <p class=" text-pink">${{plan.price}} / {{"Mo" | translate}}</p>
+                <a href="{{plan.url}}" target="_blank"
+                  class="text-reset text-decoration-none btn btn-primary w-100">{{"buy" |
+                  translate}}</a>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </section>
+    <app-footer></app-footer>
+  </main><p>hosting works!</p>

@@ -1,0 +1,206 @@
+<main id="home" [dir]="'direction' | translate" data-aos="fade-in" data-aos-duration="1000">
+    <app-navbar></app-navbar>
+    <section id="hero" class="section1">
+      <div class="container-fluid text-center p-5">
+        <h1>{{ 'hero.title.part1' | translate }}
+          <!-- <span class="infinity">{{ 'hero.title.infinity' | translate }}</span> -->
+          <br>
+          <span class="mt-lg-3">{{ 'hero.title.part2' | translate }}</span>
+        </h1>
+        <h2>{{ 'hero.subtitle' | translate }}</h2>
+        <button class="btn btn-outline-secondary mt-lg-3" routerLink="/qoutation">
+          {{ 'hero.button' | translate }}
+        </button>
+      </div>
+    </section>
+  
+    <section id="clients" class="section2 p-lg-0 pt-3" data-aos="fade-up">
+      <div class="mt-5">
+        <div class="slider p-3">
+          <div class="shadow"></div>
+          <owl-carousel-o [options]="clientsOptions" [dir]="direction">
+            <ng-template carouselSlide *ngFor="let client of clients; trackBy : trackByClientId">
+              <img [src]="'http://mogasoft.runasp.net' + client.logoUrl" alt="" loading="lazy">
+            </ng-template>
+          </owl-carousel-o>                  
+          <div class="shadow1"></div>
+        </div>
+      </div>
+    </section>
+  
+    <section id="about" class="section3 p-3" data-aos="fade-up">
+      <div class="container">
+        <div class="row carde">
+          <div class="shadow3"></div>
+  
+          <div class="col-lg-6 p-4 order-2 order-lg-1">
+            <h2 class="text-white fw-bold mb-4">{{ 'ABOUT.TITLE' | translate }}</h2>
+            <p class="text-white-50">{{ 'ABOUT.DESCRIPTION_1' | translate }}</p>
+            <p class="text-white-50">{{ 'ABOUT.DESCRIPTION_2' | translate }}</p>
+            <p class="text-white-50">{{ 'ABOUT.DESCRIPTION_3' | translate }}</p>
+            <p class="text-white-50">{{ 'ABOUT.DESCRIPTION_4' | translate }}</p>
+            <button routerLink="/about" class="btn btn-outline-light mt-3 px-4 py-2 rounded-pill">{{ 'ABOUT.LEARN_MORE' |
+              translate
+              }}</button>
+          </div>
+  
+          <div class="col-lg-6 p-0 m-0">
+            <img src="assets/vendors/imgs/about.webp" alt="About Us"
+              class="img-fluid order-1 order-lg-2 d-lg-block d-none">
+          </div>
+        </div>
+  
+        <div class="row cards text-center py-5" data-aos="fade-up">
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="stat-card bg-highlight text-white py-4 rounded-4 shadow">
+              <h3 class="fw-bold mb-1">64+</h3>
+              <p class="text-white-50 mb-0">{{ 'ABOUT.SUCCESS_PROJECTS' | translate }}</p>
+            </div>
+          </div>
+  
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="stat-card text-white py-4 rounded-4 shadow">
+              <h3 class="fw-bold mb-1">33+</h3>
+              <p class="text-white-50 mb-0">{{ 'ABOUT.EXPERT_TEAM' | translate }}</p>
+            </div>
+          </div>
+  
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="stat-card text-white py-4 rounded-4 shadow">
+              <h3 class="fw-bold mb-1">45+</h3>
+              <p class="text-white-50 mb-0">{{ 'ABOUT.SATISFIED_CLIENTS' | translate }}</p>
+            </div>
+          </div>
+  
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="stat-card text-white py-4 rounded-4 shadow">
+              <h3 class="fw-bold mb-1">9+</h3>
+              <p class="text-white-50 mb-0">{{ 'ABOUT.YEARS_EXPERIENCE' | translate }}</p>
+            </div>
+          </div>
+  
+          <div class="shadow1"></div>
+        </div>
+      </div>
+    </section>
+  
+    <section id="tools" class="section4 p-3" data-aos="fade-up" [dir]="direction">
+      <div class="slider">
+        <div class="shadow"></div>
+        <owl-carousel-o [options]="toolsOptions">
+          <ng-template carouselSlide *ngFor="let tool of tools">
+            <img src="{{tool.image}}" alt="">
+          </ng-template>
+        </owl-carousel-o>
+        <div class="shadow1"></div>
+      </div>
+    </section>
+  
+    <section id="portfolio" class="section5 p-3" data-aos="fade-up" [dir]="direction">
+      <div class="container">
+        <div class="portfolio-section text-center py-5">
+          <h2 class="fw-bold text-white mb-2">{{"portfolio" | translate}}</h2>
+          <p class="text-white-50 mb-4">{{"portfolioTxt" | translate}}</p>
+          <div class="slider">
+            <div class="shadow"></div>
+  
+            <owl-carousel-o [options]="projectsOptions">
+              <ng-container *ngFor="let project of projects; trackBy: trackByProjectId">
+                <ng-template carouselSlide>
+                  <div class="card position-relative">
+                    <div class="card-body p-3">
+                      <h3 class="card-title text-white">{{ currentLang === 'en' ? project.titleEN : project.titleAR }}
+                      </h3>
+                    </div>
+  
+                    <img [src]="'http://mogasoft.runasp.net' + project.headImageUrl" alt="{{ project.titleEN }}"
+                      class="card-img-top">
+  
+                    <a class="text-reset text-decoration-none" [routerLink]="'/portfolio/' + project.slug">
+                      <div class="posCard">
+                        <div class="arrow-btn">
+                          <i class="fa-solid fa-arrow-up-right"></i>
+                        </div>
+                      </div>
+                    </a>
+  
+  
+                  </div>
+                </ng-template>
+              </ng-container>
+            </owl-carousel-o>
+            <div class="shadow1"></div>
+          </div>
+  
+        </div>
+  
+      </div>
+    </section>
+  
+    <section id="services" class="section6 p-3"></section>
+  
+    <section id="blogs" class="section7 p-3" data-aos="fade-up">
+      <div class="container">
+        <div class="title text-center">
+          <h2 class="fw-bold text-white mb-2">{{"blogs" | translate}}</h2>
+          <p class="text-white-50">{{"blogsTxt" | translate}}</p>
+        </div>
+        <div class="row">
+  
+          <div class="col-lg-4 mt-3" *ngFor="let blog of blogs ; trackBy : trackByBlogId ">
+            <a routerLink="/blogs/{{blog.slug}}" class="text-reset text-decoration-none">
+              <div class="shadow"></div>
+              <div class="carde">
+                <img [src]="'http://mogasoft.runasp.net' + blog.imageUrl" class="img-fluid" alt="">
+                <div class="carde-txt pt-0 p-3">
+                  <h5 class="mt-3">{{currentLang === 'en' ? blog.titleEN : blog.titleAR}}</h5>
+                  <small>{{blog.date}}</small>
+                  <p>{{currentLang === 'en' ? blog.descriptionEN : blog.descriptionAR}}</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="text-center mt-4">
+          <button routerLink="/blogs" class="btn btn-outline-secondary">{{"showMore" | translate}}</button>
+        </div>
+      </div>
+    </section>
+  
+    <section id="reviews" class="section8 pt-5 pb-5" data-aos="fade-up">
+      <div class="container">
+        <div class="title text-center mb-5">
+          <h2 class="fw-bold text-white mb-2">{{"trusted" | translate}} <span class="highlight">{{"highLight" |
+              translate}}</span> {{"Companies" | translate}}</h2>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-6 mt-3" *ngFor="let review of reviews ; trackBy : trackByReviewId ">
+            <div class="shadow"></div>
+            <div class="review-card p-4">
+              <div class="top d-flex justify-content-between align-items-center ">
+                <div class="stars mb-3">
+                  <span [innerHTML]="getStars(review.stars)"></span>
+                </div>
+              </div>
+              <p class="text-white-50">
+                "{{ currentLang === 'en' ? review.reviewTextEN : review.reviewTextAR }}"
+              </p>
+              <div class="reviewer d-flex align-items-center mt-4">
+                <div class="avatar">
+                  <img [src]="'http://mogasoft.runasp.net' + review.imageUrl" alt="Review Image" class="img-fluid">
+                </div>
+                <div class="mx-3">
+                  <h5 class="text-white mb-0">{{ currentLang === 'en' ? review.firstNameEN + ' ' + review.lastNameEN :
+                    review.firstNameAR + ' ' + review.lastNameAR }}</h5>
+                  <small class="text-muted">{{ currentLang === 'en' ? review.positionEN : review.positionAR}}</small>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </section>
+  
+    <app-footer></app-footer>
+  </main>

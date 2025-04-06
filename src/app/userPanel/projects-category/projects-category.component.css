@@ -1,0 +1,102 @@
+header {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom-right-radius: 160px;
+    border-bottom-left-radius: 160px;
+    background: radial-gradient(circle at bottom, #170916, rgba(0, 0, 0, 0.95));
+  
+    h2 {
+      font-size: 80px;
+      color: white;
+      font-weight: 700;
+    }
+  
+    p {
+      font-size: 34px;
+      line-height: 40.8px;
+      letter-spacing: 0%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    header {
+      h2 {
+        font-size: 40px;
+      }
+    }
+  
+  }
+  
+  
+  .portfolio-section {
+    h2 {
+      font-size: 58px;
+      font-weight: 700;
+      line-height: 69.6px;
+      letter-spacing: 0%;
+    }
+  }
+  
+  .card {
+    position: relative;
+    background-color: transparent;
+    border: 1px solid #6B6B6B;
+    border-radius: 30px;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .card-img-top {
+    min-height: 220px;
+    object-fit: cover;
+    overflow: hidden;
+  }
+  
+  .card-title {
+    font-size: 34px;
+    font-weight: 700;
+    margin: 0;
+  }
+  
+  .posCard {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--dark1);
+    bottom: -4px;
+    right: -4px;
+    width: 90px;
+    height: 90px;
+    border-top-left-radius: 20px;
+    z-index: 10;
+  }
+  
+  .arrow-btn {
+    background-color: var(--primaryDarker);
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .arrow-btn i {
+    color: white;
+    font-size: 35px;
+  }
+  
+  .arrow-btn:hover {
+    transform: scale(1.1);
+  }

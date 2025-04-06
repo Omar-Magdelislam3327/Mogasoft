@@ -1,0 +1,139 @@
+#hero {
+    h2 {
+      font-family: Inter;
+      font-weight: 700;
+      font-size: 70px;
+      line-height: 100.8px;
+      letter-spacing: 0%;
+      color: white;
+    }
+  
+    p {
+      font-size: 20px;
+    }
+  
+    .desc {
+      font-family: Inter;
+      font-weight: 500;
+      font-size: 30px;
+      line-height: 30px;
+      letter-spacing: 0%;
+    }
+  }
+  
+  #steps {
+  
+    .step-card {
+      background-color: var(--dark2);
+      position: relative;
+      display: flex;
+      align-items: center;
+      border-radius: 40px;
+      overflow: hidden;
+      transition: 0.3s ease-in-out;
+    }
+  
+    .step-card.active {
+      background: #260323;
+    }
+  
+    .step-number {
+      background: #191919;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 300px;
+      padding: 20px 30px;
+      font-size: 70px;
+      font-weight: bold;
+      transition: 0.3s ease-in-out;
+    }
+  
+    .step-number.active {
+      background: var(--secondaryColor);
+    }
+  
+  
+    .step-content {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+      height: 100%;
+      border-radius: 40px;
+    }
+  
+    .step-text {
+      color: white;
+    }
+  
+    .step-title {
+      font-size: 48px !important;
+      font-weight: bold !important;
+    }
+  
+  
+  
+    .step-description {
+      font-size: 20px;
+      opacity: 0.8;
+    }
+  
+  }
+  
+  
+  @media (max-width: 768px) {
+    #hero {
+      h2 {
+        font-size: 45px !important;
+      }
+    }
+  
+    #steps {
+  
+      .step-content {
+        flex-wrap: wrap;
+      }
+  
+      .step-number {
+        height: 500px;
+        font-size: 50px;
+      }
+  
+      .step-image {
+        width: 280px;
+      }
+  
+      .step-title {
+        font-size: 35px !important;
+      }
+  
+      .step-description {
+        font-size: 16px;
+      }
+    }
+  }
+  
+  .btn-primary {
+    border-radius: 24px !important;
+  }
+
+
+  .skeleton-loader {
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(90deg, #36065C, #160550, #36065C);
+    background-size: 200% 100%;
+    animation: shimmer 1.2s infinite;
+    border-radius: 8px;
+  }
+  
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }

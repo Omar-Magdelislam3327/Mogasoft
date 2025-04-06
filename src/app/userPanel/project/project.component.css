@@ -1,0 +1,148 @@
+#project {
+    h2 {
+      font-weight: 700;
+      font-size: 74px;
+      line-height: 100.8px;
+      letter-spacing: 0%;
+      color: white;
+    }
+  
+    small {
+      color: #7A7A7A;
+    }
+  
+    .desc {
+      font-size: 20px;
+      line-height: 1.5;
+    }
+  }
+  
+  .carousel-container {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  .carousel-image {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+  }
+  
+  ::ng-deep .owl-theme .owl-nav {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 20px !important;
+  }
+  
+  ::ng-deep .owl-prev,
+  ::ng-deep .owl-next {
+    background: transparent !important;
+    color: white !important;
+    border: 1px solid white !important;
+    border-radius: 24px !important;
+    width: 80px !important;
+    height: 80px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 35px !important;
+    cursor: pointer !important;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1) !important;
+    transition: 0.3s !important;
+  }
+  
+  ::ng-deep .owl-prev:hover,
+  ::ng-deep .owl-next:hover {
+    background: #0B50C4 !important;
+    color: white !important;
+    border: 1px solid transparent !important;
+  }
+  
+  
+  #steps {
+  
+    .step-card {
+      background-color: var(--dark2);
+      position: relative;
+      display: flex;
+      align-items: center;
+      border-radius: 40px;
+      overflow: hidden;
+      transition: 0.3s ease-in-out;
+    }
+  
+    .step-card.active {
+      background: #260323;
+    }
+  
+    .step-number {
+      background: var(--primaryColor);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 300px;
+      padding: 20px 30px;
+      font-size: 70px;
+      font-weight: bold;
+      transition: 0.3s ease-in-out;
+    }
+  
+    .step-content {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+      height: 100%;
+      border-radius: 40px;
+    }
+  
+    .step-text {
+      color: white;
+    }
+  
+    .step-title {
+      font-size: 42px;
+      font-weight: bold;
+    }
+  
+    .step-description {
+      font-size: 20px;
+      opacity: 0.8;
+    }
+  
+  }
+  
+  @media (max-width: 768px) {
+    #hero {
+      h2 {
+        font-size: 45px !important;
+      }
+    }
+  
+    #steps {
+  
+      .step-content {
+        flex-wrap: wrap;
+      }
+  
+      .step-number {
+        height: 500px;
+        font-size: 50px;
+      }
+  
+      .step-image {
+        width: 280px;
+      }
+  
+      .step-title {
+        font-size: 35px !important;
+      }
+  
+      .step-description {
+        font-size: 16px;
+      }
+    }
+  }

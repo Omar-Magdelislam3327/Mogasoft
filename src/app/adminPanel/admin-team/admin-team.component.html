@@ -1,0 +1,87 @@
+<div class="container p-5">
+    <div class="title">
+      <h2 class="fw-bold text-success">Add New Member</h2>
+    </div>
+    <div class="row">
+      <form class="form" [formGroup]="teamForm">
+  
+        <div class="row info">
+  
+  
+          <div class="form-group mt-3 col-lg-6">
+            <label for="fnameen">Member's First Name (English)</label>
+            <input type="text" placeholder="Enter First Name in English" class="form-control shadow-none" name="fnameen"
+              id="fnameen" formControlName="FirstNameEN" required>
+          </div>
+  
+          <div class="form-group mt-3 col-lg-6">
+            <label for="fnamear">Member's First Name (Arabic)</label>
+            <input type="text" placeholder="Enter First Name in Arabic" class="form-control shadow-none" name="fnamear"
+              id="fnamear" formControlName="FirstNameAR" required>
+          </div>
+        </div>
+  
+        <div class="row info">
+  
+  
+          <div class="form-group mt-3 col-lg-6">
+            <label for="lnameen">Member's Last Name (English)</label>
+            <input type="text" placeholder="Enter Last Name in English" class="form-control shadow-none" name="lnameen"
+              id="lnameen" formControlName="LastNameEN" required>
+          </div>
+  
+          <div class="form-group mt-3 col-lg-6">
+            <label for="lnamear">Member's Last Name (Arabic)</label>
+            <input type="text" placeholder="Enter Last Name in Arabic" class="form-control shadow-none" name="lnamear"
+              id="lnamear" formControlName="LastNameAR" required>
+          </div>
+        </div>
+  
+  
+        <div class="row info">
+  
+  
+          <div class="form-group mt-3 col-lg-6">
+            <label for="postionen">Member's Postion (English)</label>
+            <input type="text" placeholder="Enter Postion in English" class="form-control shadow-none" name="postionen"
+              id="postionen" formControlName="PositionEN" required>
+          </div>
+  
+          <div class="form-group mt-3 col-lg-6">
+            <label for="postionar">Member's Postion (Arabic)</label>
+            <input type="text" placeholder="Enter Postion in Arabic" class="form-control shadow-none" name="postionar"
+              id="postionar" formControlName="PositionAR" required>
+          </div>
+        </div>
+  
+  
+        <div class="form-group mt-3">
+          <label for="image">Member Image</label>
+          <input type="file" (change)="onFileSelected($event)" class="form-control shadow-none" id="image"
+            formControlName="Image" required>
+        </div>
+  
+        <div class="text-center mt-3">
+          <button type="submit" [disabled]="teamForm.invalid" class="btn-mogasoft-success shadow-none" (click)="add()">Add
+            Member</button>
+          <button type="reset" class="btn-mogasoft-danger ms-3 shadow-none">Reset</button>
+        </div>
+  
+      </form>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="title">
+        <h2 class="fw-bold text-success">List Members</h2>
+      </div>
+      <div class="col-lg-3 col-12 mt-3" *ngFor="let member of team">
+        <div class="card p-2">
+          <i class="fa-solid fa-trash" (click)="deleteMember(member.id)"></i>
+          <img [src]="'http://mogasoft.runasp.net' + member.imageUrl" class="w-100" height="200" alt="">
+          <h5 class="text-white mt-2">{{member.firstNameEN + ' ' + member.lastNameEN}}</h5>
+          <p class="text-white-50">{{member.positionEN}}</p>
+          <i class="fa-solid fa-pen-to-square" routerLink="/admin/team/team-edit/{{member.id}}"></i>
+        </div>
+      </div>
+    </div>
+  </div>

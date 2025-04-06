@@ -1,0 +1,67 @@
+<div class="container p-5">
+    <div class="title">
+      <h2 class="fw-bold text-success">Update Plan</h2>
+    </div>
+    <form [formGroup]="planForm" (ngSubmit)="submitPlan()">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="mt-3">
+            <label>Name (English)</label>
+            <input type="text" class="form-control shadow-none" formControlName="NameEN"
+              placeholder="Enter name in English" />
+          </div>
+        </div>
+  
+        <div class="col-lg-6">
+          <div class="mt-3">
+            <label>Name (Arabic)</label>
+            <input type="text" class="form-control shadow-none" formControlName="NameAR"
+              placeholder="Enter name in Arabic" />
+          </div>
+        </div>
+      </div>
+  
+      <div class="mt-3">
+        <label>URL</label>
+        <input type="text" class="form-control shadow-none" formControlName="Url" placeholder="Enter URL" />
+      </div>
+  
+      <div class="mt-3">
+        <label>Price</label>
+        <input type="number" class="form-control shadow-none" formControlName="Price" placeholder="Enter price" />
+      </div>
+  
+      <div class="mt-3">
+        <label class="mx-2">Is Best Plan?</label>
+        <input type="checkbox" class="form-check-input" formControlName="IsBest" />
+      </div>
+  
+      <div class="mt-3">
+        <label>Hosting Properties</label>
+        <div formArrayName="HostingProperties">
+          <div *ngFor="let property of hostingProperties?.controls; let i = index" [formGroupName]="i" class="mb-2">
+            <div class="row align-items-center">
+              <div class="col-lg-5">
+                <input type="text" class="form-control shadow-none" formControlName="titleEN"
+                  placeholder="Enter Title in English" />
+              </div>
+              <div class="col-lg-5">
+                <input type="text" class="form-control shadow-none" formControlName="titleAR"
+                  placeholder="Enter Title in Arabic" />
+              </div>
+              <div class="col-lg-2">
+                <button *ngIf="i > 0" type="button" class="btn btn-danger btn-sm" (click)="removeProperty(i)">Remove
+                  Step</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary mt-2 shadow-none" (click)="addProperty()">+ Add Property</button>
+      </div>
+  
+      <div class="col-lg-12 text-center mt-3">
+        <button type="submit" class="btn-mogasoft-success shadow-none" [disabled]="planForm.invalid">Submit</button>
+        <button type="reset" class="btn-mogasoft-danger ms-3 shadow-none">Reset</button>
+      </div>
+    </form>
+  </div>

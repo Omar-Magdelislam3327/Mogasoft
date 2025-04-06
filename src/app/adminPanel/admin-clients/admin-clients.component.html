@@ -1,0 +1,60 @@
+<div class="container p-5">
+    <div class="title">
+      <h2 class="fw-bold text-success">Add New Client</h2>
+    </div>
+    <div class="row">
+      <form [formGroup]="clientForm" (ngSubmit)="add()" class="form">
+  
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-group mt-3">
+              <label for="namear">Client Name (in Arabic)</label>
+              <input type="text" class="form-control shadow-none" placeholder="Enter client name" id="namear"
+                formControlName="nameAR" required>
+            </div>
+  
+          </div>
+          <div class="col-lg-6">
+            <div class="form-group mt-3">
+              <label for="nameen">Client Title (In English)</label>
+              <input type="text" class="form-control shadow-none" placeholder="Enter client name" id="nameen"
+                formControlName="nameEN" required>
+            </div>
+  
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="form-group mt-3 col-lg-6 col-12">
+            <label for="image">Client Logo</label>
+            <input type="file" (change)="onFileSelected($event)" class="form-control shadow-none" id="image"
+              formControlName="Logo" required>
+          </div>
+        </div>
+  
+        <div class="text-center mt-3">
+          <button type="submit" class="btn-mogasoft-success shadow-none" [disabled]="clientForm.invalid">Add
+            Client</button>
+          <button type="button" class="btn-mogasoft-danger ms-3 shadow-none" (click)="clientForm.reset()">Reset</button>
+        </div>
+  
+      </form>
+    </div>
+  
+    <hr>
+  
+    <div class="row">
+      <div class="title">
+        <h2 class="fw-bold text-success">List Clients</h2>
+      </div>
+      <div class="col-lg-4 mt-4" *ngFor="let client of clients">
+        <div class="card">
+          <div class="card-body">
+            <i class="fa-solid fa-pen-to-square" routerLink="/admin/clients/edit-client/{{client.id}}"></i>
+            <img [src]=" 'http://mogasoft.runasp.net' + client.logoUrl" alt="Client Logo" class="img-fluid">
+            <i class="fa-solid fa-trash" (click)="remove(client.id)"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,55 @@
+<main id="blog" [dir]="'direction' | translate">
+    <app-navbar></app-navbar>
+    <section class="section1 pt-5" id="blog" data-aos="fade-in" data-aos-duration="1000">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="article">
+              <div class="imag">
+                <img [src]="'https://mogasoft.runasp.net' + blog?.imageUrl" class="img-fluid" alt="">
+                <div class="txt">
+                  <p> <i class="fa-solid fa-circle"></i>
+                    {{blog?.category}}
+                  </p>
+                  <h4>{{currentLang === 'en' ? blog?.titleEN : blog?.titleAR}}</h4>
+                  <small>{{blog?.date}}</small>
+                </div>
+              </div>
+              <article>
+                <div [innerHTML]="currentLang === 'en' ? blog?.contentEN : blog?.contentAR"></div>
+              </article>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="profile-card">
+              <!-- <img src="assets/vendors/imgs/team/magdelislam.jpg" alt="Profile Picture" class="profile-img"> -->
+              <!-- <div class="linkedin-icon">
+                <img src="assets/vendors/imgs/linkedin-icon.png" alt="LinkedIn">
+              </div> -->
+              <h3 class="name">{{"Blog.ENG" | translate}}</h3>
+              <p class="title">{{"Blog.Role" | translate}}</p>
+              <hr>
+              <p class="description">
+                {{"Blog.Bio" | translate}}
+              </p>
+            </div>
+            <div class="share-card mt-3">
+              <p class="share-title">{{"Blog.Share" | translate}}</p>
+              <div class="social-icons">
+                <a [href]="facebookShareUrl" target="_blank" class="icon facebook text-decoration-none">
+                  <i class="fab fa-facebook-f fs-3"></i>
+                </a>
+                <a [href]="linkedinShareUrl" target="_blank" class="icon linkedin text-decoration-none">
+                  <i class="fab fa-linkedin-in fs-3"></i>
+                </a>
+                <a [href]="whatsappShareUrl" target="_blank" class="icon whatsapp text-decoration-none">
+                  <i class="fab fa-whatsapp fs-3"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <app-footer></app-footer>
+  </main>

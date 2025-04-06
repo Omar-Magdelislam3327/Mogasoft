@@ -1,0 +1,25 @@
+<div class="container p-5">
+    <div class="row">
+      <div class="col-lg-4 mt-3" *ngFor="let message of qutations">
+        <div class="message-card p-4">
+          <div class="message-header d-flex justify-content-between align-items-center">
+            <div class="txt">
+              <h5>{{message.firstName + ' ' + message.lastName}}</h5>
+              <p class="text-white-50 m-0">{{message.date}}</p>
+            </div>
+            <button (click)="removeQuotes(message.id)" class="btn btn-success"><i class="fa-solid fa-check"></i></button>
+          </div>
+  
+          <div class="message-body mt-4">
+            <p><strong>Email:</strong> {{message.businessEmail}}</p>
+            <p><strong>Phone:</strong> {{message.phone}}</p>
+            <p><strong>Find Way:</strong> {{message.findWay}}</p>
+            <p><strong>Service:</strong> {{message.service}}</p>
+            <p><strong>Description:</strong> {{message.notes}}</p>
+  
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </div>

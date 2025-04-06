@@ -1,0 +1,102 @@
+#hero {
+    h2 {
+      font-weight: 700;
+      font-size: 74px;
+      line-height: 100.8px;
+      letter-spacing: 0%;
+    }
+  
+    p {
+      font-family: Inter;
+      font-weight: 700;
+      font-size: 20px;
+    }
+  }
+  
+  #world {
+    h2 {
+      font-size: 40px
+    }
+  }
+  
+  #plans {
+    h2 {
+      font-size: 40px;
+      font-weight: 700;
+    }
+  
+    .text-pink {
+      font-size: 48px;
+      font-weight: 700;
+      color: #ff00ff;
+    }
+  
+    .card {
+      position: relative;
+      background-color: var(--dark2) !important;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      transition: 0.3s;
+      cursor: pointer;
+  
+      h3 {
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 48px;
+        letter-spacing: 0%;
+        text-align: start;
+      }
+  
+      li {
+        margin-bottom: 10px;
+        font-size: 22px;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: 0%;
+        color: white;
+      }
+      
+      h5{
+        text-align: start;
+        span{
+          text-decoration: line-through;
+        }
+      }
+      .fa-square-check {
+        color: var(--secondaryColor);
+      }
+    }
+  
+    .offer {
+      position: absolute;
+      width: 200px;
+      top: 1.2rem;
+      right: -4rem;
+      background-color: var(--secondaryColor) !important;
+      padding: 5px;
+      transform: rotate(45deg);
+      color: white;
+      font-size: 18px;
+      font-weight: 700;
+      z-index: 10;
+      transition: 0.3s ease;
+    }
+  
+    .card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 20px var(--dark2);
+  
+    }
+  
+    .btn-primary {
+      border-radius: 32px;
+      padding-top: 18px;
+      padding-right: 30px;
+      padding-bottom: 18px;
+      padding-left: 30px;
+      font-size: 22px;
+    }
+  
+  
+  }

@@ -1,0 +1,118 @@
+<main id="contact" [dir]="'direction' | translate">
+  <app-navbar></app-navbar>
+  <div class="container contact-section pt-5 pb-3" data-aos="fade-in" data-aos-duration="1000">
+    <div class="row align-items-center">
+
+      <div class="col-lg-6 contact-form">
+        <h2>{{"Contact.TITLE" | translate}} <span class="highlight">{{"Contact.Touch" | translate}}</span></h2>
+        <p class="txt">{{"Contact.q1" | translate}}<br>
+          {{"Contact.q2" | translate}}<br>
+          {{"Contact.q3" | translate}}<br><br>
+          {{"Contact.Desc" | translate}}
+        </p>
+
+        <form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <div class="row">
+              <div class="form-group mb-3 col-lg-6">
+                <input type="text" class="form-control shadow-none mb-0" [placeholder]="'Contact.NAME' | translate"
+                  formControlName="fullName">
+                <small class="m-0 mx-2 text-danger"
+                  *ngIf="messageForm.controls['fullName'].invalid && messageForm.controls['fullName'].touched">
+                  Please enter valid Full Name
+                </small>
+              </div>
+              <div class="form-group mb-3 col-lg-6">
+                <input type="email" class="form-control shadow-none mb-0" [placeholder]="'Contact.EMAIL' | translate"
+                  formControlName="email">
+                <small class="m-0 mx-2 text-danger"
+                  *ngIf="messageForm.controls['email'].invalid && messageForm.controls['email'].touched">
+                  Please enter valid Email
+                </small>
+              </div>
+            </div>
+          </div>
+          <div class="form-group mb-3">
+            <input type="text" class="form-control shadow-none mb-0" [placeholder]="'Contact.Phone' | translate"
+              formControlName="phone" maxlength="11">
+            <small class="m-0 mx-2 text-danger"
+              *ngIf="messageForm.controls['phone'].invalid && messageForm.controls['phone'].touched">
+              Please enter valid phone number
+            </small>
+          </div>
+          <div class="form-group mb-3">
+            <label>{{"Contact.Find" | translate}}</label>
+            <select class="form-select shadow-none" formControlName="findWay">
+              <option value="" selected disabled>Find Way</option>
+              <option value="Google">Google Search</option>
+              <option value="LinkedIn">LinkedIn</option>
+              <option value="Facebook">Facebook</option>
+              <option value="Other">Other</option>
+            </select>
+            <small class="m-0 mx-2 text-danger"
+              *ngIf="messageForm.controls['findWay'].invalid && messageForm.controls['findWay'].touched">
+              Please select find way
+            </small>
+          </div>
+          <div class="form-group mb-3">
+            <textarea formControlName="message" class="form-control shadow-none mb-0" name="" id="" rows="5"
+              placeholder="Enter Message here"></textarea>
+            <small class="m-0 mx-2 text-danger"
+              *ngIf="messageForm.controls['message'].invalid && messageForm.controls['message'].touched">
+              Please provide some details.
+            </small>
+          </div>
+          <button type="submit" [disabled]="messageForm.invalid" class="btn-submit">{{"Contact.SUBMIT" |
+            translate}}</button>
+        </form>
+
+      </div>
+
+      <div class="col-lg-6 map-container mt-lg-0 mt-3">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3450.564385098345!2d31.3807382!3d30.1352762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583fed4cf3b3e7%3A0xfbd4243c1dd0fef!2z2LTYsdmD2Kkg2YXZiNis2KfYs9mI2YHYqiDZhNmE2K3ZhNmI2YQg2KfZhNmF2KrZg9in2YXZhNip!5e0!3m2!1sen!2seg!4v1739278159095!5m2!1sen!2seg"
+          allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+      <div class="col-lg-6 data mt-lg-4">
+        <div class="row mb-3">
+          <div class="col-md-6 d-flex align-items-center">
+            <i class="fas fs-4 mx-2 fa-envelope text-purple mr-2"></i>
+            <span class="fw-bold fs-6">info&#64;mogasoft.net</span>
+          </div>
+          <div class="col-md-6 d-flex align-items-center">
+            <i class="fas fs-4 mx-2 fa-phone-alt text-purple mr-2"></i>
+            <span class="fw-bold fs-6">(+2)01000201499</span>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6 d-flex align-items-center">
+            <i class="fas fs-4 mx-2 fa-envelope text-purple mr-2"></i>
+            <span class="fw-bold fs-6">sales&#64;mogasoft.net</span>
+          </div>
+          <div class="col-md-6 d-flex align-items-center">
+            <i class="fas fs-4 mx-2 fa-phone-alt text-purple mr-2"></i>
+            <span class="fw-bold fs-6">(+2)01551114499</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 d-flex align-items-center">
+            <i class="fas fs-4 mx-2 fa-envelope text-purple mr-2"></i>
+            <span class="fw-bold fs-6">support&#64;mogasoft.net</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 location mt-lg-4">
+        <div class=" d-flex align-items-center">
+          <i class="fas fs-4 mx-2 fa-location-dot text-purple mr-2"></i>
+          <span class="fw-bold fs-6">{{"location" | translate}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</main>

@@ -1,0 +1,80 @@
+.aside-bar {
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    text-align: center;
+    background: var(--dark2);
+  
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+  
+  }
+  
+  .activ {
+    background-color: white;
+  
+    a {
+      padding-left: 10px !important;
+      color: var(--secondaryColor);
+      font-weight: bold;
+  
+    }
+  
+    i {
+      color: var(--secondaryColor);
+  
+      padding-left: 10px !important;
+    }
+  }
+  
+  li {
+    list-style: none;
+    margin-left: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+  
+    a {
+      text-decoration: none;
+      color: white;
+    }
+  
+    i {
+      color: white;
+      padding: 10px;
+      border-radius: 100%;
+    }
+  }
+  
+  .content {
+    /* margin-right: 260px; */
+    padding: 0;
+  }
+  
+  @media (max-width: 992px) {
+    .content {
+      margin-left: 10px !important;
+    }
+  
+    .activ {
+      background-color: transparent !important;
+  
+      a {
+        color: white;
+      }
+    }
+  }
+  
+  .mob {
+    width: 100% !important;
+    background: var(--dark2);
+    overflow: hidden !important;
+  
+    li {
+      padding: 5px;
+  
+    }
+  }

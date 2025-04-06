@@ -1,0 +1,133 @@
+header {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom-right-radius: 160px;
+    border-bottom-left-radius: 160px;
+    background: radial-gradient(circle at bottom, #170916, rgba(0, 0, 0, 0.95));
+  
+    h2 {
+      font-size: 80px;
+      color: white;
+      font-weight: 700;
+    }
+  
+    p {
+      font-size: 34px;
+      line-height: 40.8px;
+      letter-spacing: 0%;
+    }
+  }
+  
+  #blogs {
+    h2 {
+      font-size: 40px;
+    }
+  
+    .col-lg-4 {
+      position: relative;
+    }
+  
+    .carde {
+      background-color: var(--dark2);
+      border-radius: 40px;
+      overflow: hidden;
+      height: 380px;
+  
+      h5 {
+        color: white;
+        font-weight: 600;
+      }
+  
+      img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+      }
+    }
+  
+    @media (max-width:992px) {
+      .carde {
+        height: auto;
+  
+        img {
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  
+    .shadow {
+      position: absolute;
+      top: -169px;
+      left: -200px;
+      width: 404.031px;
+      height: 404.031px;
+      border-radius: 100%;
+      opacity: 0.65;
+      background: #1E091C;
+      filter: blur(100px);
+      z-index: -1;
+    }
+  
+    .shadow1 {
+      position: absolute;
+      bottom: -169px;
+      right: -150px;
+      width: 404.031px;
+      height: 404.031px;
+      border-radius: 100%;
+      opacity: 0.65;
+      background: #1E091C;
+      filter: blur(100px);
+      z-index: -1;
+  
+    }
+  }
+  
+  .my-pagination {
+    background-color: transparent !important;
+  }
+  
+  .my-pagination ::ng-deep .ngx-pagination .current {
+    background: none;
+    border-radius: 6px;
+    color: var(--secondaryColor);
+    font-size: 26px;
+    font-weight: bold;
+  
+    text-align: center !important;
+    padding: 4px 10px;
+  }
+  
+  .my-pagination ::ng-deep ul {
+    margin: 0 !important;
+  }
+  
+  .my-pagination ::ng-deep .ngx-pagination a {
+    background: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 26px;
+    font-weight: bold;
+    padding: 4px 10px;
+    margin-inline: 3px !important;
+    text-align: center !important;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  
+  .my-pagination ::ng-deep .ngx-pagination a:hover {
+    background: transparent;
+    border-radius: 6px;
+    color: var(--secondaryColor);
+  }
+  
+  .my-pagination ::ng-deep .ngx-pagination .disabled {
+    color: gray;
+    margin-inline: 3px;
+    text-decoration: none;
+    text-align: center !important;
+  }

@@ -1,0 +1,40 @@
+<div class="contaner p-5">
+    <div class="row justify-content-between align-items-center">
+      <div class="col-lg-5 col-12">
+        <div class="imag">
+          <img src="assets/vendors/imgs/logo.png" class="img-fluid" alt="">
+        </div>
+      </div>
+      <div class="col-lg-2 linee">
+        <div class="line"></div>
+      </div>
+      <div class="col-lg-5 col-12 mt-lg-0 mt-5">
+        <div class="login-container text-center">
+          <h2>Welcome</h2>
+          <p>Please login to admin dashboard</p>
+  
+          <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="my-5">
+            <div class="form-group">
+              <input type="email" class="form-control shadow-none" placeholder="Email" formControlName="email" />
+              <small class="text-danger" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+                Email is required
+              </small>
+            </div>
+  
+            <div class="form-group">
+              <input type="password" class="form-control shadow-none" placeholder="Password" formControlName="password" />
+              <small class="text-danger" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+                Password is required
+              </small>
+            </div>
+  
+            <div class="text-center mt-5">
+              <button type="submit" class="col-lg-10 btn-mogasoft-success shadow-none" [disabled]="loginForm.invalid">
+                Login
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

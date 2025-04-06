@@ -1,0 +1,116 @@
+nav {
+    background-color: #040404 !important;
+    position: sticky !important;
+    width: 100%;
+    top: 0;
+    z-index: 7878;
+  
+    .dropdown-menu {
+      background-color: #040404;
+    }
+  
+    .nav-item {
+      margin: 8px;
+    }
+  
+    .navbar-toggler {
+      box-shadow: #f8f9fa !important;
+    }
+  
+    .fa-bars-staggered {
+      color: var(--secondaryColor);
+    }
+  
+    a {
+      color: white !important;
+      font-size: 19px;
+      font-weight: 700;
+    }
+  
+    .activ {
+      color: var(--secondaryColor) !important;
+    }
+  
+    .langs {
+      .lang {
+        background-color: transparent;
+        color: white;
+        font-weight: 600;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100%;
+        cursor: pointer;
+      }
+  
+      .active-lang {
+        background-color: blue;
+        color: white;
+      }
+    }
+  
+  }
+  
+  .dropdown-menu-dark {
+    background-color: var(--dark2) !important;
+    border: none;
+    overflow: visible;
+    cursor: pointer;
+  }
+  
+  .dropdown-menu-dark .dropdown-item {
+    color: #f8f9fa;
+    position: relative;
+  }
+  
+  .dropdown-menu-dark .dropdown-item:hover {
+    background-color: #495057;
+    color: #ffffff;
+  }
+  
+  .dropdown-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #495057;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .dropdown-item:hover::before {
+    opacity: 1;
+  }
+  
+  .dropdown-submenu {
+    position: relative;
+  }
+  
+  .sub-menu {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    min-width: 200px;
+  }
+  
+  @media (min-width: 992px) {
+    .dropdown-submenu:hover .sub-menu {
+      display: block;
+    }
+  }
+  
+  @media (max-width: 991px) {
+    .sub-menu {
+      position: relative;
+      left: 0;
+      top: 0;
+      display: none;
+      margin-left: 10px;
+    }
+  }

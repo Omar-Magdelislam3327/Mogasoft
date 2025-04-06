@@ -1,0 +1,17 @@
+.editor ::ng-deep .ql-editor {
+    background-color: var(--dark2);
+    color: white;
+    min-height: 400px;
+    overflow-y: scroll;
+    border: none !important;
+  }
+  
+  .editor ::ng-deep .ql-toolbar {
+    background-color: var(--dark2);
+    border: none !important;
+  }
+  
+  .editor ::ng-deep .ql-editor::before {
+    color: var(--placeholder-color) !important;
+    opacity: 1;
+  }
