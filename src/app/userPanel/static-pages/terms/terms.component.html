@@ -1,0 +1,10 @@
+<main id="terms" [dir]="'direction' | translate">
+    <app-navbar></app-navbar>
+    <section class="container py-5" >
+        <div *ngFor="let key of sectionKeys" class="mb-5">
+          <h4 class="text-white mb-2">{{ 'TERMS.' + key + '.TITLE' | translate }}</h4>
+          <p>{{ 'TERMS.' + key + '.CONTENT' | translate }}</p>
+        </div>
+      </section>    
+    <app-footer></app-footer>
+</main> 

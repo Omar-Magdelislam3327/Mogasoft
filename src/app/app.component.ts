@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { LoaderComponent } from './shared/loader/loader.component';
 import { Meta } from '@angular/platform-browser';
-
+import AOS from 'aos';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -14,6 +14,17 @@ export class AppComponent {
   title = 'Mogasoft';
   constructor(private meta : Meta) {
     this.setMetaTags();
+  }
+  ngOnInit(): void {
+    console.log = () => { }
+    console.error = () => { };
+    console.info = () => { };
+
+    AOS.init({
+      once: true,
+      offset: 120,
+      easing: 'ease-in-out',
+    });
   }
   private setMetaTags(): void {
     this.meta.addTags([

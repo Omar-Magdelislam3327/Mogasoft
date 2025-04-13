@@ -30,6 +30,7 @@ import { AdminTeamEditComponent } from './adminPanel/admin-team-edit/admin-team-
 import { AdminTeamComponent } from './adminPanel/admin-team/admin-team.component';
 import { NotFoundComponent } from './userPanel/not-found/not-found.component';
 import { PrivacyComponent } from './userPanel/static-pages/privacy/privacy.component';
+import { TermsComponent } from './userPanel/static-pages/terms/terms.component';
 import { authGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
@@ -73,6 +74,7 @@ export const routes: Routes = [
   },
   { path: "not-found", component: NotFoundComponent, title: "Not Found" },
   { path: "privacy-policy", component: PrivacyComponent, title: "Privacy Policy" },
+  { path: "terms-conditions" , component:TermsComponent , title: "Terms and Conditions"},
   { path: "**", redirectTo: "/not-found", pathMatch: "full", title: "Not Found!!", }
 ];
 

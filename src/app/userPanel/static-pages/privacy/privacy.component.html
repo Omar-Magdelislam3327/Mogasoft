@@ -1,1 +1,43 @@
-<p>privacy works!</p>
+<main id="privacy" [dir]="'direction' | translate" data-aos="fade-in" data-aos-duration="1000">
+    <app-navbar></app-navbar>
+    <div class="container pt-5">
+      <div class="header">
+        <h2 class="text-white">{{ 'privacy.TITLE' | translate }}</h2>
+        <p>{{ 'privacy.LAST_UPDATED' | translate }}</p>
+      </div>
+  
+      <div class="content">
+        <h2 class="text-white">{{ 'privacy.INTRODUCTION' | translate }}</h2>
+        <p [innerHTML]="'privacy.INTRO_TEXT' | translate"></p>
+  
+        <h2 class="text-white">{{ 'privacy.INFORMATION_COLLECT' | translate }}</h2>
+        <ul>
+          <li>{{ 'privacy.COLLECT_LIST.PERSONAL' | translate }}</li>
+          <li>{{ 'privacy.COLLECT_LIST.BROWSING' | translate }}</li>
+          <li>{{ 'privacy.COLLECT_LIST.CONTACT' | translate }}</li>
+        </ul>
+  
+        <h2 class="text-white">{{ 'privacy.USE_INFORMATION' | translate }}</h2>
+        <ul>
+          <li>{{ 'privacy.USE_LIST.IMPROVE' | translate }}</li>
+          <li>{{ 'privacy.USE_LIST.RESPOND' | translate }}</li>
+          <li>{{ 'privacy.USE_LIST.LEGAL' | translate }}</li>
+        </ul>
+  
+        <h2 class="text-white">{{ 'privacy.DATA_SECURITY' | translate }}</h2>
+        <p>{{ 'privacy.SECURITY_TEXT' | translate }}</p>
+  
+        <h2 class="text-white">{{ 'privacy.DATA_USAGE' | translate }}</h2>
+        <p>{{ 'privacy.USAGE_TEXT' | translate }}</p>
+  
+        <h2 class="text-white">{{ 'privacy.DATA_SHARING' | translate }}</h2>
+        <p>{{ 'privacy.SHARING_TEXT' | translate }}</p>
+  
+        <h2 class="text-white">{{ 'privacy.CONTACT_US' | translate }}</h2>
+        <p>{{ 'privacy.CONTACT_TEXT' | translate }}</p>
+        <p>{{ 'privacy.EMAIL' | translate }}: <a href="mailto:info@mogasoft.com">info&#64;mogasoft.com</a></p>
+      </div>
+    </div>
+    <app-footer></app-footer>
+  </main>
+  

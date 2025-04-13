@@ -156,5 +156,56 @@
     "CONTACT_US": "Contact Us",
     "CONTACT_TEXT": "If you have any questions about this policy, please contact us at:",
     "EMAIL": "Email"
-  }
+    
+  },
+  "TERMS": {
+    "ACCOUNT_ELIGIBILITY": {
+      "TITLE": "Account Eligibility",
+      "CONTENT": "To open an account, you must be at least 18 years old and provide accurate information."
+    },
+    "ACCOUNT_SECURITY": {
+        "TITLE": "Account Security",
+        "CONTENT": "You are responsible for maintaining the confidentiality of your account login details."
+      },
+      "TRANSFER_TO_COMPANY": {
+        "TITLE": "Transfer to the Company",
+        "CONTENT": "By using our services, you grant us permission to manage your technical requirements."
+      },
+      "DOMAINS": {
+        "TITLE": "Domains",
+        "CONTENT": "Domain registrations are subject to availability and are managed through third-party registrars."
+      },
+      "RESELLER_HOSTING": {
+        "TITLE": "Reseller Hosting",
+        "CONTENT": "Reseller accounts must follow our terms of fair usage and resource allocation."
+      },
+      "VPS": {
+        "TITLE": "Virtual Private Servers",
+        "CONTENT": "VPS resources are dedicated but shared hardware may affect performance."
+      },
+      "SHARED_CLOUD_HOSTING": {
+        "TITLE": "Shared and Cloud Hosting",
+        "CONTENT": "Shared hosting comes with limits. Please upgrade if your site grows beyond plan resources."
+      },
+      "DEDICATED_SERVERS": {
+        "TITLE": "Dedicated Servers",
+        "CONTENT": "You get full control over the server. Management services are optional."
+      },
+      "BACKUPS": {
+        "TITLE": "Backups",
+        "CONTENT": "It is your responsibility to keep backups. We may provide automated backup options."
+      },
+      "BILLING_REFUNDS": {
+        "TITLE": "Billing and Refunds",
+        "CONTENT": "Billing occurs monthly or annually. Refunds are subject to our refund policy."
+      },
+      "PROHIBITED_CONTENT": {
+        "TITLE": "Prohibited Content and Activities",
+        "CONTENT": "You may not use our services for illegal, harmful, or abusive content."
+      },
+      "TERMINATION": {
+        "TITLE": "Termination and Account Closure",
+        "CONTENT": "We reserve the right to suspend or terminate accounts that violate our terms."
+      }
+    }
 }
