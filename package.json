@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "build:ssr": "ng build --configuration production && ng run Mogasoft:server",
-    "serve:ssr": "node dist/Mogasoft/server/main.js",
+    "serve:ssr": "node dist/Mogasoft/server/main.mjs",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:Mogasoft": "node dist/mogasoft/server/server.mjs"
@@ -32,7 +32,7 @@
     "aos": "^2.3.4",
     "bootstrap": "^5.3.3",
     "chart.js": "^4.4.8",
-    "express": "^4.18.2",
+    "express": "^4.21.2",
     "ngx-owl-carousel-o": "^19.0.0",
     "ngx-pagination": "^6.0.3",
     "primeicons": "^7.0.0",

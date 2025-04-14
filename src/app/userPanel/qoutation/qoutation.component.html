@@ -1,1 +1,131 @@
-<p>qoutation works!</p>
+<main id="quote" [dir]="'direction' | translate">
+    <app-navbar></app-navbar>
+    <div class="container pt-5 pb-4 text-white" data-aos="fade-in" data-aos-duration="1000">
+      <div class="row">
+        <div class="col-md-5">
+          <h2>{{"Quote.GET" | translate}} <span class="text-purple">{{"Quote.Quotation" | translate}}</span></h2>
+          <p class="txtQuote">
+            {{"Quote.q1" | translate}}<br>
+            {{"Quote.q2" | translate}}<br>
+            {{"Quote.Disc" | translate}}
+          </p>
+          <hr>
+          <div class="mt-4">
+            <p class=" fw-bold"><i class="fas fs-4 fa-envelope text-purple me-lg-2"></i> info&#64;mogasoft.net</p>
+            <p class=" fw-bold"><i class="fas fs-4 fa-envelope text-purple me-lg-2"></i> sales&#64;mogasoft.net</p>
+            <p class=" fw-bold"><i class="fas fs-4 fa-envelope text-purple me-lg-2"></i> support&#64;mogasoft.net</p>
+          </div>
+          <hr>
+  
+          <div class="mt-4">
+            <p class=" fw-bold"><i class="fas fs-4 fa-phone-alt text-purple me-lg-2"></i> (+2)01000201499</p>
+            <p class=" fw-bold"><i class="fas fs-4 fa-phone-alt text-purple me-lg-2"></i> (+2)01551114499</p>
+          </div>
+          <hr>
+  
+          <div class="mt-4">
+            <p class=" fw-bold"><i class="fas fs-4 fa-map-marker-alt text-purple me-lg-2"></i> {{"location" | translate}}
+            </p>
+          </div>
+        </div>
+  
+        <div class="col-md-7">
+          <form (ngSubmit)="onSubmit()" [formGroup]="qouteForm">
+            <div class="form-row row">
+              <div class="form-group col-md-6 mb-lg-3">
+                <input type="text" class="form-control shadow-none mb-lg-0" autocomplete="off"
+                  [placeholder]="'Quote.CompanyName' | translate" formControlName="companyName">
+                <small class="text-danger"
+                  *ngIf="qouteForm.controls['companyName'].invalid && qouteForm.controls['companyName'].touched">
+                  Company name is required.
+                </small>
+              </div>
+              <div class="form-group col-md-6 mb-lg-3">
+                <input type="number" class="form-control shadow-none mb-lg-0" autocomplete="off"
+                  [placeholder]="'Quote.NumEmployees' | translate" formControlName="numberOfEmployees">
+                <small class="text-danger"
+                  *ngIf="qouteForm.controls['numberOfEmployees'].invalid && qouteForm.controls['numberOfEmployees'].touched">
+                  Must be a valid number.
+                </small>
+              </div>
+            </div>
+  
+            <div class="form-row row">
+              <div class="form-group col-md-6 mb-lg-3">
+                <input type="text" class="form-control shadow-none mb-lg-0" autocomplete="off"
+                  [placeholder]="'Quote.fName' | translate" formControlName="firstName">
+                <small class="text-danger"
+                  *ngIf="qouteForm.controls['firstName'].invalid && qouteForm.controls['firstName'].touched">
+                  First name is required.
+                </small>
+              </div>
+              <div class="form-group col-md-6 mb-lg-3">
+                <input type="text" class="form-control shadow-none mb-lg-0" autocomplete="off"
+                  [placeholder]="'Quote.lName' | translate" formControlName="lastName">
+                <small class="text-danger"
+                  *ngIf="qouteForm.controls['lastName'].invalid && qouteForm.controls['lastName'].touched">
+                  Last name is required.
+                </small>
+              </div>
+            </div>
+  
+            <div class="form-row row">
+              <div class="form-group col-md-6 mb-lg-3">
+                <input type="email" class="form-control shadow-none mb-lg-0" autocomplete="off"
+                  [placeholder]="'Quote.Email' | translate" formControlName="businessEmail">
+                <small class="text-danger"
+                  *ngIf="qouteForm.controls['businessEmail'].invalid && qouteForm.controls['businessEmail'].touched">
+                  Please enter a valid email.
+                </small>
+              </div>
+              <div class="form-group col-md-6 mb-lg-3">
+                <input type="text" class="form-control shadow-none mb-lg-0" autocomplete="off" maxlength="11"
+                  [placeholder]="'Quote.Phone' | translate" formControlName="phone">
+                <small class="text-danger"
+                  *ngIf="qouteForm.controls['phone'].invalid && qouteForm.controls['phone'].touched">
+                  Please enter valid phone number.
+                </small>
+              </div>
+            </div>
+  
+            <div class="row">
+              <label class="mb-2"><strong>{{"Quote.whatService" | translate}}</strong></label>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <select class="form-select shadow-none" formControlName="selectedCategory" name="category"
+                    (change)="onCategoryChange($event)">
+                    <option value="software">{{"software" | translate}}</option>
+                    <option value="hardware">{{"hardware" | translate}}</option>
+                  </select>
+                </div>
+              </div>
+  
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <select class="form-select shadow-none" formControlName="service" name="service">
+                    <option *ngFor="let service of servicesList" [value]="service">{{ service }}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+  
+            <div class="form-group mb-lg-3">
+              <label for="message"><strong>{{"Quote.Tell" | translate}}</strong></label>
+              <textarea id="message" class="form-control shadow-none mb-lg-0" rows="6" autocomplete="off"
+                [placeholder]="'Quote.how' | translate" formControlName="notes"></textarea>
+              <small class="text-danger"
+                *ngIf="qouteForm.controls['notes'].invalid && qouteForm.controls['notes'].touched">
+                Please provide some details.
+              </small>
+            </div>
+  
+            <button type="submit" [disabled]="qouteForm.invalid" class="btn-submit">{{"Quote.SUBMIT" |
+              translate}}</button>
+          </form>
+  
+        </div>
+      </div>
+    </div>
+  
+    <app-footer></app-footer>
+  </main>
