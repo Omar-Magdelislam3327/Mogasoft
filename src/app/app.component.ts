@@ -1,18 +1,20 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { LoaderComponent } from './shared/loader/loader.component';
 import { Meta } from '@angular/platform-browser';
 import AOS from 'aos';
+import { filter } from 'rxjs';
+import { ScrollToTopComponent } from './shared/scroll-to-top/scroll-to-top.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet , LoaderComponent],
+  imports: [RouterOutlet , LoaderComponent , ScrollToTopComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'Mogasoft';
-  constructor(private meta : Meta) {
+  constructor(private meta : Meta , private router : Router) {
     this.setMetaTags();
   }
   ngOnInit(): void {
@@ -25,6 +27,11 @@ export class AppComponent {
       offset: 120,
       easing: 'ease-in-out',
     });
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe(() => {
+        window.scrollTo(0, 0);
+      });
   }
   private setMetaTags(): void {
     this.meta.addTags([

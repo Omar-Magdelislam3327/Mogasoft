@@ -1,4 +1,4 @@
-import { PreloadAllModules, provideRouter, Routes, withComponentInputBinding, withPreloading } from '@angular/router';
+import { PreloadAllModules, provideRouter, Routes, withComponentInputBinding, withPreloading, withRouterConfig , withInMemoryScrolling } from '@angular/router';
 import { HomeComponent } from './userPanel/home/home.component';
 import { AboutComponent } from './userPanel/about/about.component';
 import { BlogsComponent } from './userPanel/blogs/blogs.component';
@@ -82,6 +82,9 @@ export const appProviders = [
     provideRouter(
       routes,
       withPreloading(PreloadAllModules),
-      withComponentInputBinding()
+      withComponentInputBinding(),
+      withInMemoryScrolling({
+        scrollPositionRestoration: 'top',
+      })
     )
   ];

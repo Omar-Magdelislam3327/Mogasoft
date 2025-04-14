@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
   reviews: Reviews[] = [];
   // 
   tools = Array.from({ length: 19 }, (_, i) => ({
-    image: `assets/vendors/imgs/tools/Tool Icon (${i}).png`
+    image: `assets/vendors/imgs/tools/Tool Icon (${i + 1}).png`
   }));
   // 
   constructor(private translate: TranslateService , private clientAPI : ClientsService , private projectAPI : ProjectsService , private blogApi : BlogsService , private reviewsAPI : ReviewsService , private lang : LangTransService){
